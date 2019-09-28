@@ -1,11 +1,22 @@
 <h2>Registrar usuario</h2>
 
-<form method="POST">
-    {{ form.as_p }}
+<form method="POST" action="#">
     {% csrf_token %}
-    <button type="submit">Registrar</button>
+
+        <input class="form-control" type="text" name="username" required="" placeholder="Nombre de usuario" autocomplete="off">
+
+        <input class="form-control" type="text" name="email" required="" placeholder="Email" autocomplete="off">
+
+        <input class="form-control" id="pass1" name="password" type="password" required="" placeholder="Contraseña">
+
+        {{ form.address }}
+
+        {{ form.phone }}
+
+        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Registrar</button>
+
 </form>
 
-<hr />
+<hr/>
 
 <a href="/login">Iniciar sesión</a>

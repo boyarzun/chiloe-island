@@ -3,6 +3,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
+from authentication.forms import UserProfileForm
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 def welcome(request):
     # Si estamos identificados devolvemos la portada
@@ -41,23 +45,20 @@ def login(request):
         )
 
 def register(request):
-    # Creamos el formulario de autenticación vacío
-    form = UserCreationForm()
-    if request.method == "POST":
-        # Añadimos los datos recibidos al formulario
-        form = UserCreationForm(data=request.POST)
-        # Si el formulario es válido...
-        if form.is_valid():
+    if request.POST:
+        form = UserProfileForm(request.POST)
 
-            # Creamos la nueva cuenta de usuario
-            user = form.save()
-
-            # Si el usuario se crea correctamente 
-            if user is not None:
-                # Hacemos el login manualmente
-                do_login(request, user)
-                # Y le redireccionamos a la portada
-                return redirect('/')
+        if form.is_valid() and not User.objects.filter(username=request.POST['username']).exists():
+            user = User.objects.create_user(username=request.POST['username'],
+                                            email=request.POST['email'],
+                                            password=request.POST['password'])
+            form = form.save(commit=False)
+            form.user = user
+            form.save()
+            #messages.success(request, "Usuario registrado")
+            return HttpResponseRedirect(reverse('log:login'))
+    else:
+        form = UserProfileForm()
 
     # Si llegamos al final renderizamos el formulario
     return render(
