@@ -1,8 +1,14 @@
 {% extends 'authentication/base.html' %}
 {% load staticfiles %}
+
+{% block title %}
+Registrarse
+{% endblock%}
+
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/register.css' %}">
 {% endblock %}
+
 {% block body %}
 <body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 1-column register-bg  blank-page blank-page" data-open="click" data-menu="vertical-modern-menu" data-col="1-column">
     <div class="row">

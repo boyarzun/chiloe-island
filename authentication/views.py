@@ -70,6 +70,13 @@ def register(request):
     data = {'user_form': user_form, 'profile_form': profile_form, 'registered': registered}
     return render(request, template, data)
 
+def reset(request):
+
+    return render(
+        request,
+        "authentication/forgot-password.html",
+        )
+
 def logout(request):
     # Finalizamos la sesión
     do_logout(request)
