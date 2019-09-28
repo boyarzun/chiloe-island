@@ -1,22 +1,73 @@
-<h2>Registrar usuario</h2>
+{% extends 'authentication/base.html' %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/register.css' %}">
+{% endblock %}
+{% block body %}
+<body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 1-column register-bg  blank-page blank-page" data-open="click" data-menu="vertical-modern-menu" data-col="1-column">
+    <div class="row">
+        <div class="col s12">
+            <div class="container">
+                <div id="register-page" class="row">
+                    <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-8">
+                        <form class="login-form" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <h5 class="ml-4">Registro</h5>
+                                    <p class="ml-4">¡Únete a nuestra comunidad ahora!</p>
+                                </div>
+                            </div>
+                            <div class="row margin">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix pt-2">person_outline</i>
+                                    <input id="username" type="text">
+                                    <input class="form-control" type="text" name="username" required="" placeholder="Nombre de usuario" autocomplete="off">
+                                    <label for="username" class="center-align">Username</label>
+                                </div>
+                            </div>
+                            <div class="row margin">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix pt-2">mail_outline</i>
+                                    <input id="email" type="email">
+                                    <input class="form-control" type="text" name="email" required="" placeholder="Email" autocomplete="off">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="row margin">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix pt-2">lock_outline</i>
+                                    <input id="password" type="password">
+                                    <input class="form-control" id="pass1" name="password" type="password" required="" placeholder="Contraseña">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row margin">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix pt-2">lock_outline</i>
+                                    <input id="password-again" type="password">
+                                    <label for="password-again">Password again</label>
+                                </div>
+                            </div>
+                            {{ form.address }}
 
-<form method="POST" action="#">
-    {% csrf_token %}
+                            {{ form.phone }}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <a href="index.html" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">Registrarte</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <p class="margin medium-small"><a href="/login">¿Ya tienes una cuenta? Inicia sesión</a></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
 
-        <input class="form-control" type="text" name="username" required="" placeholder="Nombre de usuario" autocomplete="off">
-
-        <input class="form-control" type="text" name="email" required="" placeholder="Email" autocomplete="off">
-
-        <input class="form-control" id="pass1" name="password" type="password" required="" placeholder="Contraseña">
-
-        {{ form.address }}
-
-        {{ form.phone }}
-
-        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Registrar</button>
-
-</form>
-
-<hr/>
-
-<a href="/login">Iniciar sesión</a>
