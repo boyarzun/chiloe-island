@@ -21,7 +21,7 @@
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix pt-2">person_outline</i>
-                                    <input id="username" type="text">
+                                    {% comment %} <input id="username" type="text"> {% endcomment %}
                                     <input class="form-control" type="text" name="username" required="" placeholder="Nombre de usuario" autocomplete="off">
                                     <label for="username" class="center-align">Username</label>
                                 </div>
@@ -29,7 +29,7 @@
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix pt-2">mail_outline</i>
-                                    <input id="email" type="email">
+                                    {% comment %} <input id="email" type="email"> {% endcomment %}
                                     <input class="form-control" type="text" name="email" required="" placeholder="Email" autocomplete="off">
                                     <label for="email">Email</label>
                                 </div>
@@ -37,24 +37,19 @@
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix pt-2">lock_outline</i>
-                                    <input id="password" type="password">
+                                    {% comment %} <input id="password" type="password"> {% endcomment %}
                                     <input class="form-control" id="pass1" name="password" type="password" required="" placeholder="Contraseña">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
-                            <div class="row margin">
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix pt-2">lock_outline</i>
-                                    <input id="password-again" type="password">
-                                    <label for="password-again">Password again</label>
-                                </div>
-                            </div>
+
                             {{ form.address }}
 
                             {{ form.phone }}
+                            
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <a href="index.html" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">Registrarte</a>
+                                    <button class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12" type="submit">Registrarte</button>   
                                 </div>
                             </div>
                             <div class="row">
