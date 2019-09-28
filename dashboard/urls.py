@@ -19,6 +19,6 @@ from authentication import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('welcome/', views.welcome),
+    path('', views.welcome),
     path('', include('authentication.urls', namespace="login"))
 ]
