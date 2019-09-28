@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
-from authentication.forms import UserProfileForm
+from authentication.forms import UserProfileForm, UserForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -45,27 +45,30 @@ def login(request):
         )
 
 def register(request):
-    if request.POST:
-        form = UserProfileForm(request.POST)
+    template = 'authentication/register.html'
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
 
-        if form.is_valid() and not User.objects.filter(username=request.POST['username']).exists():
-            user = User.objects.create_user(username=request.POST['username'],
-                                            email=request.POST['email'],
-                                            password=request.POST['password'])
-            form = form.save(commit=False)
-            form.user = user
-            form.save()
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save(commit=False)
+            user.set_password(user.password)
+            user.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
+            registered = True
             #messages.success(request, "Usuario registrado")
             return HttpResponseRedirect(reverse('log:login'))
+        else:
+            print(user_form.errors, profile_form.errors)
     else:
-        form = UserProfileForm()
-
-    # Si llegamos al final renderizamos el formulario
-    return render(
-        request,
-        "authentication/register.html",
-        {'form': form}
-        )
+        user_form = UserForm()
+        profile_form = UserProfileForm()
+        
+    data = {'user_form': user_form, 'profile_form': profile_form, 'registered': registered}
+    return render(request, template, data)
 
 def logout(request):
     # Finalizamos la sesión

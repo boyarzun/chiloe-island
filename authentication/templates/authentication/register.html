@@ -18,35 +18,11 @@
                                     <p class="ml-4">¡Únete a nuestra comunidad ahora!</p>
                                 </div>
                             </div>
-                            <div class="row margin">
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix pt-2">person_outline</i>
-                                    {% comment %} <input id="username" type="text"> {% endcomment %}
-                                    <input class="form-control" type="text" name="username" required="" placeholder="Nombre de usuario" autocomplete="off">
-                                    <label for="username" class="center-align">Username</label>
-                                </div>
-                            </div>
-                            <div class="row margin">
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix pt-2">mail_outline</i>
-                                    {% comment %} <input id="email" type="email"> {% endcomment %}
-                                    <input class="form-control" type="text" name="email" required="" placeholder="Email" autocomplete="off">
-                                    <label for="email">Email</label>
-                                </div>
-                            </div>
-                            <div class="row margin">
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix pt-2">lock_outline</i>
-                                    {% comment %} <input id="password" type="password"> {% endcomment %}
-                                    <input class="form-control" id="pass1" name="password" type="password" required="" placeholder="Contraseña">
-                                    <label for="password">Password</label>
-                                </div>
-                            </div>
 
-                            {{ form.address }}
+                            {{user_form.as_p}}
+                            {{profile_form.as_p}}
 
-                            {{ form.phone }}
-                            
+
                             <div class="row">
                                 <div class="input-field col s12">
                                     <button class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12" type="submit">Registrarte</button>   
