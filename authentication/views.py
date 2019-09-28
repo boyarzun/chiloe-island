@@ -67,6 +67,13 @@ def register(request):
         {'form': form}
         )
 
+def reset(request):
+
+    return render(
+        request,
+        "authentication/forgot-password.html",
+        )
+
 def logout(request):
     # Finalizamos la sesión
     do_logout(request)

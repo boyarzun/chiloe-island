@@ -1,8 +1,14 @@
 {% extends 'authentication/base.html' %}
 {% load staticfiles %}
+
+{% block title %}
+Iniciar sesión
+{% endblock%}
+
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/login.css' %}">
 {% endblock %}
+
 {% block body %}
 <body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 1-column login-bg  blank-page blank-page" data-open="click" data-menu="vertical-modern-menu" data-col="1-column">
     <div class="row">
@@ -51,7 +57,7 @@
                                 <p class="margin medium-small"><a href="/register">¡Regístrate ahora!</a></p>
                                 </div>
                                 <div class="input-field col s6 m6 l6">
-                                <p class="margin right-align medium-small"><a href="#">Se te olvidó tu contraseña?</a></p>
+                                <p class="margin right-align medium-small"><a href="/reset">Se te olvidó tu contraseña?</a></p>
                                 </div>
                             </div>
                         </form>
