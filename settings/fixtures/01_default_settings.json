@@ -1,0 +1,13 @@
+[
+    {
+        "model": "settings.setting",
+        "pk": 1,
+        "fields": {
+            "name": "Django Dashboard",
+            "slogan": "The best django dashboard",
+            "intro_step": 1,
+            "description": "Site description",
+            "keywords": "django, dashboard"
+        }
+    }
+]

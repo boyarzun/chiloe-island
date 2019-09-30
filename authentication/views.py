@@ -11,6 +11,7 @@ from django.urls import reverse
 def welcome(request):
     # Si estamos identificados devolvemos la portada
     if request.user.is_authenticated:
+        print(request)
         return render(request, "authentication/welcome.html")
     # En otro caso redireccionamos al login
     return redirect('/login')
