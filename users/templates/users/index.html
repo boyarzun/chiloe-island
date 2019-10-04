@@ -181,6 +181,7 @@ Usuarios
 {% block pagevendorjs %}
     <script src="{% static 'app-assets/vendors/data-tables/js/jquery.dataTables.min.js' %}" type="text/javascript"></script>
     <script src="{% static 'app-assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'app-assets/vendors/sweetalert/sweetalert.min.js' %}"></script>
 {% endblock%}
 
 {% block themejs %}
@@ -192,6 +193,25 @@ Usuarios
 {% block pageleveljs %}
     <script src="{% static 'app-assets/js/scripts/app-contacts.js' %}" type="text/javascript"></script>
     <script>
+
+
+        function drawForm(response, form, options){
+            if (response.ok === true) {
+                $('#' + options.modalName).modal('close')
+                swal("Exito!", options.successMessage || "Todo salio bien!", "success")
+                form.reset()
+            } else {
+                swal("Algo salio mal!", options.errorMessage || "Revisa el formulario!", "error")
+                errors = response.errors
+                Object
+                    .keys(errors)
+                    .map(key => {
+                        parent = document.getElementById('id_' + key).parentElement
+                        parent.innerHTML += '<div class="errorTxt2"><div id="id_' + key + '" class="error">' + errors[key][0].message + '</div></div>'
+                    })
+            }
+        }
+
         function sendForm(event){
             event.preventDefault()
 
@@ -209,12 +229,13 @@ Usuarios
                 body: form,
                 credentials: 'same-origin'
             })
-            .then(response => {
-                console.log('//////response', response)
-                return response.json()
-                })
-            .then(json => {
-                console.log(json)
+            .then(response => response.json())
+            .then(data => {
+                let options = {
+                    modalName: 'create',
+                    successMessage: 'El usuario fue creado!'
+                }
+                drawForm(data, event.target, options)
             })
         }
     </script>
