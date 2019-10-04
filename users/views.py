@@ -4,7 +4,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 # Models
@@ -73,7 +73,6 @@ def create(request):
 
     else:
         user_form = UserForm()
-        profile_form = UserProfileForm()
 
     context = {
         'user_form': user_form,
@@ -88,11 +87,18 @@ def read(request, id):
 
 @login_required
 def update(request, id):
-    pass
+    user = get_object_or_404(User, pk=id)
+    user_form = UserForm(instance=user)
+
+    context = {
+        'user_form': user_form,
+        'menu': 'users'
+    }
+    return render(request, 'users/update.html', context)
 
 @login_required
 def delete(request, id):
-    user = User.objects.get(pk=id)
+    user = get_object_or_404(User, pk=id)
     user.delete()
     data = {
         'ok': True

@@ -1,0 +1,97 @@
+{% extends 'generic/base.html' %}
+{% load staticfiles %}
+
+{% block vendorcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/fontawesome/css/all.min.css' %}">
+{% endblock %}
+
+{% block pagelevelcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/vertical-modern-menu-template/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/vertical-modern-menu-template/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/page-contact.css' %}">
+{% endblock %}
+
+{% block customcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/custom/custom.css' %}">
+{% endblock %}
+
+{% block container %}
+    <div id="contact-us" class="section">
+        <div class="app-wrapper">
+            <div class="contact-header">
+                <div class="row contact-us">
+                    <div class="col s12 m12 l4 sidebar-title">
+                        <h5 class="m-0"><i class="material-icons contact-icon vertical-text-top">person</i>
+                            {% block title %}{% endblock %}
+                        </h5>
+                        <p class="m-0 font-weight-500 mt-6 hide-on-med-and-down text-ellipsis">
+                            {% block create_or_update_description %}{% endblock %}
+                        </p>
+                    </div>
+                    <div class="col s12 m12 l8 form-header">
+                        <h6 class="form-header-text"><i class="material-icons">person</i>
+                            {% block create_or_update_form_title %}{% endblock %}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Sidenav -->
+            <div id="sidebar-list" class="row contact-sidenav">
+                <div class="col s12 m12 l4">
+                    <!-- Sidebar Area Starts -->
+                    <div class="sidebar-left sidebar-fixed">
+                        <div class="sidebar">
+                            <div class="sidebar-content">
+                                <div class="sidebar-menu list-group position-relative">
+                                    <div class="sidebar-list-padding app-sidebar contact-app-sidebar" id="contact-sidenav">
+                                        <ul class="contact-list display-grid">
+                                            <li>
+                                            <h5 class="m-0">{% block create_or_update_sidebar_title %}{% endblock %}</h5>
+                                            </li>
+                                            <li>
+                                            <h6 class="mt-5 line-height">{% block create_or_update_sidebar_description %}{% endblock %}</h6>
+                                            </li>
+                                            <li>
+                                            <hr class="mt-5">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            
+                                <a href="#" data-target="contact-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar Area Ends -->
+                </div>
+                <div class="col s12 m12 l8 contact-form margin-top-contact">
+                    <div class="row">
+                        <form class="col s12" method="POST">
+                            {% csrf_token %}
+                            {% block create_or_update_form %}{% endblock %}
+                            <div class="input-field col s12 width-100">
+                                <button type="submit" class="waves-effect waves-light btn">Enviar</button>
+                            </div>                
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block vendorjs %}
+    <script src="{% static 'app-assets/js/vendors.min.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block themejs %}
+    <script src="{% static 'app-assets/js/plugins.js' %}" type="text/javascript"></script>
+    <script src="{% static 'app-assets/js/custom/custom-script.js' %}" type="text/javascript"></script>
+    <script src="{% static 'app-assets/js/scripts/customizer.js' %}" type="text/javascript"></script>
+{% endblock%}
+
+{% block pageleveljs %}
+    <script src="{% static 'app-assets/js/scripts/page-contact.js' %}" type="text/javascript"></script>
+{% endblock%}
