@@ -41,14 +41,6 @@ class UserForm(forms.ModelForm):
                 "password and confirm_password does not match"
             )
 
-    def save(self):
-        data = self.cleaned_data
-        data.pop('confirm_password')
-
-        user = User.objects.create_user(**data)
-        profile = UserProfile(user=user)
-        profile.save()
-
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile

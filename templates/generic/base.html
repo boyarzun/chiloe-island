@@ -284,9 +284,21 @@
       </div>
     </footer>
 
+    <script src="{% static 'app-assets/js/vendors.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'app-assets/vendors/sweetalert/sweetalert.min.js' %}"></script>
+
     {% block vendorjs %}{% endblock %}
     {% block pagevendorjs %}{% endblock%}
     {% block themejs %}{% endblock%}
     {% block pageleveljs %}{% endblock%}
+
+    
+    {% if messages %}
+      <script>
+         {% for message in messages %}
+            swal("Listo!", "{{message}}", "success")
+         {% endfor %}
+      </script>
+    {% endif %}
   </body>
 </html>

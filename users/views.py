@@ -1,10 +1,11 @@
 
 import json
 # Django
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.urls import reverse
 
 # Models
@@ -67,8 +68,9 @@ def create(request):
         user_form = UserForm(request.POST)
         
         if user_form.is_valid():
-            user_form.save()
-
+            user = user_form.save()
+            UserProfile.objects.create(user=user)
+            messages.success(request, 'Usuario creado!')
             return redirect(reverse('users:index'))
 
     else:
@@ -82,13 +84,12 @@ def create(request):
     return render(request, 'users/create.html', context)
 
 @login_required
-def read(request, id):
-    pass
-
-@login_required
 def update(request, id):
     user = get_object_or_404(User, pk=id)
-    user_form = UserForm(instance=user)
+    user_form = UserForm(request.POST or None, instance=user)
+    if user_form.is_valid():
+        user_form.save()
+        messages.success(request, 'Usuario actualizado!')
 
     context = {
         'user_form': user_form,
