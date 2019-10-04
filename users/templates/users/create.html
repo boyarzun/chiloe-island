@@ -1,0 +1,73 @@
+
+{% extends 'generic/create.html' %}
+
+{% block title %}
+Nuevo usuario
+{% endblock %}
+
+{% block container %}
+    <div id="contact-us" class="section">
+        <div class="app-wrapper">
+            <div class="contact-header">
+                <div class="row contact-us">
+                    <div class="col s12 m12 l4 sidebar-title">
+                        <h5 class="m-0"><i class="material-icons contact-icon vertical-text-top">person</i>
+                            Crear usuario
+                        </h5>
+                        <p class="m-0 font-weight-500 mt-6 hide-on-med-and-down text-ellipsis">
+                            Agregue un nuevo usuario
+                        </p>
+                    </div>
+                    <div class="col s12 m12 l8 form-header">
+                        <h6 class="form-header-text"><i class="material-icons">person</i>
+                            Complete el formulario para agregar un nuevo usuario
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Sidenav -->
+            <div id="sidebar-list" class="row contact-sidenav">
+                <div class="col s12 m12 l4">
+                    <!-- Sidebar Area Starts -->
+                    <div class="sidebar-left sidebar-fixed">
+                        <div class="sidebar">
+                            <div class="sidebar-content">
+                                <div class="sidebar-menu list-group position-relative">
+                                    <div class="sidebar-list-padding app-sidebar contact-app-sidebar" id="contact-sidenav">
+                                        <ul class="contact-list display-grid">
+                                            <li>
+                                            <h5 class="m-0">Necesitas agregar un nuevo usuario?</h5>
+                                            </li>
+                                            <li>
+                                            <h6 class="mt-5 line-height">Estás en el lugar correcto! sigue las indicaciones para crear el usuario.</h6>
+                                            </li>
+                                            <li>
+                                            <hr class="mt-5">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            
+                                <a href="#" data-target="contact-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar Area Ends -->
+                </div>
+                <div class="col s12 m12 l8 contact-form margin-top-contact">
+                    <div class="row">
+                        <form class="col s12" method="POST">
+                            {% csrf_token %}
+                            {{user_form.as_p}}
+                            <div class="input-field col s12 width-100">
+                                <button type="submit" class="waves-effect waves-light btn">Crear</button>
+                            </div>                
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock%}

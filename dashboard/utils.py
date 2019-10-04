@@ -1,30 +1,3 @@
-class FormToJsonResponse:
-    def __init__(self, *args):
-        self.forms = args
-        self.response = {}
-
-    def is_valid(self):
-
-        valid_forms = 0
-        response = {}
-        errors = {}
-        
-        for form in self.forms:
-            if form.is_valid():
-                valid_forms += 1
-                response = {**response, **form.cleaned_data}
-            else:
-                errors = {**errors, **form.errors.get_json_data()}
-            
-        if valid_forms == len(self.forms):
-            self.response['ok'] = True
-            self.response['form'] = response
-            return True
-        else:
-            self.response['ok'] = False
-            self.response['errors'] = errors
-            return False
-
 class DataTable:
     def __init__(self, request):
         self.search = request.GET.get('search[value]')

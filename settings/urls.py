@@ -4,6 +4,6 @@ from settings.views import index
 app_name = 'settings'
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('settings', index, name='index'),
 ]
 
