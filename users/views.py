@@ -21,14 +21,22 @@ from dashboard.utils import DataTable
 @login_required
 def get_users_list(request):
     """ API for load data in DataTable """
-    
+
+    active_users = request.GET.get('active')
     dt = DataTable(request)
-    users_list = UserProfile.objects.filter(user__first_name__contains = dt.search) | UserProfile.objects.filter(user__last_name__contains = dt.search)
+
+    if active_users == "true":
+        users_list = UserProfile.objects.filter(user__is_active = True)
+    elif active_users == "false":
+        users_list = UserProfile.objects.filter(user__is_active = False)
+    else:
+        users_list = UserProfile.objects.filter(user__first_name__contains = dt.search) | UserProfile.objects.filter(user__last_name__contains = dt.search)
+
+
 
     # Pagination
     paginator = Paginator(list(users_list), 15)
     users = paginator.get_page(dt.start)
-
     # Prepare data
     def sort_data(profile):
         return [

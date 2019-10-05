@@ -46,21 +46,21 @@ Usuarios
             </div>
             <div id="sidebar-list" class="sidebar-menu list-group position-relative animate fadeLeft delay-1">
                 <div class="sidebar-list-padding app-sidebar sidenav" id="contact-sidenav">
-                    <ul class="contact-list display-grid">
+                    <ul id="sub-menu" class="contact-list display-grid">
                         <li class="sidebar-title">Filtros</li>
                         <li class="active">
-                            <a href="#" class="text-sub">
+                            <a href="{% url 'users:index' %}" class="text-sub">
                                 <i class="material-icons mr-2"> perm_identity </i> Todos los usuarios
                             </a>
                         </li>
                         <li class="sidebar-title">Estado</li>
                         <li>
-                            <a href="#" class="text-sub">
+                            <a href="#" data-active="true" class="text-sub status-filter">
                                 <i class="green-text material-icons small-icons mr-2">fiber_manual_record</i> Activo
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-sub">
+                            <a href="#" data-active="false" class="text-sub status-filter">
                                 <i class="red-text material-icons small-icons mr-2">fiber_manual_record</i> Inactivo
                             </a>
                         </li>
