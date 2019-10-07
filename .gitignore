@@ -9,7 +9,6 @@ __pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-*/migrations/[000]*.py
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
@@ -124,10 +123,15 @@ dmypy.json
 .virtualenv
 .vscode/
 
-#assets template
-core/static/app-assets
-
 # Media upload
 core/media
+
+###### Remove for deploy
+
+# Assets template
+core/static/app-assets
+
+# Migrations files
+*/migrations/[000]*.py
 
 # End of https://www.gitignore.io/api/django
