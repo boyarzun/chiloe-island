@@ -125,9 +125,9 @@ dmypy.json
 .vscode/
 
 #assets template
-dashboard/static/app-assets
+core/static/app-assets
 
 # Media upload
-# dashboard/media
+# core/media
 
 # End of https://www.gitignore.io/api/django

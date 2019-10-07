@@ -16,7 +16,7 @@ from django.contrib.auth.models import User
 from authentication.forms import UserForm, UserProfileForm
 
 # Utils
-from dashboard.utils import DataTable
+from core.utils import DataTable
 
 @login_required
 def get_users_list(request):
