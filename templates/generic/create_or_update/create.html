@@ -1,11 +1,19 @@
-{% extends 'generic/create_or_update/create_or_update.html' %}
+{% extends 'generic/form.html' %}
 
 {% block title %}Nuevo usuario{% endblock %}
 
-{% block create_or_update_description %}Agregue un nuevo usuario{% endblock %}
+{% block form_page_title %}
+    <i class="material-icons contact-icon vertical-text-top">person_add</i>
+    Nuevo usuario
+{% endblock %}
 
-{% block create_or_update_form_title %}Complete el formulario para agregar un nuevo usuario{% endblock %}
+{% block form_page_subtitle_description %}Agregue un nuevo usuario{% endblock %}
 
-{% block create_or_update_sidebar_title %}Necesitas agregar un nuevo usuario?{% endblock %}
+{% block form_title %}
+    <i class="material-icons">person_add</i>
+    Complete el formulario para agregar un nuevo usuario
+{% endblock %}
 
-{% block create_or_update_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para crear el usuario.{% endblock %}
+{% block form_sidebar_title %}Necesitas agregar un nuevo usuario?{% endblock %}
+
+{% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para crear el usuario.{% endblock %}

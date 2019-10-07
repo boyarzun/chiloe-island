@@ -21,16 +21,16 @@
             <div class="contact-header">
                 <div class="row contact-us">
                     <div class="col s12 m12 l4 sidebar-title">
-                        <h5 class="m-0"><i class="material-icons contact-icon vertical-text-top">person_add</i>
-                            {% block title %}{% endblock %}
+                        <h5 class="m-0">
+                            {% block form_page_title %}{% endblock %}
                         </h5>
                         <p class="m-0 font-weight-500 mt-6 hide-on-med-and-down text-ellipsis">
-                            {% block create_or_update_description %}{% endblock %}
+                            {% block form_page_subtitle_description %}{% endblock %}
                         </p>
                     </div>
                     <div class="col s12 m12 l8 form-header">
-                        <h6 class="form-header-text"><i class="material-icons">person_add</i>
-                            {% block create_or_update_form_title %}{% endblock %}
+                        <h6 class="form-header-text">
+                            {% block form_title %}{% endblock %}
                         </h6>
                     </div>
                 </div>
@@ -47,10 +47,10 @@
                                     <div class="sidebar-list-padding app-sidebar contact-app-sidebar" id="contact-sidenav">
                                         <ul class="contact-list display-grid">
                                             <li>
-                                            <h5 class="m-0">{% block create_or_update_sidebar_title %}{% endblock %}</h5>
+                                            <h5 class="m-0">{% block form_sidebar_title %}{% endblock %}</h5>
                                             </li>
                                             <li>
-                                            <h6 class="mt-5 line-height">{% block create_or_update_sidebar_description %}{% endblock %}</h6>
+                                            <h6 class="mt-5 line-height">{% block form_sidebar_description %}{% endblock %}</h6>
                                             </li>
                                             <li>
                                             <hr class="mt-5">
@@ -70,7 +70,7 @@
                     <div class="row">
                         <form class="col s12" method="POST">
                             {% csrf_token %}
-                            {% block create_or_update_form %}{% endblock %}
+                            {% block content_form %}{% endblock %}
                             <div class="input-field col s12 width-100">
                                 <button type="submit" class="waves-effect waves-light btn">Enviar</button>
                             </div>                

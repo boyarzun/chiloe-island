@@ -1,4 +1,7 @@
+# Django
 from django import forms
+
+# Models
 from authentication.models import UserProfile
 from django.contrib.auth.models import User
 
