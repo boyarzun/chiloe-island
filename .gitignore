@@ -128,6 +128,6 @@ dmypy.json
 core/static/app-assets
 
 # Media upload
-# core/media
+core/media
 
 # End of https://www.gitignore.io/api/django
