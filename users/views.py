@@ -95,12 +95,15 @@ def create(request):
 def update(request, id):
     user = get_object_or_404(User, pk=id)
     user_form = UserForm(request.POST or None, instance=user)
-    if user_form.is_valid():
+    profile_form = UserProfileForm(request.POST or None, request.FILES, instance=user.userprofile)
+    if user_form.is_valid() and profile_form.is_valid():
         user_form.save()
+        profile_form.save()
         messages.success(request, 'Usuario actualizado!')
 
     context = {
         'user_form': user_form,
+        'profile_form': profile_form,
         'menu': 'users'
     }
     return render(request, 'users/update.html', context)
