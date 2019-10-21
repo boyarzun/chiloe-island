@@ -18,7 +18,9 @@
             "last_name": "min",
             "email": "admin@dashboard.com",
             "username": "admin",
-            "password": "pbkdf2_sha256$150000$0mwkyPM0QWU4$HI2+VTySh2oP+aYDR5p3MC+1CjhrLuwT3OqZcQ7E22A="
+            "is_superuser": true,
+            "is_staff": true,
+            "password": "pbkdf2_sha256$150000$6ZgFlp1qw181$RTiQPuaG2js/05KQhepxJfcXno5qUPXLny2CJo5HmDA="
         }
     },
     {

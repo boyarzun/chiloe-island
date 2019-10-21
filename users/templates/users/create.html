@@ -1,4 +1,22 @@
-{% extends 'generic/create_or_update/create.html' %}
+{% extends 'generic/form.html' %}
+
+{% block title %}Nuevo usuario{% endblock %}
+
+{% block form_page_title %}
+    <i class="material-icons contact-icon vertical-text-top">person_add</i>
+    Nuevo usuario
+{% endblock %}
+
+{% block form_page_subtitle_description %}Agregue un nuevo usuario{% endblock %}
+
+{% block form_title %}
+    <i class="material-icons">person_add</i>
+    Complete el formulario para agregar un nuevo usuario
+{% endblock %}
+
+{% block form_sidebar_title %}Necesitas agregar un nuevo usuario?{% endblock %}
+
+{% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para crear el usuario.{% endblock %}
 
 {% block content_form %}
     {{user_form.as_p}}

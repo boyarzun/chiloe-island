@@ -19,5 +19,23 @@
 {% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para configurar tu sitio.{% endblock %}
 
 {% block content_form %}
-{{form}}
+  {{form.errors}}
+  {% include 'generic/forms/input.html' with field=form.logo name="logo" default=form.instance.logo.url %}
+  {% include 'generic/forms/input.html' with field=form.name label="Nombre" col="s12" %}
+  {% include 'generic/forms/input.html' with field=form.slogan label="Slogan" col="s12" %}
+  {% include 'generic/forms/input.html' with field=form.description label="Descripción" col="s12" %}
+  {% include 'generic/forms/input.html' with field=form.keywords label="Palabras clave" col="s12" %}
+{% endblock %}
+
+{% block pageleveljs %}
+    <script>
+        $('#id_logo').dropify({
+            messages: {
+                default: 'Agrega un logo al sitio',
+                replace: 'Haz clic para reemplazar la imagen',
+                remove:  'Quitar',
+                error:   'El tipo de documento no valido'
+            }
+        });
+    </script>
 {% endblock %}

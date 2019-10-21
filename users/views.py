@@ -32,8 +32,6 @@ def get_users_list(request):
     else:
         users_list = UserProfile.objects.filter(user__first_name__contains = dt.search) | UserProfile.objects.filter(user__last_name__contains = dt.search)
 
-
-
     # Pagination
     paginator = Paginator(list(users_list), 15)
     users = paginator.get_page(dt.start)
@@ -93,9 +91,21 @@ def create(request):
 
 @login_required
 def update(request, id):
+    """ Update User data """
+
     user = get_object_or_404(User, pk=id)
-    user_form = UserForm(request.POST or None, instance=user)
-    profile_form = UserProfileForm(request.POST or None, request.FILES, instance=user.userprofile)
+
+    user_form = UserForm(
+        data = request.POST or None,
+        instance=user
+        )
+
+    profile_form = UserProfileForm(
+        data = request.POST or None,
+        files = request.FILES or None,
+        instance=user.userprofile
+        )
+
     if user_form.is_valid() and profile_form.is_valid():
         user_form.save()
         profile_form.save()

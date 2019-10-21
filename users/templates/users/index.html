@@ -11,15 +11,11 @@ Usuarios
 {% endblock %}
 
 {% block pagelevelcss %}
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/vertical-modern-menu-template/materialize.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/vertical-modern-menu-template/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/app-sidebar.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/app-contacts.css' %}">
 {% endblock %}
 
-{% block customcss %}
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/custom/custom.css' %}">
-{% endblock %}
+{% block customcss %}{% endblock %}
 
 {% block container %}
 <!-- Add new contact popup -->
@@ -112,7 +108,7 @@ Usuarios
 {% endblock%}
 
 {% block pageleveljs %}
-    <script src="{% static 'app-assets/js/scripts/app-contacts.js' %}" type="text/javascript"></script>
+    <script src="{% static 'app-assets/js/scripts/app-users.js' %}" type="text/javascript"></script>
     <script>
     function remove(event) {
         event.stopPropagation()

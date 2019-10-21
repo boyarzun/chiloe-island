@@ -1,8 +1,44 @@
-{% extends 'generic/create_or_update/update.html' %}
+{% extends 'generic/form.html' %}
 
-{% block content_form %}
-    {{user_form.as_p}}
-    {{profile_form.as_p}}
+{% block title %}Actualizar usuario{% endblock %}
+
+{% block form_page_title %}
+    <i class="material-icons">edit</i>
+    Actualizar usuario
 {% endblock %}
 
+{% block form_page_subtitle_description %}Actualice al usuario seleccionado{% endblock %}
 
+{% block form_title %}
+    <i class="material-icons">edit</i>
+    Complete el formulario para actualizar al usuario
+{% endblock %}
+
+{% block form_sidebar_title %}Necesitas actualizar a un usuario?{% endblock %}
+
+{% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para actualizar al usuario.{% endblock %}
+
+{% block content_form %}
+    <div class="row">
+        {% include 'generic/forms/input.html' with field=profile_form.avatar default=profile_form.instance.avatar.url %}
+        {% include 'generic/forms/input.html' with field=user_form.first_name label="Nombre" col="s12 m6" %}
+        {% include 'generic/forms/input.html' with field=user_form.last_name label="Apellido" col="s12 m6" %}
+        {% include 'generic/forms/input.html' with field=user_form.username label="Usuario" col="s12 m6" %}
+        {% include 'generic/forms/input.html' with field=user_form.email label="Email" col="s12 m6" %}
+        {% include 'generic/forms/input.html' with field=profile_form.address label="Dirección" col="s12 m6" %}
+        {% include 'generic/forms/input.html' with field=profile_form.phone label="Teléfono" col="s12 m6" %}
+    </div>
+{% endblock %}
+
+{% block pageleveljs %}
+    <script>
+        $('#id_avatar').dropify({
+            messages: {
+                default: 'Agrega una imagen de perfil',
+                replace: 'Haz clic para reemplazar la imagen',
+                remove:  'Quitar',
+                error:   'El tipo de documento no valido'
+            }
+        });
+    </script>
+{% endblock %}

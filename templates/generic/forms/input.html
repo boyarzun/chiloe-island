@@ -1,0 +1,9 @@
+{% if field.field.widget.input_type == 'file' %}
+    <input type="file" name="{{field.name}}" id="id_{{field.name}}" class="dropify" accept="image/*" data-default-file="{{default}}" />
+{% else %}
+    <div class="input-field{% if col %} col {{col}}{% endif %}">
+        <input type="{{field.field.widget.input_type}}" id="id_{{field.name}}" name="{{field.name}}" class="validate" value="{{field.value}}" required>
+        <label for="id_{{field.name}}">{{label}}</label>
+        <span class="error-text" data-success="Perfecto!">{{field.errors}}</span>
+    </div>
+{% endif %}

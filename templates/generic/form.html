@@ -3,16 +3,17 @@
 
 {% block vendorcss %}
     <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/dropify/css/dropify.min.css' %}">
 {% endblock %}
 
 {% block pagelevelcss %}
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/vertical-modern-menu-template/materialize.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/vertical-modern-menu-template/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/page-contact.css' %}">
 {% endblock %}
 
 {% block customcss %}
     <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/custom/custom.css' %}">
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 {% endblock %}
 
 {% block container %}
@@ -81,6 +82,10 @@
         </div>
     </div>
 {% endblock%}
+
+{% block vendorjs %}
+    <script src="{% static 'app-assets/vendors/dropify/js/dropify.min.js' %}"></script>
+{% endblock %}
 
 {% block themejs %}
     <script src="{% static 'app-assets/js/plugins.js' %}" type="text/javascript"></script>
