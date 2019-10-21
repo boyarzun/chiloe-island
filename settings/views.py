@@ -1,4 +1,5 @@
 # Django
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
@@ -8,6 +9,7 @@ from settings.models import Setting
 # Forms
 from settings.forms import SettingForm
 
+@login_required
 def index(request):
 
     setting = get_object_or_404(Setting, pk=1)

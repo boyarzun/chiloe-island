@@ -55,7 +55,6 @@ def get_users_list(request):
 
     return JsonResponse(data, safe=False)
 
-
 @login_required
 def index(request):
 

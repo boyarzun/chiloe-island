@@ -25,9 +25,9 @@ Registrarse
                                 </div>
                             </div>
 
-                            {{user_form.as_p}}
-                            {{profile_form.as_p}}
-
+                            {% include 'generic/forms/input.html' with field=form.username label="Nombre usuario" col="s12" %}
+                            {% include 'generic/forms/input.html' with field=form.password1 label="Contraseña" col="s12" %}
+                            {% include 'generic/forms/input.html' with field=form.password2 label="Contraseña (Confirmación)" col="s12" %}
 
                             <div class="row">
                                 <div class="input-field col s12">
