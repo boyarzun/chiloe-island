@@ -124,7 +124,7 @@ dmypy.json
 .vscode/
 
 # Media upload
-# core/media
+core/media
 
 ###### Remove for deploy
 
