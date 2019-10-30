@@ -5,6 +5,7 @@
         "fields": {
             "name": "Django Dashboard",
             "slogan": "The best django dashboard",
+            "logo": "site/logo/logo.png",
             "email": "hola@thecoderscompany.com",
             "phone_number": "+56 9 1234 5678",
             "intro_step": 1,
