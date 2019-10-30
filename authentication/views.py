@@ -1,3 +1,4 @@
+# Django
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from authentication.forms import UserProfileForm, UserForm
 from django.http import HttpResponse, HttpResponseRedirect
@@ -5,8 +6,14 @@ from django.contrib.auth import logout as do_logout
 from django.contrib.auth import login as do_login
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
+from django.urls import reverse, reverse_lazy
+
+# Models
 from django.contrib.auth.models import User
-from django.urls import reverse
+from settings.models import Setting
+
+# CCBV
+from django.contrib.auth.views import PasswordResetView
 
 def welcome(request):
     # Si estamos identificados devolvemos la portada
@@ -78,3 +85,30 @@ def logout(request):
     do_logout(request)
     # Redireccionamos a la portada
     return redirect('/')
+
+class AuthenticationPasswordResetView(PasswordResetView):
+            
+    html_email_template_name = 'registration/password_reset_email_html.html'
+    success_url = reverse_lazy('authentication:password_reset_done')
+
+    def __init__(self, **kwargs):
+        """
+        Constructor. Called in the URLconf; can contain helpful extra
+        keyword arguments, and other things.
+        """
+        # Go through keyword arguments, and either save their values to our
+        # instance, or raise an error.
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+        setattr(self, 'extra_email_context', self.set_extra_email_context())
+
+
+    def set_extra_email_context(self):
+        settings = Setting.objects.get(pk=1)
+        context = {
+            'SITE_NAME': settings.name,
+            'SITE_PHONE_NUMBER': settings.phone_number,
+        }
+        return context

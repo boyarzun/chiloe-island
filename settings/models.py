@@ -14,6 +14,8 @@ class Setting(models.Model):
     name = models.CharField(max_length=128)
     slogan = models.CharField(max_length=128)
     logo = models.ImageField(upload_to=setting_directory_path, null=True)
+    email = models.EmailField(max_length=128)
+    phone_number = models.CharField(max_length=15)
     intro_step = models.PositiveSmallIntegerField(default=1)
     description = models.CharField(max_length=240)
     keywords = models.CharField(max_length=240)

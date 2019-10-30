@@ -7,4 +7,4 @@ from settings.models import Setting
 class SettingForm(forms.ModelForm):
     class Meta:
         model = Setting
-        fields = ('name', 'slogan', 'logo', 'description', 'keywords')
+        fields = ('name', 'slogan', 'logo', 'description', 'keywords', 'email', 'phone_number')

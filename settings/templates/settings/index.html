@@ -20,9 +20,11 @@
 
 {% block content_form %}
   {{form.errors}}
-  {% include 'generic/forms/input.html' with field=form.logo name="logo" default=form.instance.logo.url %}
+  {{form.logo}}
   {% include 'generic/forms/input.html' with field=form.name label="Nombre" col="s12" %}
   {% include 'generic/forms/input.html' with field=form.slogan label="Slogan" col="s12" %}
+  {% include 'generic/forms/input.html' with field=form.email label="Email de soporte" col="s12" %}
+  {% include 'generic/forms/input.html' with field=form.phone_number label="Teléfono de contacto" col="s12" %}
   {% include 'generic/forms/input.html' with field=form.description label="Descripción" col="s12" %}
   {% include 'generic/forms/input.html' with field=form.keywords label="Palabras clave" col="s12" %}
 {% endblock %}
