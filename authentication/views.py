@@ -24,6 +24,9 @@ def welcome(request):
     return redirect('/login')
 
 def login(request):
+    # We check if the user is loggin
+    if request.user.is_authenticated:
+        return redirect('/')
     # Creamos el formulario de autenticación vacío
     form = AuthenticationForm()
     if request.method == "POST":
@@ -54,9 +57,6 @@ def login(request):
 
 def register(request):
     template = 'authentication/register.html'
-   
-
-
     form = UserCreationForm()
 
     if request.method == "POST":
@@ -72,13 +72,6 @@ def register(request):
     }
 
     return render(request, template, context)
-
-def reset(request):
-
-    return render(
-        request,
-        "authentication/forgot-password.html",
-        )
 
 def logout(request):
     # Finalizamos la sesión

@@ -141,6 +141,8 @@ STATICFILES_DIRS = (
 
 # Login
 LOGIN_URL = '/login'
+# LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/login'
 
 # Heroku
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
