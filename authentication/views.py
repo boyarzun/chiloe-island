@@ -110,5 +110,10 @@ class AuthenticationPasswordResetView(PasswordResetView):
         context = {
             'SITE_NAME': settings.name,
             'SITE_PHONE_NUMBER': settings.phone_number,
+            'SOCIAL_NETWORKS': {
+                'INSTAGRAM': settings.instagram,
+                'FACEBOOK': settings.facebook,
+                'TWITTER': settings.twitter,
+            }
         }
         return context

@@ -20,5 +20,10 @@ class Setting(models.Model):
     description = models.CharField(max_length=240)
     keywords = models.CharField(max_length=240)
 
+    # Social networks
+    instagram = models.CharField(max_length=128, blank=True)
+    twitter = models.CharField(max_length=128, blank=True)
+    facebook = models.CharField(max_length=128, blank=True)
+
     def __str__(self):
         return self.name
