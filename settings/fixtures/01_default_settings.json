@@ -10,7 +10,16 @@
             "phone_number": "+56 9 1234 5678",
             "intro_step": 1,
             "description": "Site description",
-            "keywords": "django, dashboard"
+            "keywords": "django, dashboard",
+            "menu_color": 1,
+            "menu_dark": false,
+            "menu_collapsed": true,
+            "menu_selection": 1,
+            "navbar_color": 1,
+            "navbar_dark": false,
+            "navbar_fixed": false,
+            "footer_dark": false,
+            "footer_fixed": false
         }
     },
     {
