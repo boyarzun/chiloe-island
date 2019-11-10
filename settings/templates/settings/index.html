@@ -29,6 +29,10 @@
   {% include 'generic/forms/input.html' with field=form.keywords label="Palabras clave" col="s12" %}
 {% endblock %}
 
+{% block customizer %}
+  {% include 'customizer/customizer.html' %}
+{% endblock %}
+
 {% block pageleveljs %}
     <script>
         $('#id_logo').dropify({
