@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-rounded">
+<aside class="sidenav-main nav-expanded nav-collapsible sidenav-light {{MENU_SELECTION_CLASS}} {% if MENU_COLLAPSED %}nav-collapsed{% else %}nav-lock{% endif %}">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
             <a class="brand-logo darken-1" href="/">

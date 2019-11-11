@@ -1,7 +1,7 @@
 {% load static %}
 
 <header class="page-topbar" id="header">
-    <div class="navbar navbar-fixed"> 
+    <div class="navbar{% if NAVBAR_FIXED %} navbar-fixed{% endif %}"> 
         <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark {{NAVBAR_COLOR}} no-shadow">
             <div class="nav-wrapper">
                 <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>

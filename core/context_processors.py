@@ -8,9 +8,20 @@ def site_data(request):
         'SITE_NAME': settings.name,
         'SITE_DESCRIPTION': settings.description,
         'SITE_KEYWORDS': settings.keywords,
+        #Menu
         'MENU_COLOR': get_color(settings.menu_color),
+        'MENU_DARK': settings.menu_dark,
+        'MENU_COLLAPSED': settings.menu_collapsed,
+        'MENU_SELECTION': settings.menu_selection,
+        'MENU_SELECTION_CLASS': get_menu_selection(settings.menu_selection),
+        #Navbar
+        'NAVBAR_DARK': settings.navbar_dark,
+        'NAVBAR_FIXED': settings.navbar_fixed,
         'NAVBAR_COLOR': get_color(settings.navbar_color),
-        'FOOTER_DARK': get_footer_dark(settings.footer_dark)
+        #Footer
+        'FOOTER_DARK': settings.footer_dark,
+        'FOOTER_FIXED': settings.footer_fixed,
+        'FOOTER_DARK_CLASS': get_footer_dark(settings.footer_dark),
     }
 
 def get_color(n):
@@ -50,6 +61,15 @@ def get_color(n):
         return 'amber darken-3'
     elif n == 18: 
         return 'brown darken-2'
+
+def get_menu_selection(n):
+
+    if n == 1:
+        return 'sidenav-active-square'
+    elif n == 2:
+        return 'sidenav-active-rounded'
+    elif n == 3:
+        return ''
 
 def get_footer_dark(footer_dark):
     if footer_dark:
