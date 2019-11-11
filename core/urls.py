@@ -20,12 +20,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-# Views
-from authentication import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.welcome),
+    path('', include('home.urls', namespace="home")),
     path('', include('authentication.urls', namespace="authentication")),
     path('', include('settings.urls', namespace="settings")),
     path('', include('users.urls', namespace="users")),

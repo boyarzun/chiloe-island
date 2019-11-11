@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'asynchronous',
     'settings',
     'users',
+    'home',
 ]
 
 MIDDLEWARE = [
