@@ -1,6 +1,7 @@
 # Django
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from django.contrib import messages
 
 # Models
@@ -27,3 +28,21 @@ def index(request):
     }
     
     return render(request, 'settings/index.html', context)
+
+@login_required
+def template_options(request):
+
+    setting = Setting.objects.get(pk=1)
+
+    param = list(request.GET.keys())[0]
+    value = request.GET.get(param)
+    value = int(value) if value.isdigit else value
+    value = bool(value) if type(getattr(setting, param)) == bool else value
+
+    setattr(setting, param, value)
+
+    setting.save()
+
+    return JsonResponse({
+        param: getattr(setting, param)
+    })

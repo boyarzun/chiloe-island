@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-rounded">
+<aside class="sidenav-main nav-expanded nav-collapsible sidenav-light {{MENU_SELECTION_CLASS}} {% if MENU_COLLAPSED %}nav-collapsed{% else %}nav-lock{% endif %}">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
             <a class="brand-logo darken-1" href="/">
@@ -17,8 +17,8 @@
                 </ul>
             </div>
         </li>
-        <li class="{% if menu == 'users' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'users' %}active{% endif %}" href="{% url 'users:index' %}"><i class="material-icons">group</i><span class="menu-title" data-i18n="">Usuarios</span></a> </li>
-        <li class="{% if menu == 'settings' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'settings' %}active{% endif %}" href="{% url 'settings:index' %}"><i class="material-icons">settings</i><span class="menu-title" data-i18n="">Configuración</span></a> </li>
+        <li class="{% if menu == 'users' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'users' %}active {{MENU_COLOR}}{% endif %}" href="{% url 'users:index' %}"><i class="material-icons">group</i><span class="menu-title" data-i18n="">Usuarios</span></a> </li>
+        <li class="{% if menu == 'settings' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'settings' %}active {{MENU_COLOR}}{% endif %}" href="{% url 'settings:index' %}"><i class="material-icons">settings</i><span class="menu-title" data-i18n="">Configuración</span></a> </li>
         <li class="navigation-header"><a class="navigation-header-text">Ayuda </a><i class="navigation-header-icon material-icons">more_horiz</i></li>
         <li class="bold"><a class="waves-effect waves-cyan " href="#"><i class="material-icons">import_contacts</i><span class="menu-title" data-i18n="">Preguntas frecuentes</span></a></li>
         <li class="bold"><a class="waves-effect waves-cyan " href="#"><i class="material-icons">help_outline</i><span class="menu-title" data-i18n="">Soporte</span></a></li>
