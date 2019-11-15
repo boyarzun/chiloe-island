@@ -6,7 +6,7 @@
                 <div class="col-5 col-shrink">
                     <div class="col-inner">
                         <div class="main-logo">
-                            <a href="index.html"><img src="{% static 'assets/images/logo.png' %}" alt="images" /></a>
+                            <a href="{% url 'home:index' %}"><img src="{% static 'assets/images/logo.png' %}" alt="images" /></a>
                         </div>
                     </div>
                 </div>
@@ -41,50 +41,19 @@
                             <div id="mobileMenu" class="collapse navbar-collapse"> 
                                 <nav class="main-nav-menu main-menu-nav navbar-arrow">
                                     <ul class="main-nav">
-                                        <li><a href="index.html">Inicio</a>
+                                        <li><a href="{% url 'home:index' %}">Inicio</a>
                                             <ul>
                                                 <li><a href="index.html">Home 01</a></li>
-                                                <li><a href="index-02.html">Home 02</a></li>
-                                                <li><a href="index-03.html">Home 03</a></li>
-                                                <li><a href="index-04.html">Home 04</a></li>
-                                                <li><a href="index-05.html">Home 05</a></li>
-                                                <li><a href="index-06.html">Home 06</a></li>
-                                                <li>
-                                                    <a href="javascript:void(0)">Sub-menu</a>
-                                                     <ul>
-                                                        <li><a href="javascript:void(0)">Sub-menu 2</a></li>
-                                                        <li><a href="javascript:void(0)">Sub-menu 2</a></li>
-                                                        <li><a href="javascript:void(0)">Sub-menu 2</a></li>
-                                                    </ul>
-                                                </li>
                                             </ul>
                                         </li>
-                                        <li><a href="http://crenoveative.com/envato/gijalan/result-grid.html">Tour Package</a>
+                                        <li><a href="{% url 'store:index' %}">Tienda</a>
                                             <ul>
                                                 <li><a href="tour-result-list.html">Result - List</a></li>
-                                                <li><a href="tour-result-grid.html">Result - Grid</a></li>
-                                                <li><a href="tour-detail.html">Detail 01</a></li>
-                                                <li><a href="tour-detail-02.html">Detail 02</a></li>
-                                                <li><a href="tour-detail-03.html">Detail 03</a></li>
-                                                <li><a href="tour-detail-04.html">Detail 04</a></li>
-                                                <li><a href="tour-detail-05.html">Detail 05</a></li>
-                                                <li><a href="tour-detail-empty-booking.html">Detail - empty booking</a></li>
-                                                <li><a href="tour-payment.html">Payment</a></li>
-                                                <li><a href="tour-conformation.html">Conformation</a></li>
-                                                <li><a href="destinations-01.html">Destinations 01</a></li>
-                                                <li><a href="destinations-02.html">Destinations 02</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="javascript:void(0)">Blog</a>
                                             <ul>
                                                 <li><a href="blog-01.html"> Blog - Grid Full 01</a></li>
-                                                <li><a href="blog-02.html"> Blog - Grid Full 02</a></li>
-                                                <li><a href="blog-03.html"> Blog - Long Full 01</a></li>
-                                                <li><a href="blog-04.html"> Blog - Long Full 02</a></li>
-                                                <li><a href="blog-05.html"> Blog - Grid Right Sidebar</a></li>
-                                                <li><a href="blog-06.html"> Blog - Long Right Sidebar</a></li>
-                                                <li><a href="blog-single-01.html">Blog Single - Full</a></li>
-                                                <li><a href="blog-single-02.html">Blog Single - Right Sidebar</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="javascript:void(0)">Pages</a>
