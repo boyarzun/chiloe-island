@@ -1,0 +1,16 @@
+<div class="input-field{% if col %} col {{col}}{% endif %}">
+    <p>
+        <label>
+            <input
+                type="checkbox"
+                {% if class %}class="{{class}}"{% endif %}
+                {% if checked %}checked{% endif %}
+                {% if disabled %}disabled{% endif %}
+                {% if field.value %}value="{{field.value}}"{% endif %}
+                id="id_{{field.name}}"
+                name="{{field.name}}"
+            />
+            <span>{{label}}</span>
+        </label>
+    </p>
+</div>
