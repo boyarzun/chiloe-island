@@ -1,0 +1,11 @@
+
+<div class="input-field{% if col %} col {{col}}{% endif %}">
+    <input
+        type="file"
+        name="{{field.name}}"
+        id="id_{{field.name}}"
+        class="dropify"
+        accept="image/*"
+        data-default-file="{{default}}"
+    />
+</div>
