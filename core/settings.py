@@ -48,8 +48,11 @@ INSTALLED_APPS = [
     'authentication',
     'asynchronous',
     'settings',
+    'ckeditor',
     'users',
+    #Front
     'home',
+    'store',
 ]
 
 MIDDLEWARE = [
@@ -144,6 +147,14 @@ STATICFILES_DIRS = (
 LOGIN_URL = '/login'
 # LOGIN_REDIRECT_URL = '/'
 # LOGOUT_REDIRECT_URL = '/login'
+
+# Ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+        'width': '100%',
+    }
+}
 
 # Heroku
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

@@ -1,0 +1,59 @@
+{% extends 'generic/form.html' %}
+
+{% block title %}Nuevo producto{% endblock %}
+
+{% block form_page_title %}
+    <i class="material-icons contact-icon vertical-text-top">person_add</i>
+    Nuevo producto
+{% endblock %}
+
+{% block form_page_subtitle_description %}Agregue un nuevo producto{% endblock %}
+
+{% block form_title %}
+    <i class="material-icons">person_add</i>
+    Complete el formulario para agregar un nuevo producto
+{% endblock %}
+
+{% block form_sidebar_title %}Necesitas agregar un nuevo producto?{% endblock %}
+
+{% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para crear el usuario.{% endblock %}
+
+{% block content_form %}
+    {{form.errors}}
+    {% include 'generic/forms/file.html' with field=form.image_one name="image_one" col="s4" %}
+    {% include 'generic/forms/file.html' with field=form.image_two name="image_one" col="s4" %}
+    {% include 'generic/forms/file.html' with field=form.image_three name="image_one" col="s4" %}
+    {% include 'generic/forms/input.html' with field=form.title label="Título" col="s12" %}
+    {% include 'generic/forms/input.html' with field=form.price label="Precio" col="s12" %}
+    {% include 'generic/forms/checkbox.html' with field=form.active label="Activo" col="s12" %}
+    {{form.description}}
+{% endblock %}
+
+{% block pageleveljs %}
+<script>
+    $('#id_image_one').dropify({
+        messages: {
+            default: 'Agregar imagen principal',
+            replace: 'Haz clic para reemplazar la imagen',
+            remove:  'Quitar',
+            error:   'El tipo de documento no valido'
+        }
+    });
+    $('#id_image_two').dropify({
+        messages: {
+            default: 'Agregar imagen',
+            replace: 'Haz clic para reemplazar la imagen',
+            remove:  'Quitar',
+            error:   'El tipo de documento no valido'
+        }
+    });
+    $('#id_image_three').dropify({
+        messages: {
+            default: 'Agregar imagen',
+            replace: 'Haz clic para reemplazar la imagen',
+            remove:  'Quitar',
+            error:   'El tipo de documento no valido'
+        }
+    });
+</script>
+{% endblock %}
