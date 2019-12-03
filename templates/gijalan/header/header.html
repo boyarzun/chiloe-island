@@ -14,13 +14,13 @@
                     <div class="col-inner">
                         <ul class="nav-mini-right">
                             <li class="d-none d-sm-block">
-                                <a href="index.html#loginFormTabInModal-register" data-toggle="modal" data-target="#loginFormTabInModal" data-backdrop="static" data-keyboard="false">
-                                    <span class="icon-font"><i class="icon-user-follow"></i></span> Register
+                                <a href="{% url 'authentication:register' %}" data-keyboard="false">
+                                    <span class="icon-font"><i class="icon-user-follow"></i></span> Crear cuenta
                                 </a>
                             </li>
                             <li class="d-none d-sm-block">
-                                <a href="index.html#loginFormTabInModal-login" data-toggle="modal" data-target="#loginFormTabInModal" data-backdrop="static" data-keyboard="false">
-                                    <span class="icon-font"><i class="icon-login"></i></span> Login
+                                <a href="{% url 'authentication:login' %}" data-keyboard="false">
+                                    <span class="icon-font"><i class="icon-login"></i></span> Entrar
                                 </a>
                             </li>
                             <li class="d-block d-sm-none">
@@ -46,38 +46,13 @@
                                                 <li><a href="index.html">Home 01</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="{% url 'store:index' %}">Tienda</a>
-                                            <ul>
-                                                <li><a href="tour-result-list.html">Result - List</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{% url 'store:index' %}">Tienda</a></li>
                                         <li><a href="javascript:void(0)">Blog</a>
                                             <ul>
                                                 <li><a href="blog-01.html"> Blog - Grid Full 01</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="javascript:void(0)">Pages</a>
-                                            <ul>
-                                                <li><a href="about-us.html">About Us</a></li>
-                                                <li><a href="service.html">Service</a></li>
-                                                <li><a href="service-single.html">Service Single</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="privacy-and-term.html">Privacy and Term</a></li>
-                                                <li><a href="error-404.html">Error 404</a></li>
-                                                <li><a href="dashboard.html">Dashboard</a></li>
-                                                <li>
-                                                    <a href="javascript:void(0)">Shortcode</a>
-                                                    <ul>
-                                                        <li><a href="shortcode-typography.html">Typography</a></li>
-                                                        <li><a href="shortcode-element.html">Element</a></li>
-                                                        <li><a href="shortcode-layout-fullwidth.html">Layout Fullwidth</a></li>
-                                                        <li><a href="shortcode-layout-left-sidebar.html">Layout Left Sidebar</a></li>
-                                                        <li><a href="shortcode-layout-right-sidebar.html">Layout Right Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact-us.html">Contact us</a></li>
+                                        <li><a href="#">Contacto</a></li>
                                     </ul>
                                 </nav><!--/.nav-collapse -->
                             </div>

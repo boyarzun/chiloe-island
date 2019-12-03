@@ -4,12 +4,12 @@
 {% block title %}Inicio{% endblock %}
 
 {% block main-wrapper %}
-<div class="hero-banner hero-banner-01 overlay-light opacity-2 overlay-relative overlay-gradient gradient-white alt-option-03" style="background-image:url('images/image-bg/01.jpg'); background-position: top center;">
+<div class="hero-banner hero-banner-01 overlay-light opacity-2 overlay-relative overlay-gradient gradient-white alt-option-03" style="background-image:url('{% static 'assets/images/image-bg/01.jpg' %}'); background-position: top center;">
     <div class="overlay-holder bottom"></div>
     <div class="hero-inner">
         <div class="container">
             <h1>Go <span class="font200">tour <span class="block">with <span class="font700">Gi</span>Jalan </span></span></h1>
-            <p class="font-lg spacing-1">Visit Europe, America, Asia, Africa or beyond!</p>
+            <p class="font-lg spacing-1">Descubre la isla de Chiloé!</p>
             <div class="search-form-main">
                 <form>
                     <div class="from-inner">
@@ -407,8 +407,8 @@
         
                 <div class="testimonial-grid-arrow">
                     <ul>
-                        <li class="testimonial-grid-prev"><button><span>previuos</span></button></li>
-                        <li class="testimonial-grid-next"><button><span>next</span></button></li>
+                        <li class="testimonial-grid-prev"><button><span>anterior</span></button></li>
+                        <li class="testimonial-grid-next"><button><span>siguiente</span></button></li>
                     </ul>
                 </div>
 
@@ -454,7 +454,7 @@
                                         <div class="man clearfix">
 
                                             <div class="image">
-                                                <img src="images/image-man/02.jpg" alt="images" class="img-circle" />
+                                                <img src="{% static 'assets/images/image-man/02.jpg' %}" alt="images" class="img-circle" />
                                             </div>
 
                                             <div class="texting">
@@ -477,7 +477,7 @@
                                         <div class="man clearfix">
                                         
                                             <div class="image">
-                                                <img src="images/image-man/03.jpg" alt="images" class="img-circle" />
+                                                <img src="{% static 'assets/images/image-man/03.jpg' %}" alt="images" class="img-circle" />
                                             </div>
                                             
                                             <div class="texting">
@@ -500,7 +500,7 @@
                                         <div class="man clearfix">
                                         
                                             <div class="image">
-                                                <img src="images/image-man/02.jpg" alt="images" class="img-circle" />
+                                                <img src="{% static 'assets/images/image-man/02.jpg' %}" alt="images" class="img-circle" />
                                             </div>
                                             
                                             <div class="texting">
@@ -523,7 +523,7 @@
                                         <div class="man clearfix">
                                         
                                             <div class="image">
-                                                <img src="images/image-man/03.jpg" alt="images" class="img-circle" />
+                                                <img src="{% static 'assets/images/image-man/03.jpg' %}" alt="images" class="img-circle" />
                                             </div>
                                             
                                             <div class="texting">
@@ -546,7 +546,7 @@
                                         <div class="man clearfix">
 
                                             <div class="image">
-                                                <img src="images/image-man/01.jpg" alt="images" class="img-circle" />
+                                                <img src="{% static 'assets/images/image-man/01.jpg' %}" alt="images" class="img-circle" />
                                             </div>
                                             
                                             <div class="texting">
@@ -575,7 +575,7 @@
     <div class="container">
         
         <div class="section-title">
-            <h2><span><span>Travel</span> Articles</span></h2>
+            <h2><span><span>Artículos</span> de viajes</span></h2>
         </div>
         
         <div class="post-grid-wrapper-01">
@@ -583,12 +583,12 @@
                 <div class="col-12 col-md-4">
                     <article class="post-grid-01">
                         <div class="image">
-                            <img src="{% static 'images/image-regular/07.jpg' %}" alt="images" />
+                            <img src="{% static 'assets/images/image-regular/07.jpg' %}" alt="images" />
                         </div>
                         <div class="content">
-                            <span class="post-date text-muted">Mar 15, 2017</span>
-                            <h4>Raising say express had chiefly detract</h4>
-                            <a href="index.html#" class="h6">Read this <i class="elegent-icon-arrow_right"></i></a>
+                            <span class="post-date text-muted">Nov 25, 2019</span>
+                            <h4>Conociendo Cucao comuna Chonchi</h4>
+                            <a href="index.html#" class="h6">Leer más <i class="elegent-icon-arrow_right"></i></a>
                         </div>
                     </article>
                 </div>
@@ -596,12 +596,12 @@
                 <div class="col">
                     <article class="post-grid-01">
                         <div class="image">
-                            <img src="images/image-regular/08.jpg' %}" alt="images" />
+                            <img src="{% static 'assets/images/image-regular/08.jpg' %}" alt="images" />
                         </div>
                         <div class="content">
-                            <span class="post-date text-muted">Mar 15, 2017</span>
-                            <h4>Cordially convinced incommode existence</h4>
-                            <a href="index.html#" class="h6">Read this <i class="elegent-icon-arrow_right"></i></a>
+                            <span class="post-date text-muted">Nov 23, 2019</span>
+                            <h4>Una tarde por el sector de Queilen</h4>
+                            <a href="index.html#" class="h6">Leer más <i class="elegent-icon-arrow_right"></i></a>
                         </div>
                     </article>
                 </div>
@@ -609,12 +609,12 @@
                 <div class="col">
                     <article class="post-grid-01">
                         <div class="image">
-                            <img src="images/image-regular/09.jpg' %}" alt="images" />
+                            <img src="{% static 'assets/images/image-regular/09.jpg' %}" alt="images" />
                         </div>
                         <div class="content">
-                            <span class="post-date text-muted">Mar 15, 2017</span>
-                            <h4>Improving age our her cordially intention</h4>
-                            <a href="index.html#" class="h6">Read this <i class="elegent-icon-arrow_right"></i></a>
+                            <span class="post-date text-muted">Nov 20, 2019</span>
+                            <h4>Caminata por los alrededores de Ancud</h4>
+                            <a href="index.html#" class="h6">Leer más <i class="elegent-icon-arrow_right"></i></a>
                         </div>
                     </article>
                 </div>

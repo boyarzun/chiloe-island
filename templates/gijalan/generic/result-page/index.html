@@ -1,0 +1,32 @@
+{% extends 'gijalan/base.html' %}
+
+{% block main-wrapper %}
+<section class="page-wrapper page-result pb-0">
+    <div class="page-title bg-light mb-0">
+        <div class="container">
+            <div class="row gap-15 align-items-center">
+                <div class="col-12 col-md-7">
+                    
+                    {% block breadcrumb %}{% endblock %}
+                    
+                    <h4 class="mt-0 line-125">{% block breadcrumb-title %}{% endblock %}</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+            <div class="row equal-height gap-30 gap-lg-40">
+                <div class="col-12 col-lg-4">
+                    <aside class="sidebar-wrapper pv">
+                        {% block result-side-options %}{% endblock %}
+                    </aside>
+                </div>
+                
+                <div class="col-12 col-lg-8">
+                    {% block result-content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock %}

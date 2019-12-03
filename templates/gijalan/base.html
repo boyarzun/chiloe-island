@@ -25,7 +25,6 @@
 	<!-- CSS Plugins -->
 	<link href="{% static 'assets/css/font-icons.css' %}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" media="screen">	
-	<link href="http://crenoveative.com/envato/gijalan/css/animate.css" rel="stylesheet">
 	<link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 	<link href="{% static 'assets/css/plugin.css' %}" rel="stylesheet">
 	
@@ -268,13 +267,15 @@
 	<!-- end Login modal -->
 	
 	<!-- start Back To Top -->
-	<a id="back-to-top" href="index.html#" class="back-to-top" role="button" title="Click to return to top" data-toggle="tooltip" data-placement="left"><i class="elegent-icon-arrow_carrot-up"></i></a>
+	<a id="back-to-top" href="index.html#" class="back-to-top" role="button" title="Volver al inicio" data-toggle="tooltip" data-placement="left"><i class="elegent-icon-arrow_carrot-up"></i></a>
 	<!-- end Back To Top -->
 	
 	<!-- JS -->
 	<script type="text/javascript" src="{% static 'assets/js/jquery-2.2.4.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'assets/js/plugins.js' %}"></script>
 	<script type="text/javascript" src="{% static 'assets/js/custom-core.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/js/utils.js' %}"></script>
+	{% block pageleveljs %}{% endblock %}
 </body>
 
 </html>
