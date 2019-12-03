@@ -23,7 +23,19 @@
     {% include 'generic/forms/file.html' with field=form.image_one name="image_one" col="s4" %}
     {% include 'generic/forms/file.html' with field=form.image_two name="image_one" col="s4" %}
     {% include 'generic/forms/file.html' with field=form.image_three name="image_one" col="s4" %}
-    {% include 'generic/forms/input.html' with field=form.title label="Título" col="s12" %}
+    <div class="input-field col s12">
+        <select name="categories" id="id_categories" multiple>
+            {% for category in categories %}
+            <optgroup label="{{category.name}}">
+                {% for subcategory in category.productsubcategory_set.all %}
+                <option value="{{subcategory.pk}}">{{subcategory.name}}</option>
+                {% endfor %}
+            </optgroup>
+            {% endfor %}
+        </select>
+        <label for="id_categories">Categoría</label>
+    </div>
+    {% include 'generic/forms/input.html' with field=form.name label="Nombre" col="s12" %}
     {% include 'generic/forms/input.html' with field=form.price label="Precio" col="s12" %}
     {% include 'generic/forms/checkbox.html' with field=form.active label="Activo" col="s12" %}
     {{form.description}}

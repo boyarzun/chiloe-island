@@ -1,0 +1,67 @@
+<div class="col s12 m3 l3 pr-0 hide-on-med-and-down animate fadeLeft">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">Categorías</span>
+            <hr class="p-0 mb-10">
+            <ul class="collapsible categories-collapsible">
+                {% for category in categories %}
+                <li>
+                    <div class="collapsible-header"><a href="?category={{category.pk}}">{{category.name}}</a> <i class="material-icons"> keyboard_arrow_right </i></div>
+                    <div class="collapsible-body">
+                        {% for subcategory in category.productsubcategory_set.all %}
+                        <p><a href="?subcategory={{subcategory.pk}}">{{subcategory.name}}</a></p>
+                        {% endfor %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <span class="card-title mt-10">Precio</span>
+            <hr class="p-0 mb-10">
+            <div id="price-slider"></div>
+            <span class="card-title mt-10">Calificación</span>
+            <hr class="p-0 mb-10">
+            <form action="#" class="display-grid">
+            <label>
+                <input type="checkbox" />
+                <span>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                </span>
+            </label>
+            <label>
+                <input type="checkbox" />
+                <span>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                </span>
+            </label>
+            <label>
+                <input type="checkbox" />
+                <span>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                </span>
+            </label>
+            <label>
+                <input type="checkbox" />
+                <span>
+                <i class="material-icons amber-text"> star </i>
+                <i class="material-icons amber-text"> star </i>
+                </span>
+            </label>
+            <label>
+                <input type="checkbox" />
+                <span>
+                <i class="material-icons amber-text"> star </i>
+                </span>
+            </label>
+            </form>
+        </div>
+    </div>
+</div>
