@@ -1415,7 +1415,7 @@ input[type="text"].chosen-focus-input {
 /* slick-theme */
 
 .slick-loading .slick-list {
-    background: #fff url(http://crenoveative.com/envato/gijalan/css/images/slick-ajax-loader.gif) center center no-repeat
+    background: #fff url(/static/assets/images/slick-ajax-loader.gif) center center no-repeat
 }
 
 
