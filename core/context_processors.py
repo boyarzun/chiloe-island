@@ -8,6 +8,8 @@ def site_data(request):
         'SITE_NAME': settings.name,
         'SITE_DESCRIPTION': settings.description,
         'SITE_KEYWORDS': settings.keywords,
+        'SITE_EMAIL': settings.email,
+        'SITE_PHONE_NUMBER': settings.phone_number,
         #Menu
         'MENU_COLOR': get_color(settings.menu_color),
         'MENU_DARK': settings.menu_dark,

@@ -41,5 +41,35 @@
         "fields": {
             "user": 1
         }
+    },
+    {
+        "model": "store.productcategory",
+        "pk": 1,
+        "fields": {
+            "name": "Textiles"
+        }
+    },
+    {
+        "model": "store.productcategory",
+        "pk": 2,
+        "fields": {
+            "name": "Madera"
+        }
+    },
+    {
+        "model": "store.productsubcategory",
+        "pk": 1,
+        "fields": {
+            "name": "Lana de oveja",
+            "category": 1
+        }
+    },
+    {
+        "model": "store.productsubcategory",
+        "pk": 2,
+        "fields": {
+            "name": "Nativa",
+            "category": 2
+        }
     }
 ]
