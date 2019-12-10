@@ -15,25 +15,32 @@ def product_directory_path(instance, filename):
     name = uuid.uuid4()
     return f'users/{instance.seller_id}/products/{name}.{ext}'
 
-class ProductCategory(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=25)
 
-class ProductSubCategory(models.Model):
+class SubCategory(models.Model):
     name = models.CharField(max_length=25)
-    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
-class Product(models.Model):
-    categories = models.ManyToManyField(ProductSubCategory)
+
+class CommonInfo(models.Model):
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
+    active = models.BooleanField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    price = models.IntegerField()
+
+class Product(CommonInfo):
+    categories = models.ManyToManyField(SubCategory)
     image_one = models.ImageField(upload_to=product_directory_path)
     image_two = models.ImageField(upload_to=product_directory_path, null=True)
     image_three = models.ImageField(upload_to=product_directory_path, null=True)
-    active = models.BooleanField()
     description = RichTextField()
-    price = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+
+class Service(CommonInfo):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    

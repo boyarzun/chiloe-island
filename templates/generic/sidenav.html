@@ -18,7 +18,7 @@
             </div>
         </li>
         <li class="{% if menu == 'users' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'users' %}active {{MENU_COLOR}}{% endif %}" href="{% url 'users:index' %}"><i class="material-icons">group</i><span class="menu-title" data-i18n="">Usuarios</span></a> </li>
-        <li class="{% if menu == 'products' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'products' %}active {{MENU_COLOR}}{% endif %}" href="{% url 'store:products' %}"><i class="material-icons">local_mall</i><span class="menu-title" data-i18n="">Productos</span></a> </li>
+        <li class="{% if menu == 'products' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'products' %}active {{MENU_COLOR}}{% endif %}" href="{% url 'store:mystore' %}"><i class="material-icons">local_mall</i><span class="menu-title" data-i18n="">Productos</span></a> </li>
         <li class="{% if menu == 'settings' %}active{% endif %} bold"><a class="waves-effect waves-cyan {% if menu == 'settings' %}active {{MENU_COLOR}}{% endif %}" href="{% url 'settings:index' %}"><i class="material-icons">settings</i><span class="menu-title" data-i18n="">Configuración</span></a> </li>
         <li class="navigation-header"><a class="navigation-header-text">Ayuda </a><i class="navigation-header-icon material-icons">more_horiz</i></li>
         <li class="bold"><a class="waves-effect waves-cyan " href="#"><i class="material-icons">import_contacts</i><span class="menu-title" data-i18n="">Preguntas frecuentes</span></a></li>

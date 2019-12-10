@@ -27,7 +27,7 @@
         <select name="categories" id="id_categories" multiple>
             {% for category in categories %}
             <optgroup label="{{category.name}}">
-                {% for subcategory in category.productsubcategory_set.all %}
+                {% for subcategory in category.subcategory_set.all %}
                 <option value="{{subcategory.pk}}">{{subcategory.name}}</option>
                 {% endfor %}
             </optgroup>

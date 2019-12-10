@@ -7,7 +7,7 @@ from django.db.models import Count
 from django.urls import reverse
 
 # Models
-from store.models import Product, ProductCategory
+from store.models import Product, Category
 
 # Forms
 from store.forms import ProductForm
@@ -21,13 +21,13 @@ def index(request):
 	context = index_filter(request)
 
 	# Add categories to context
-	categories = ProductCategory.objects.annotate(total_products=Count('productsubcategory__product'))
+	categories = Category.objects.annotate(total_products=Count('subcategory__product'))
 	context['categories'] = categories
 
 	return render(request, "store/index.html", context)
 
 @login_required
-def products_index(request):
+def mystore_index(request):
 
 	products_list = Product.objects.all()
 
@@ -40,7 +40,7 @@ def products_index(request):
 	context = {
 			'menu': 'products',
 			'objects': products,
-			'categories': ProductCategory.objects.all(),
+			'categories': Category.objects.all(),
 	}
 
 	return render(request, 'products/index.html', context)
@@ -62,7 +62,7 @@ def products_create(request):
 	context = {
 		'menu': 'products',
 		'form': form,
-		'categories': ProductCategory.objects.all(),
+		'categories': Category.objects.all(),
 	}
 
 	return render(request, 'products/create.html', context)

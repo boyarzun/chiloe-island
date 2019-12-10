@@ -8,7 +8,7 @@
                 <li>
                     <div class="collapsible-header"><a href="?category={{category.pk}}">{{category.name}}</a> <i class="material-icons"> keyboard_arrow_right </i></div>
                     <div class="collapsible-body">
-                        {% for subcategory in category.productsubcategory_set.all %}
+                        {% for subcategory in category.subcategory_set.all %}
                         <p><a href="?subcategory={{subcategory.pk}}">{{subcategory.name}}</a></p>
                         {% endfor %}
                     </div>
