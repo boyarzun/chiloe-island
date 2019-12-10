@@ -34,6 +34,9 @@ class CommonInfo(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     price = models.IntegerField()
 
+    class Meta:
+        abstract = True
+
 class Product(CommonInfo):
     categories = models.ManyToManyField(SubCategory)
     image_one = models.ImageField(upload_to=product_directory_path)
