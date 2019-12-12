@@ -22,7 +22,7 @@
         <div class="box-title"><h5></h5></div>
         
         <div class="box-content">
-            <p>Puedes usar los filtros para hacer una búsqueda exacta sobre lo que estás buscando.</p>
+            <p>Productos y Servicios de <b>{{store.username}}</b></p>
         </div>
         
     </div>
@@ -119,40 +119,46 @@
 
         </div>
         
-        <div class="row equal-height cols-1 cols-sm-2 gap-20 mb-25">
+        <div class="tour-long-item-wrapper-01">
             {% for product in products %}
-            <div class="col">
-                
-                <figure class="tour-grid-item-01">
+            <figure class="tour-long-item-01">
 
-                    <a href="#">
+                <a href="#">
+                
+                    <div class="d-flex flex-column flex-sm-row align-items-xl-center">
                     
-                        <div class="image">
-                            <img src="{{product.image_one.url}}" alt="images" />
+                        <div>
+                            <div class="image">
+                                <img src="{{product.image_one.url}}" alt="images" />
+                            </div>
                         </div>
                         
-                        <figcaption class="content">
-                            <h5>{{product.name}}</h5>
-                            <ul class="item-meta">
-                                <li>
-                                    <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
-                                </li>
-                                <li>	
-                                    <div class="rating-item rating-sm rating-inline clearfix">
-                                        <div class="rating-icons">
-                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="4.5"/>
+                        <div>
+                            <figcaption class="content">
+                                <h5>{{product.name}}</h5>
+                                <ul class="item-meta">
+                                    <li>
+                                        <i class="elegent-icon-profile text-warning"></i> {{product.seller.first_name}} {{product.seller.last_name}}
+                                    </li>
+                                    <li>	
+                                        <div class="rating-item rating-sm rating-inline clearfix">
+                                            <div class="rating-icons">
+                                                <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="4.5"/>
+                                            </div>
+                                            <p class="rating-text font600 text-muted font-12 letter-spacing-1">26 reviews</p>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <p class="mt-3">Precio <span class="h6 line-1 text-primary font16">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
-                        </figcaption>
+                                    </li>
+                                </ul>
+                                <p>{{product.description|striptags|safe}}</p>
+                                <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
+                            </figcaption>
+                        </div>
                     
-                    </a>
+                    </div>
                     
-                </figure>
+                </a>
                 
-            </div>
+            </figure>
             {% endfor %}
         </div>
         

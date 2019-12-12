@@ -6,13 +6,16 @@ from store.models import Product
 from django.db.models import Max, Min
 
 
-def index_filter(request):
+def index_filter(request, seller=None):
     
     sort = int(request.GET.get('sort', 0))
     price_min = request.GET.get('min')
     price_max = request.GET.get('max')
 
     products_list = Product.objects.filter(active=True).order_by('-created_at')
+
+    if seller:
+        products_list = products_list.filter(seller=seller)
 
     range_max = products_list.aggregate(Max('price'))['price__max']
     range_min = products_list.aggregate(Min('price'))['price__min']

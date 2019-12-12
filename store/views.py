@@ -1,5 +1,6 @@
 # Django
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
@@ -8,6 +9,7 @@ from django.urls import reverse
 
 # Models
 from store.models import Product, Category
+from django.contrib.auth.models import User
 
 # Forms
 from store.forms import ProductForm
@@ -16,7 +18,6 @@ from store.forms import ProductForm
 from store.utils import index_filter
 
 def index(request):
-
 
 	context = index_filter(request)
 
@@ -57,7 +58,7 @@ def products_create(request):
 		if form.is_valid():
 			form.save()
 			messages.success(request, "Producto agregado!")
-			return redirect(reverse('store:products'))
+			return redirect(reverse('store:mystore'))
 
 	context = {
 		'menu': 'products',
@@ -66,3 +67,21 @@ def products_create(request):
 	}
 
 	return render(request, 'products/create.html', context)
+
+def seller_store(request, store_name):
+
+	store = get_object_or_404(User, username=store_name)
+
+	context = index_filter(request, store)
+
+	# Add categories to context
+	categories = Category.objects.annotate(total_products=Count('subcategory__product'))
+	context['categories'] = categories
+	context['store'] = store
+	context['pagination'] = {
+		'total': context['products'].paginator.count,
+		'from': context['products'].start_index,
+		'to': context['products'].end_index,
+		}
+
+	return render(request, "store/seller_store.html", context)
