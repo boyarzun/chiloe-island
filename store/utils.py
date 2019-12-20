@@ -56,3 +56,9 @@ def index_filter(request, seller=None):
     }
 
     return context
+
+def get_last_products(seller, quantity):
+
+    last_products = Product.objects.filter(seller=seller).order_by('-pk')[0:quantity]
+
+    return last_products

@@ -125,10 +125,10 @@
                 
                 <figure class="tour-grid-item-01">
 
-                    <a href="#">
+                    <a href="{% url 'store:sellerstore' product.pk %}">
                     
                         <div class="image">
-                            <img src="{{product.image_one.url}}" alt="images" />
+                            <img src="{{product.image_one.url}}" alt="{{product.name}}" />
                         </div>
                         
                         <figcaption class="content">
@@ -140,7 +140,7 @@
                                 <li>	
                                     <div class="rating-item rating-sm rating-inline clearfix">
                                         <div class="rating-icons">
-                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="4.5"/>
+                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
                                         </div>
                                     </div>
                                 </li>

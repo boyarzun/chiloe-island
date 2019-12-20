@@ -1,0 +1,438 @@
+{% extends 'gijalan/base.html' %}
+{% load staticfiles %}
+
+{% block title %} {{product.name}} {% endblock %}
+
+{% block main-wrapper %}
+        <section class="page-wrapper page-detail">
+        
+            <div class="page-title bg-light">
+            
+                <div class="container">
+                
+                    <div class="row gap-15 align-items-center">
+                    
+                        <div class="col-12 col-md-7">
+                            
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'home:index' %}"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="{% url 'store:index' %}">Tienda</a></li>
+                                    <li class="breadcrumb-item"><a href="{% url 'store:sellerstore' product.seller.username %}">{{product.seller.username}}</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{product.name}}</li>
+                                </ol>
+                            </nav>
+                            
+                        </div>
+                        
+                    </div>
+            
+                </div>
+                
+            </div>
+            
+            <div class="fullwidth-horizon-sticky none-sticky-hide">
+            
+                <div class="fullwidth-horizon-sticky-inner">
+                
+                    <div class="container">
+                        
+                        <div class="fullwidth-horizon-sticky-item clearfix">
+                                
+                            <ul id="horizon-sticky-nav" class="horizon-sticky-nav clearfix">
+                                <li>
+                                    <a href="#detail-content-sticky-nav-01">Overview</a>
+                                </li>
+                                <li>
+                                    <a href="#detail-content-sticky-nav-02">Itinerary</a>
+                                </li>
+                                <li>
+                                    <a href="#detail-content-sticky-nav-03">Map</a>
+                                </li>
+                                <li>
+                                    <a href="#detail-content-sticky-nav-04">What's included</a>
+                                </li>
+                                <li>
+                                    <a href="#detail-content-sticky-nav-05">Availabilities</a>
+                                </li>
+                                <li>
+                                    <a href="#detail-content-sticky-nav-06">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#detail-content-sticky-nav-07">Reviews</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container pt-30">
+
+                <div class="row gap-20 gap-lg-40">
+                    
+                    <div class="col-12 col-lg-8">
+                        
+                        <div class="content-wrapper">
+                            
+                            <div id="detail-content-sticky-nav-01" class="detail-header mb-30">
+                                <h3>{{product.name}}</h3>
+                                
+                                <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-20">
+                                    <div class="mr-15 font-lg">
+                                            <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
+                                    </div>
+                                    <div>
+                                        <div class="rating-item rating-inline">
+                                            <div class="rating-icons">
+                                                <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
+                                            </div>
+                                            <p class="rating-text font600 text-muted font-12 letter-spacing-1"><span class="text-dark mr-3">0/0</span> 0 Comentarios</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slick-gallery-slideshow detail-gallery mt-20 mb-40">
+                
+                                    <div class="slider gallery-slideshow">
+                                        <div><div class="image"><img src="{{product.image_one.url}}" alt="{{product.name}}" /></div></div>
+
+                                        {% if product.image_two %}
+                                            <div><div class="image"><img src="{{product.image_two.url}}" alt="{{product.name}}" /></div></div>
+                                        {% endif %}
+
+                                        {% if product.image_three %}
+                                            <div><div class="image"><img src="{{product.image_three.url}}" alt="{{product.name}}" /></div></div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="slider gallery-nav">
+                                        <div><div class="image"><img src="{{product.image_one.url}}" alt="{{product.name}}" /></div></div>
+
+                                        {% if product.image_two %}
+                                            <div><div class="image"><img src="{{product.image_two.url}}" alt="{{product.name}}" /></div></div>
+                                        {% endif %}
+
+                                        {% if product.image_three %}
+                                            <div><div class="image"><img src="{{product.image_three.url}}" alt="{{product.name}}" /></div></div>
+                                        {% endif %}
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="mb-30"></div>
+                                
+                                {{product.description|safe}}
+                                
+                            </div>
+                            
+                            {% if product.seller.userprofile.map %}
+                            <div id="detail-content-sticky-nav-03" class="fullwidth-horizon-sticky-section">
+                            
+                                <h4 class="heading-title">Map</h4>
+                                
+                                <img src="{% static 'assets/images/g-maps.jpg' %}">
+                                
+                                <div class="mb-50"></div>
+                                
+                            </div>
+                            {% endif %}
+                            
+                            <div class="fullwidth-horizon-sticky-section">
+
+                                <h4 class="heading-title">Más publicaciones del vendedor <a class="text-muted lead" href="{% url 'store:sellerstore' product.seller.username %}">(Ver todos)</a></h4>
+                                
+                                <div class="row equal-height cols-1 cols-sm-2 gap-30 mb-25">
+                                    {% for last_product in last_products  %}
+                                    <div class="col">
+                                        <figure class="tour-grid-item-01">
+                                            <a href="{% url 'store:sellerproduct' last_product.pk %}">
+                                                <div class="image">
+                                                    <img src="{{last_product.image_one.url}}" alt="images" />
+                                                </div>
+
+                                                <figcaption class="content">
+                                                    <h5>{{last_product.name}}</h5>
+                                                    <ul class="item-meta">
+                                                        <li>
+                                                            <i class="elegent-icon-profile text-warning"></i> {{last_product.seller.username}}
+                                                        </li>
+                                                        <li>	
+                                                            <div class="rating-item rating-sm rating-inline clearfix">
+                                                                <div class="rating-icons">
+                                                                    <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
+                                                                </div>
+                                                                <p class="rating-text font600 text-muted font-12 letter-spacing-1">0 Comentarios</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+                                                    {% comment %}
+                                                    <ul class="item-meta mt-15">
+                                                        <li><span class="font700 h6">3 days &amp; 2 night</span></li>
+                                                        <li>
+                                                            <span class="ri ri-map-marker"></span> Ancud
+                                                        </li>
+                                                    </ul>
+                                                    {% endcomment %}
+
+                                                    <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16" name="last-products-price" data-price="{{last_product.price}}">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
+                                                </figcaption>
+                                            
+                                            </a>
+                                            
+                                        </figure>
+                                        
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                                
+                            <div class="mb-50"></div>
+                                
+                                
+                            </div>
+                            
+                            <div id="detail-content-sticky-nav-06" class="fullwidth-horizon-sticky-section">
+                            
+                                <h4 class="heading-title">Preguntas frecuentes</h4>
+                                
+                                <div class="faq-item-long-wrapper">
+                                    
+                                    <div class="faq-item-long">
+                                        
+                                        <div class="row">
+                            
+                                            <div class="col-12 col-md-4 col-lg-3">
+                                            
+                                                <div class="col-inner">
+                                                    <h6>¿Qué es Chiloé Island?</h6>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <div class="col-12 col-md-8 col-lg-9">
+                                            
+                                                <div class="col-inner">
+                                                    <p class="font-lg">Residence certainly elsewhere something she preferred cordially law. Age his surprise formerly mrs perceive few stanhill moderate.</p>
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    <div class="faq-item-long">
+                                    
+                                        <div class="row">
+                            
+                                            <div class="col-12 col-md-4 col-lg-3">
+                                            
+                                                <div class="col-inner">
+                                                    <h6>¿Cómo comprar?</h6>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <div class="col-12 col-md-8 col-lg-9">
+                                            
+                                                <div class="col-inner">
+                                                    <p class="font-lg">Appetite in unlocked advanced breeding position concerns as. Cheerful get shutters yet for repeated screened.</p>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    <div class="faq-item-long">
+                                    
+                                        <div class="row">
+                            
+                                            <div class="col-12 col-md-4 col-lg-3">
+                                            
+                                                <div class="col-inner">
+                                                    <h6>¿Por qué comprar en Chiloé Island?</h6>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <div class="col-12 col-md-8 col-lg-9">
+                                            
+                                                <div class="col-inner">
+                                                    <p class="font-lg">Plan upon yet way get cold spot its week. Almost do am or limits hearts. Resolve parties but why she shewing. </p>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    <div class="faq-item-long">
+                                    
+                                        <div class="row">
+                            
+                                            <div class="col-12 col-md-4 col-lg-3">
+                                            
+                                                <div class="col-inner">
+                                                    <h6>¿Quien se hace cargo del envío?</h6>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <div class="col-12 col-md-8 col-lg-9">
+                                            
+                                                <div class="col-inner">
+                                                    <p class="font-lg">Received the likewise law graceful his. Nor might set along charm now equal green. Pleased yet equally correct colonel not one.</p>
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="row mt-25">
+
+                                    <div class="col-12 col-md-8 col-lg-9 offset-md-4 offset-lg-3">
+                                
+                                        <div class="col-inner">
+                                            <a href="#" class="btn btn-primary btn-wide">Ver todas las preguntas</a>
+                                        </div>
+                                        
+                                    </div>
+                                
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-12 col-lg-4">
+                        
+                        <aside class="sticky-kit-02 sidebar-wrapper no-border mt-20 mt-lg-0">
+
+                            <div class="booking-box">
+                            
+                                <div class="box-heading"><h3 class="h6 text-white text-uppercase">Realizar compra</h3></div>
+                                
+                                <div class="box-content">
+                                
+                                    <span class="font600 text-muted line-125">Producto elegido</span>
+                                    <h4 class="line-125 choosen-date mt-3"><i class="ri-shopping-cart"></i><small class="d-block">{{product.name}}</small></h4>
+                                    
+                                    
+                                    <div class="form-group form-spin-group border-top mt-15 pt-10">
+                                        <label class="h6 font-sm">Cantidad</label>
+                                        <input type="text" class="form-control touch-spin-03 form-control-readonly" id="product-price-input" value="1" onchange="setPrice()" readonly />
+                                    </div>
+                                    
+                                    <ul class="border-top mt-20 pt-15">
+                                        <li class="clearfix" id="product-detail" data-price="{{product.price}}"><span id="product-price"></span> x <span id="product-quantity" >1</span><span class="float-right" id="product-total">${{product.price}}</span></li>
+                                        <li class="clearfix border-top font700">
+                                            <div class="border-top mt-1">
+                                            <span>Total</span><span class="float-right text-dark" id="total-price">${{product.price}}</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-right font-sm">Precio aproximado</p>
+                                    
+                                    <a href="https://wa.me/{{whatsapp.phone}}" target="_blank" name="buy" class="btn btn-primary btn-block" rel="noopener noreferrer">Comprar</a>
+                                    
+                                    <p class="line-115 mt-20">Al hacer clic en el botón <a href="#" target="_blank" name="buy" rel="noopener noreferrer">comprar</a> se abrirá una ventana en la cual podrá comunicarse directamente con el vendedor del producto.</p>
+                                    
+                                </div>
+                                
+                                <div class="box-bottom bg-light">
+                                    <h6 class="font-sm">Puedes contactar directamente con el vendedor</h6>
+                                    <p class="font-sm">Consulta sobre el producto <span class="text-primary">{{product.seller.userprofile.phone}}</span>.</p>
+                                </div>
+                                
+                            </div>
+                        
+                        </aside>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        
+        </section>
+{% endblock %}
+
+{% block pageleveljs %}
+        <script type="text/javascript">
+
+            numeral.register('locale', 'cl', { delimiters: { thousands: '.', decimal: ',' }})
+            numeral.locale('cl')
+
+            setPrice();
+            setLastProductPrice();
+            setLinkWhatsapp()
+
+            function setLastProductPrice() {
+                productsPrice = document.getElementsByName('last-products-price')
+
+                productsPrice.forEach(function(item) {
+                    itemPrice = parseInt(item.dataset.price)
+                    item.innerHTML = "$" + numeral(itemPrice).format()
+                })
+            }
+
+            function setLinkWhatsapp() {
+                let productPriceInput = document.getElementById('product-price-input')
+                let quantity = parseInt(productPriceInput.value)
+
+                let base = "https://wa.me/"
+                let phoneNumber = "{{whatsapp.phone}}" + "?text="
+                let unit = quantity > 1 ? ' unidades ' : ' unidad '
+                let text = "Hola! Te hablo desde Chiloeisland.net. Tengo interés en " + String(quantity) + unit + "de " + window.location.href + " . Aun tiene stock?"
+                let url = base + phoneNumber + text
+
+                let buttons = document.getElementsByName('buy')
+
+                buttons.forEach(function(button) {
+                    button.href = url
+                })
+
+
+            }
+
+            function setPrice() {
+
+                // Getting elements
+                let productPriceInput = document.getElementById('product-price-input')
+                let productPriceElement = document.getElementById('product-price')
+                let productElement = document.getElementById('product-detail')
+                let productQuantity = document.getElementById('product-quantity')
+                let productTotalPrice = document.getElementById('product-total')
+                let totalPrice = document.getElementById('total-price')
+
+                // Setting vars
+                let price = parseInt(productElement.dataset.price)
+                let quantity = parseInt(productPriceInput.value)
+                let total = price * quantity
+
+                //Setting elements content
+                productQuantity.innerHTML = quantity
+                productPriceElement.innerHTML = "$" + numeral(price).format()
+                productTotalPrice.innerHTML = "$" + numeral(total).format()
+                totalPrice.innerHTML = "$" + numeral(total).format()
+
+                setLinkWhatsapp()
+
+            }
+        </script type="text/javascript">
+{% endblock %}

@@ -123,7 +123,7 @@
             {% for product in products %}
             <figure class="tour-long-item-01">
 
-                <a href="#">
+                <a href="{% url 'store:sellerstore' product.pk %}">
                 
                     <div class="d-flex flex-column flex-sm-row align-items-xl-center">
                     
@@ -138,14 +138,14 @@
                                 <h5>{{product.name}}</h5>
                                 <ul class="item-meta">
                                     <li>
-                                        <i class="elegent-icon-profile text-warning"></i> {{product.seller.first_name}} {{product.seller.last_name}}
+                                        <i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}
                                     </li>
                                     <li>	
                                         <div class="rating-item rating-sm rating-inline clearfix">
                                             <div class="rating-icons">
-                                                <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="4.5"/>
+                                                <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
                                             </div>
-                                            <p class="rating-text font600 text-muted font-12 letter-spacing-1">26 reviews</p>
+                                            <p class="rating-text font600 text-muted font-12 letter-spacing-1">0</p>
                                         </div>
                                     </li>
                                 </ul>

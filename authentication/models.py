@@ -20,6 +20,7 @@ class UserProfile(models.Model):
     address = models.CharField(max_length = 50, null=True)
     phone = models.CharField(max_length=18, null=True)
     avatar = models.ImageField(upload_to=user_directory_path, default='avatar/default.png')
+    #maps = models.URLField(max_length=250)
 
     def __str__(self):
         return "Usuario: %s" % (self.user)

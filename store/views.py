@@ -15,7 +15,7 @@ from django.contrib.auth.models import User
 from store.forms import ProductForm
 
 # Utils
-from store.utils import index_filter
+from store.utils import index_filter, get_last_products
 
 def index(request):
 
@@ -85,3 +85,22 @@ def seller_store(request, store_name):
 		}
 
 	return render(request, "store/seller_store.html", context)
+
+def seller_product(request, id_product):
+
+	product = get_object_or_404(Product, pk=id_product)
+
+
+	whatsapp = product.seller.userprofile.phone
+
+	whatsapp = whatsapp.replace('+', '')
+	whatsapp = whatsapp.replace(' ', '')
+	whatsapp = whatsapp.replace('-', '')
+
+	context = {
+		"product": product,
+		"last_products": get_last_products(product.seller, 2),
+		"whatsapp": { "phone": whatsapp }
+	}
+
+	return render(request, "store/seller_product.html" , context)
