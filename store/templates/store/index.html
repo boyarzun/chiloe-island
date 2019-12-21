@@ -39,7 +39,7 @@
     
     <div class="sidebar-box">
     
-        <div class="box-title"><h5>Star Slider</h5></div>
+        <div class="box-title"><h5>Calificación</h5></div>
         
         <div class="box-content">
             <input id="star_range" />
@@ -55,11 +55,12 @@
         
             {% for category in categories %}
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="filerStartPoint-01" name="filerStartPoint" checked>
-                    <label class="custom-control-label" for="filerStartPoint-01">{{category.name}} <span class="text-muted font-sm">({{category.total_products}})</span></label>
+                    <input type="checkbox" class="custom-control-input" id="{{category.name}}" data-id="{{category.id}}" name="filerStartPoint" onchange="categoriesFilter()">
+                    <label class="custom-control-label" for="{{category.name}}">{{category.name}} <span class="text-muted font-sm">({{category.total_products}})</span></label>
                 </div>
             {% endfor %}
 
+            {% comment %}
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="filerStartPoint-02" name="filerStartPoint" >
                 <label class="custom-control-label" for="filerStartPoint-02">Paris <span class="checkbox-count">(25)</span></label>
@@ -92,6 +93,7 @@
             
             <button class="btn btn-toggle btn-text-inherit text-primary text-uppercase font10 letter-spacing-2 font600 collapsed collapsed-on padding-0" type="buttom" data-toggle="collapse" data-target="#filerStartPointShowHide">Mostrar más (+)</button>
             <button class="btn btn-toggle btn-text-inherit text-uppercase font10 letter-spacing-2 font600 collapsed collapsed-off padding-0" type="buttom" data-toggle="collapse" data-target="#filerStartPointShowHide">Mostrar menos (-)</button>
+            {% endcomment %}
             
         </div>
         
@@ -145,7 +147,7 @@
                                     </div>
                                 </li>
                             </ul>
-                            <p class="mt-3">Precio <span class="h6 line-1 text-primary font16">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
+                            <p class="mt-3">Precio <span class="h6 line-1 text-primary font16" data-price="{{product.price}}" name="products-price">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
                         </figcaption>
                     
                     </a>
@@ -190,6 +192,33 @@
             assignQueryParam([['min', min], ['max', max]])
         }
 
+        // Setting category filter
+        let categoriesParams = getUrlValueParam('categories')
+        let selectedCategories = categoriesParams.split('::')
+        let categories = document.getElementsByName('filerStartPoint')
+
+        categories = Object.values(categories).filter(category => selectedCategories.includes(category.dataset.id))
+        categories = categories.map(category => category.checked = true)
+
+        function categoriesFilter() {
+            let categories = Object.values(document.getElementsByName('filerStartPoint')).filter(category => category.checked === true)
+            let value = ''
+
+            let index = 0
+            categories.forEach(function(category) {
+
+                value += category.dataset.id
+
+                if (categories.length > 1 &&  index < categories.length) {
+                    value += '::'
+                }
+
+                index += 1
+            })
+
+            assignQueryParam([['categories', value]])
+        }
+
         $("#price_range").ionRangeSlider({
             connect: true,
             type: "double",
@@ -205,5 +234,7 @@
         function pagination(event){
             addUrlParameter('page', event.dataset.page)
         }
+
+        parseCLP('products-price')
     </script>
 {% endblock %}

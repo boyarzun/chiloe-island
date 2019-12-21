@@ -11,6 +11,7 @@ def index_filter(request, seller=None):
     sort = int(request.GET.get('sort', 0))
     price_min = request.GET.get('min')
     price_max = request.GET.get('max')
+    categories = request.GET.get('categories')
 
     products_list = Product.objects.filter(active=True).order_by('-created_at')
 
@@ -22,6 +23,13 @@ def index_filter(request, seller=None):
 
     if price_min and price_max:
         products_list = products_list.filter(price__gte=price_min, price__lte=price_max)
+
+    if categories:
+        categories = categories.split('::')
+        products_list = products_list.filter(categories__in=categories)
+
+
+    
 
     if sort == 1:
         products_list = products_list.order_by('name')

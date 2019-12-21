@@ -24,6 +24,11 @@ def index(request):
 	# Add categories to context
 	categories = Category.objects.annotate(total_products=Count('subcategory__product'))
 	context['categories'] = categories
+	context['pagination'] = {
+		'total': context['products'].paginator.count,
+		'from': context['products'].start_index,
+		'to': context['products'].end_index,
+		}
 
 	return render(request, "store/index.html", context)
 
