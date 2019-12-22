@@ -8,8 +8,8 @@
     <div class="overlay-holder bottom"></div>
     <div class="hero-inner">
         <div class="container">
-            <h1>Go <span class="font200">tour <span class="block">with <span class="font700">Gi</span>Jalan </span></span></h1>
-            <p class="font-lg spacing-1">Descubre la isla de Chiloé!</p>
+            <h1>Bienvenidos <span class="font200">a <span class="block"><span class="font700">Chiloé</span> Digital </span></span></h1>
+            <p class="font-lg spacing-1">Descubre la isla grande Chiloé!</p>
             <div class="search-form-main">
                 <form>
                     <div class="from-inner">
@@ -189,33 +189,27 @@
             {% for product in last_products %}
             <div class="col">
                 <figure class="tour-grid-item-01">
-                    <a href="index.html#">
+                    <a href="{% url 'store:sellerproduct' product.pk %}">
                         <div class="image">
-                            <img src="{% static 'assets/images/image-tour/01.jpg' %}" alt="images" />
+                            <img src="{{product.image_one.url}}" alt="Chiloé Island" />
                         </div>
                         
                         <figcaption class="content">
-                            <h5>Rome to Naples and Amalfi Coast Adventure</h5>
+                            <h5>{{product.name}}</h5>
                             <ul class="item-meta">
                                 <li>
-                                    <i class="elegent-icon-pin_alt text-warning"></i> Italy
+                                    <i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}
                                 </li>
                                 <li>	
                                     <div class="rating-item rating-sm rating-inline clearfix">
                                         <div class="rating-icons">
-                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="4.5"/>
+                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
                                         </div>
-                                        <p class="rating-text font600 text-muted font-12 letter-spacing-1">26 reviews</p>
+                                        <p class="rating-text font600 text-muted font-12 letter-spacing-1">0 Comentarios</p>
                                     </div>
                                 </li>
                             </ul>
-                            <ul class="item-meta mt-15">
-                                <li><span class="font700 h6">3 days &amp; 2 night</span></li>
-                                <li>
-                                    Start: <span class="font600 h6 line-1 mv-0"> Rome</span> - End: <span class="font600 h6 line-1 mv-0"> Naoples</span>
-                                </li>
-                            </ul>
-                            <p class="mt-3">Price from <span class="h6 line-1 text-primary font16">$125.99</span> <span class="text-muted mr-5"></span></p>
+                            <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16" name="products-price" data-price="{{product.price}}">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
                         </figcaption>
                     
                     </a>
@@ -410,7 +404,7 @@
     <div class="container">
         
         <div class="section-title">
-            <h2><span><span>Artículos</span> de viajes</span></h2>
+            <h2><span><span>Últimas</span> publicaciones</span></h2>
         </div>
         
         <div class="post-grid-wrapper-01">
@@ -457,4 +451,10 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block pageleveljs %}
+    <script type="text/javascript">
+        parseCLP('products-price');
+    </script>
 {% endblock %}
