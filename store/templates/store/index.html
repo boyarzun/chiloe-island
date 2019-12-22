@@ -193,12 +193,14 @@
         }
 
         // Setting category filter
-        let categoriesParams = getUrlValueParam('categories')
-        let selectedCategories = categoriesParams.split('::')
-        let categories = document.getElementsByName('filerStartPoint')
+        if (getUrlValueParam('categories')) {
+            let categoriesParams = getUrlValueParam('categories')
+            let selectedCategories = categoriesParams.split('::')
+            let categories = document.getElementsByName('filerStartPoint')
 
-        categories = Object.values(categories).filter(category => selectedCategories.includes(category.dataset.id))
-        categories = categories.map(category => category.checked = true)
+            categories = Object.values(categories).filter(category => selectedCategories.includes(category.dataset.id))
+            categories = categories.map(category => category.checked = true)
+        }
 
         function categoriesFilter() {
             let categories = Object.values(document.getElementsByName('filerStartPoint')).filter(category => category.checked === true)
