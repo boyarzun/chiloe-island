@@ -10,7 +10,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{% url 'home:index' %}"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tienda</li>
+            <li class="breadcrumb-item"><a href="{% url 'store:index' %}">Tienda</a></li>
+            <li class="breadcrumb-item active">{{store.username}}</li>
         </ol>
     </nav>
 {% endblock %}
@@ -39,7 +40,7 @@
     
     <div class="sidebar-box">
     
-        <div class="box-title"><h5>Star Slider</h5></div>
+        <div class="box-title"><h5>Calificación</h5></div>
         
         <div class="box-content">
             <input id="star_range" />
@@ -59,12 +60,8 @@
                     <label class="custom-control-label" for="filerStartPoint-01">{{category.name}} <span class="text-muted font-sm">({{category.total_products}})</span></label>
                 </div>
             {% endfor %}
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="filerStartPoint-02" name="filerStartPoint" >
-                <label class="custom-control-label" for="filerStartPoint-02">Paris <span class="checkbox-count">(25)</span></label>
-            </div>
             
+            {% comment %}
             <div id="filerStartPointShowHide" class="collapse"> 
             
                 <div class="collapse-inner">
@@ -87,11 +84,12 @@
                 </div>
             
             </div>
-            
+
             <div class="clear mb-10"></div>
             
             <button class="btn btn-toggle btn-text-inherit text-primary text-uppercase font10 letter-spacing-2 font600 collapsed collapsed-on padding-0" type="buttom" data-toggle="collapse" data-target="#filerStartPointShowHide">Mostrar más (+)</button>
             <button class="btn btn-toggle btn-text-inherit text-uppercase font10 letter-spacing-2 font600 collapsed collapsed-off padding-0" type="buttom" data-toggle="collapse" data-target="#filerStartPointShowHide">Mostrar menos (-)</button>
+            {% endcomment %}
             
         </div>
         
@@ -149,7 +147,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
+                                <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16" name="products-price" data-price="{{product.price}}">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
                             </figcaption>
                         </div>
                     
@@ -210,5 +208,7 @@
         function pagination(event){
             addUrlParameter('page', event.dataset.page)
         }
+
+        parseCLP('products-price')
     </script>
 {% endblock %}
