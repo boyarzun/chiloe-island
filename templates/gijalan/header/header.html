@@ -13,21 +13,37 @@
                 <div class="col-7 col-shrink order-last-lg">
                     <div class="col-inner">
                         <ul class="nav-mini-right">
+
+                            {% if not request.user.is_authenticated %}
                             <li class="d-none d-sm-block">
                                 <a href="{% url 'authentication:register' %}" data-keyboard="false">
                                     <span class="icon-font"><i class="icon-user-follow"></i></span> Crear cuenta
                                 </a>
                             </li>
+
                             <li class="d-none d-sm-block">
                                 <a href="{% url 'authentication:login' %}" data-keyboard="false">
                                     <span class="icon-font"><i class="icon-login"></i></span> Entrar
                                 </a>
                             </li>
+
+                            {% else %}
+                            <li class="d-none d-sm-block">
+                                <a href="{% url 'store:mystore' %}" data-keyboard="false">
+                                    <span class="icon-font"><i class="icon-settings"></i></span> Panel de control
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            {% if request.user.is_authenticated %}
+
+                            {% else %}
                             <li class="d-block d-sm-none">
                                 <a href="index.html#loginFormTabInModal-register" data-toggle="modal" data-target="#loginFormTabInModal" data-backdrop="static" data-keyboard="false">
                                     Login / Register
                                 </a>
                             </li>
+                            {% endif %}
                             <li>
                                 <button class="btn btn-toggle collapsed" data-toggle="collapse" data-target="#mobileMenu"></button>
                             </li>

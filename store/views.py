@@ -40,7 +40,7 @@ def mystore_index(request):
 	page = request.GET.get('page', 1)
 	
 	# Pagination
-	paginator = Paginator(list(products_list), 1)
+	paginator = Paginator(list(products_list), 9)
 	products = paginator.get_page(page)
 
 	context = {
