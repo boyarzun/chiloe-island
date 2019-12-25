@@ -9,5 +9,6 @@ urlpatterns = [
     path('store/<slug:store_name>', seller_store, name="sellerstore"),
     path('mystore/', mystore_index, name="mystore"),
     path('mystore/new', products_create, name="new"),
+    path('mystore/<int:product_id>', product_edit, name="edit"),
 ]
 

@@ -73,6 +73,23 @@ def products_create(request):
 
 	return render(request, 'products/create.html', context)
 
+@login_required
+def product_edit(request, product_id):
+
+	product = get_object_or_404(Product, pk=product_id)
+
+	form = ProductForm(instance=product)
+
+
+	context = {
+		'menu': 'products',
+		'form': form,
+		'categories': Category.objects.all(),
+	}
+
+	return render(request, 'products/edit.html', context)
+
+
 def seller_store(request, store_name):
 
 	store = get_object_or_404(User, username=store_name)

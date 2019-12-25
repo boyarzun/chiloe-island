@@ -1,22 +1,22 @@
 {% extends 'generic/form.html' %}
 
-{% block title %}Nuevo producto{% endblock %}
+{% block title %}Editar producto{% endblock %}
 
 {% block form_page_title %}
     <i class="material-icons contact-icon vertical-text-top">person_add</i>
-    Nuevo producto
+    Editar producto
 {% endblock %}
 
-{% block form_page_subtitle_description %}Agregue un nuevo producto{% endblock %}
+{% block form_page_subtitle_description %}Edite su producto{% endblock %}
 
 {% block form_title %}
     <i class="material-icons">shopping_cart</i>
-    Complete el formulario para agregar un nuevo producto
+    Complete el formulario para editar su producto
 {% endblock %}
 
-{% block form_sidebar_title %}Necesitas agregar un nuevo producto?{% endblock %}
+{% block form_sidebar_title %}Necesitas editar el producto?{% endblock %}
 
-{% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para crear el usuario.{% endblock %}
+{% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para editar el producto.{% endblock %}
 
 {% block content_form %}
     {{form.errors}}
@@ -37,8 +37,11 @@
     </div>
     {% include 'generic/forms/input.html' with field=form.name label="Nombre" col="s12" %}
     {% include 'generic/forms/input.html' with field=form.price label="Precio" col="s12" %}
-    {% include 'generic/forms/checkbox.html' with field=form.active checked="True" label="Activo" col="s12" %}
-
+    {% include 'generic/forms/checkbox.html' with field=form.active label="Activo" col="s12" %}
+    asdasd
+    {{form.field.active}}
+    asdas
+    {{form.description}}
 {% endblock %}
 
 {% block pageleveljs %}

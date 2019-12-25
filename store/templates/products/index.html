@@ -24,13 +24,12 @@
          <div class="col s12 m4 l4">
             <div class="card animate fadeLeft">
                <div class="card-content">
-                  <p>Smartwatches</p>
                   <span class="card-title text-ellipsis">{{object.name}}</span>
                   <img src="{{object.image_one.url}}" class="responsive-img" alt="{{object.name}}">
                   <div class="row">
                   <h5 class="col s12 m12 l8 mt-3">${{object.price}}</h5>
                   <a class="col s12 m12 l4 mt-2 waves-effect waves-light gradient-45deg-deep-purple-blue btn modal-trigger"
-                     href="#modal1">Ver detalles</a>
+                     href="{% url 'store:edit' object.pk %}">Ver detalles</a>
                   </div>
                </div>
             </div>
