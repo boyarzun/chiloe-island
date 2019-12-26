@@ -13,4 +13,4 @@ def index(request):
                 "last_products": last_products
         }
 
-        return render(request, "gijalan/index.html", context)
+        return render(request, "coming-soon/index.html", context)
