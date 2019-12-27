@@ -39,8 +39,8 @@
 
                             {% else %}
                             <li class="d-block d-sm-none">
-                                <a href="index.html#loginFormTabInModal-register" data-toggle="modal" data-target="#loginFormTabInModal" data-backdrop="static" data-keyboard="false">
-                                    Login / Register
+                                <a href="{% url 'authentication:login' %}" data-backdrop="static" data-keyboard="false">
+                                    Entrar / Registro
                                 </a>
                             </li>
                             {% endif %}
