@@ -7859,9 +7859,9 @@ input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly])
 {
-    border-bottom: 1px solid #ff4081;
-    -webkit-box-shadow: 0 1px 0 0 #ff4081;
-            box-shadow: 0 1px 0 0 #ff4081;
+    border-bottom: 1px solid green;
+    -webkit-box-shadow: 0 1px 0 0 green;
+            box-shadow: 0 1px 0 0 green;
 }
 input:not([type]):focus:not([readonly]) + label,
 input[type=text]:not(.browser-default):focus:not([readonly]) + label,
@@ -7877,7 +7877,7 @@ input[type=number]:not(.browser-default):focus:not([readonly]) + label,
 input[type=search]:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label
 {
-    color: #ff4081;
+    color: green;
 }
 input:not([type]):focus.valid ~ label,
 input[type=text]:not(.browser-default):focus.valid ~ label,
@@ -8274,7 +8274,7 @@ textarea.materialize-textarea + label:after,
 }
 .input-field .prefix.active
 {
-    color: #ff4081;
+    color: green;
 }
 .input-field .prefix ~ input,
 .input-field .prefix ~ textarea,
