@@ -3,14 +3,14 @@
         "model": "settings.setting",
         "pk": 1,
         "fields": {
-            "name": "Django Dashboard",
-            "slogan": "The best django dashboard",
+            "name": "Chiloé Island",
+            "slogan": "Dedicandonos a conectar nuestra isla",
             "logo": "site/logo/logo.png",
-            "email": "hola@thecoderscompany.com",
+            "email": "hola@chiloeisland.net",
             "phone_number": "+56 9 1234 5678",
             "intro_step": 1,
             "description": "Site description",
-            "keywords": "django, dashboard",
+            "keywords": "chiloe, island, ancud, chacao, castro, quellon, dalcahue, chonchi, achao, quemchi, cucao, curaco",
             "menu_color": 1,
             "menu_dark": false,
             "menu_collapsed": true,
@@ -26,9 +26,9 @@
         "model": "auth.user",
         "pk": 1,
         "fields": {
-            "first_name": "ad",
-            "last_name": "min",
-            "email": "admin@dashboard.com",
+            "first_name": "Byron",
+            "last_name": "Oyarzún",
+            "email": "b.oyarzn@gmail.com",
             "username": "admin",
             "is_superuser": true,
             "is_staff": true,
@@ -40,7 +40,7 @@
         "pk": 1,
         "fields": {
             "user": 1,
-            "address": "Chiloe #5656",
+            "address": "Chiloé",
             "phone": "+569 6287 3787"
         }
     },
