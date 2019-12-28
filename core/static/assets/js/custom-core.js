@@ -342,8 +342,8 @@ jQuery(function($) {
 	$("#star_range").ionRangeSlider({
 		type: "double",
 		grid: false,
-		from: 1,
-		to: 2,
+		from: 5,
+		to: 5,
 		values: [
 			"<i class='ri-star'></i>", 
 			"<i class='ri-star'></i> <i class='ri-star'></i>",
