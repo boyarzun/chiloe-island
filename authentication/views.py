@@ -18,7 +18,7 @@ from django.contrib.auth.views import PasswordResetView
 def login(request):
     # We check if the user is loggin
     if request.user.is_authenticated:
-        return redirect('/')
+        return redirect(reverse_lazy('store:mystore'))
     # Creamos el formulario de autenticación vacío
     form = AuthenticationForm()
     if request.method == "POST":
@@ -38,7 +38,7 @@ def login(request):
                 # Hacemos el login manualmente
                 do_login(request, user)
                 # Y le redireccionamos a la portada
-                return redirect('/')
+                return redirect(reverse_lazy('store:mystore'))
 
     # Si llegamos al final renderizamos el formulario
     return render(
@@ -57,7 +57,7 @@ def register(request):
             user = form.save()
             if user is not None:
                 do_login(request, user)
-                return redirect('/')
+                return redirect(reverse_lazy('store:mystore'))
 
     context = {
         'form': form
