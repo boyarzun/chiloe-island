@@ -1,3 +1,4 @@
+import os
 from settings.models import Setting
 
 def site_data(request):
@@ -24,6 +25,8 @@ def site_data(request):
         'FOOTER_DARK': settings.footer_dark,
         'FOOTER_FIXED': settings.footer_fixed,
         'FOOTER_DARK_CLASS': get_footer_dark(settings.footer_dark),
+        #Static files
+        'STATIC_STORAGE_PATH': os.getenv('STATIC_STORAGE_PATH') or '/media/',
     }
 
 def get_color(n):
