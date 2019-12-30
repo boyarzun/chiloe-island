@@ -40,8 +40,8 @@ class CommonInfo(models.Model):
 class Product(CommonInfo):
     categories = models.ManyToManyField(SubCategory)
     image_one = models.ImageField(upload_to=product_directory_path)
-    image_two = models.ImageField(upload_to=product_directory_path, null=True)
-    image_three = models.ImageField(upload_to=product_directory_path, null=True)
+    image_two = models.ImageField(upload_to=product_directory_path, null=True, blank=True)
+    image_three = models.ImageField(upload_to=product_directory_path, null=True, blank=True)
     description = RichTextField()
 
 class Service(CommonInfo):
