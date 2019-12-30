@@ -130,9 +130,11 @@
                             {% if product.seller.userprofile.map %}
                             <div id="detail-content-sticky-nav-03" class="fullwidth-horizon-sticky-section">
                             
-                                <h4 class="heading-title">Map</h4>
+                                <h4 class="heading-title">¿Cómo llegar?</h4>
                                 
-                                <img src="{% static 'assets/images/g-maps.jpg' %}">
+                                <a href="{{product.seller.userprofile.map}}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{% static 'assets/images/g-maps.jpg' %}">
+                                </a>
                                 
                                 <div class="mb-50"></div>
                                 

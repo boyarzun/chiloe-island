@@ -41,7 +41,8 @@
         "fields": {
             "user": 1,
             "address": "Chiloé",
-            "phone": "+569 6287 3787"
+            "phone": "+569 6287 3787",
+            "map": "https://google.com/"
         }
     },
     {
