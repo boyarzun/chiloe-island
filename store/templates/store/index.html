@@ -130,7 +130,7 @@
                     <a href="{% url 'store:sellerstore' product.pk %}">
                     
                         <div class="image">
-                            <img src="{{product.image_one.url}}" alt="{{product.name}}" />
+                            <img src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" alt="{{product.name}}" />
                         </div>
                         
                         <figcaption class="content">

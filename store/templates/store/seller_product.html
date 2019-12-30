@@ -97,25 +97,25 @@
                                 <div class="slick-gallery-slideshow detail-gallery mt-20 mb-40">
                 
                                     <div class="slider gallery-slideshow">
-                                        <div><div class="image"><img src="{{product.image_one.url}}" alt="{{product.name}}" /></div></div>
+                                        <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" alt="{{product.name}}" /></div></div>
 
                                         {% if product.image_two %}
-                                            <div><div class="image"><img src="{{product.image_two.url}}" alt="{{product.name}}" /></div></div>
+                                            <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_two.name}}" alt="{{product.name}}" /></div></div>
                                         {% endif %}
 
                                         {% if product.image_three %}
-                                            <div><div class="image"><img src="{{product.image_three.url}}" alt="{{product.name}}" /></div></div>
+                                            <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_three.name}}" alt="{{product.name}}" /></div></div>
                                         {% endif %}
                                     </div>
                                     <div class="slider gallery-nav">
-                                        <div><div class="image"><img src="{{product.image_one.url}}" alt="{{product.name}}" /></div></div>
+                                        <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" alt="{{product.name}}" /></div></div>
 
                                         {% if product.image_two %}
-                                            <div><div class="image"><img src="{{product.image_two.url}}" alt="{{product.name}}" /></div></div>
+                                            <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_two.name}}" alt="{{product.name}}" /></div></div>
                                         {% endif %}
 
                                         {% if product.image_three %}
-                                            <div><div class="image"><img src="{{product.image_three.url}}" alt="{{product.name}}" /></div></div>
+                                            <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_three.name}}" alt="{{product.name}}" /></div></div>
                                         {% endif %}
                                     </div>
                                     
