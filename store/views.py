@@ -80,6 +80,16 @@ def product_edit(request, product_id):
 
 	form = ProductForm(instance=product)
 
+	if request.method == 'POST':
+		request.POST = request.POST.copy()
+		request.POST['seller'] = str(request.user.id)
+		form = ProductForm(data=request.POST, files=request.FILES, instance=product)
+		if form.is_valid():
+			form.save()
+			messages.success(request, "Producto actualizado!")
+			return redirect(reverse('store:mystore'))
+
+
 
 	context = {
 		'menu': 'products',
