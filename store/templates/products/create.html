@@ -35,6 +35,7 @@
         </select>
         <label for="id_categories">Categoría</label>
     </div>
+    {{form.images_status}}
     {% include 'generic/forms/input.html' with field=form.name label="Nombre" col="s12" %}
     {% include 'generic/forms/input.html' with field=form.price label="Precio" col="s12" %}
     {% include 'generic/forms/checkbox.html' with field=form.active checked="True" label="Activo" col="s12" %}
