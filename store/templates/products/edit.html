@@ -20,9 +20,9 @@
 
 {% block content_form %}
     {{form.errors}}
-    {% include 'generic/forms/file.html' with field=form.image_one required=True col="s4" %}
-    {% include 'generic/forms/file.html' with field=form.image_two col="s4" %}
-    {% include 'generic/forms/file.html' with field=form.image_three col="s4" %}
+    {% include 'generic/forms/file.html' with field=form.image_one required=True col="s12 m4" %}
+    {% include 'generic/forms/file.html' with field=form.image_two col="s12 m4" %}
+    {% include 'generic/forms/file.html' with field=form.image_three col="s12 m4" %}
     <div class="input-field col s12">
         {{form.categories}}
     </div>
