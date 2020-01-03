@@ -7,6 +7,6 @@
         class="dropify"
         accept="image/*"
         data-default-file="{% if field.value %}{{STATIC_STORAGE_PATH}}{{field.value}}{% endif %}"
-        {% if field.field.required %}required{% endif %}
+        {% if field.required %}required{% endif %}
     />
 </div>
