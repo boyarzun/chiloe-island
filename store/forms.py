@@ -6,8 +6,6 @@ from store.models import Product
 
 class ProductForm(forms.ModelForm):
 
-    images_status = forms.CharField(max_length=20, widget=forms.HiddenInput(), initial='0::0::0')
-
     class Meta:
         model = Product
         exclude = ('pk',)
@@ -15,14 +13,11 @@ class ProductForm(forms.ModelForm):
     def is_valid(self):
         """Return True if the form has no errors, or False otherwise."""
 
-        if self.initial:
-            splittedValue = self.data['images_status'].split('::')
-
-            if (splittedValue[0] == '1'):
-                self.initial['image_one'].delete()
-            if (splittedValue[1] == '1'):
-                self.initial['image_two'].delete()
-            if (splittedValue[2] == '1'):
-                self.initial['image_three'].delete()
+        if self.files:
+            for key in self.files:
+                try:
+                    self.initial[key].delete()
+                except ValueError:
+                    pass
 
         return self.is_bound and not self.errors
