@@ -49,21 +49,29 @@ def login(request):
 
 def register(request):
     template = 'authentication/register.html'
-    form = UserCreationForm()
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
 
-    if request.method == "POST":
-        form = UserCreationForm(data=request.POST)
-        if form.is_valid():
-            user = form.save()
-            if user is not None:
-                do_login(request, user)
-                return redirect(reverse_lazy('store:mystore'))
-
-    context = {
-        'form': form
-    }
-
-    return render(request, template, context)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save(commit=False)
+            user.set_password(user.password)
+            user.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
+            registered = True
+            #messages.success(request, "Usuario registrado")
+            return HttpResponseRedirect(reverse('log:login'))
+        else:
+            print(user_form.errors, profile_form.errors)
+    else:
+        user_form = UserForm()
+        profile_form = UserProfileForm()
+        
+    data = {'user_form': user_form, 'profile_form': profile_form, 'registered': registered}
+    return render(request, template, data)
 
 def logout(request):
     # Finalizamos la sesión
