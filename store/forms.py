@@ -20,9 +20,9 @@ class ProductForm(forms.ModelForm):
 
             if (splittedValue[0] == '1'):
                 self.initial['image_one'].delete()
-            elif (splittedValue[1] == '1'):
+            if (splittedValue[1] == '1'):
                 self.initial['image_two'].delete()
-            elif (splittedValue[2] == '1'):
+            if (splittedValue[2] == '1'):
                 self.initial['image_three'].delete()
 
         return self.is_bound and not self.errors
