@@ -13,7 +13,7 @@ class ProductForm(forms.ModelForm):
     def is_valid(self):
         """Return True if the form has no errors, or False otherwise."""
 
-        if self.files:
+        if self.files and self.initial:
             for key in self.files:
                 try:
                     self.initial[key].delete()
