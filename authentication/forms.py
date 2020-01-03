@@ -23,6 +23,6 @@ class UserProfileForm(forms.ModelForm):
         fields = ('address', 'phone')
         widgets = {
             'address': forms.TextInput(attrs={'placeholder': 'Dirección'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Teléfono'}),
+            'phone': forms.TextInput(attrs={'placeholder': '569 XXXX XXXX'}),
         }
 
