@@ -7,6 +7,12 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 
+class Commune(models.Model):
+    name = models.CharField(max_length=128)
+    image = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.name
 
 def user_directory_path(instance, filename):
     """ File will be uploaded to MEDIA_ROOT/<user_id>/<filename> """
@@ -21,6 +27,8 @@ class UserProfile(models.Model):
     phone = models.CharField(max_length=18, null=True, verbose_name="Teléfono")
     avatar = models.ImageField(upload_to=user_directory_path, default='avatar/default.png')
     map = models.URLField(max_length=250, null=True, blank=True)
+    commune = models.ForeignKey(Commune, on_delete=models.CASCADE)
 
     def __str__(self):
         return "Usuario: %s" % (self.user)
+

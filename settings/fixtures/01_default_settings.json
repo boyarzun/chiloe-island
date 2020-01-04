@@ -42,7 +42,8 @@
             "user": 1,
             "address": "Chiloé",
             "phone": "+569 6287 3787",
-            "map": "https://google.com/"
+            "map": "https://google.com/",
+            "commune_id": 1
         }
     },
     {
@@ -73,6 +74,86 @@
         "fields": {
             "name": "Nativa",
             "category": 2
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 1,
+        "fields": {
+            "name": "Ancud",
+            "image": "/images/communes/ancud.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 2,
+        "fields": {
+            "name": "Castro",
+            "image": "/images/communes/castro.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 3,
+        "fields": {
+            "name": "Chonchi",
+            "image": "/images/communes/chonchi.jpn"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 4,
+        "fields": {
+            "name": "Curaco de Vélez",
+            "image": "/images/communes/curaco-de-velez.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 5,
+        "fields": {
+            "name": "Dalcahue",
+            "image": "/images/communes/dalcahue.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 6,
+        "fields": {
+            "name": "Puqueldón",
+            "image": "/images/communes/puqueldon.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 7,
+        "fields": {
+            "name": "Queilén",
+            "image": "/images/communes/queilen.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 8,
+        "fields": {
+            "name": "Quellón",
+            "image": "/images/communes/quellon.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 9,
+        "fields": {
+            "name": "Quemchi",
+            "image": "/images/communes/quemchi.jpg"
+        }
+    },
+    {
+        "model": "authentication.commune",
+        "pk": 10,
+        "fields": {
+            "name": "Quinchao",
+            "image": "/images/communes/quinchao.jpg"
         }
     }
 ]
