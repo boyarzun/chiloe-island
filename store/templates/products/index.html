@@ -43,13 +43,23 @@
             <div class="card animate fadeLeft">
                <div class="card-content">
                   <span class="card-title text-ellipsis">{{object.name}}</span>
-                  
-                  
+
                   <img src="{{STATIC_STORAGE_PATH}}{{object.image_one.name}}" class="responsive-img" alt="{{object.name}}">
                   <div class="row">
-                  <h5 class="col s12 m12 l8 mt-3">${{object.price}}</h5>
-                  <a class="col s12 m12 l4 mt-2 waves-effect waves-light gradient-45deg-deep-purple-blue btn modal-trigger"
-                     href="{% url 'store:edit' object.pk %}">Ver detalles</a>
+                     <h5 class="col s12 m12 l8 mt-3">${{object.price}}</h5>
+                  </div>
+
+                  <div class="row">
+
+                     <div class="col s9">
+                        <a class="col waves-effect waves-light gradient-45deg-deep-purple-blue btn modal-trigger"
+                        href="{% url 'store:edit' object.pk %}">Ver detalles</a>
+                     </div>
+
+                     <div class="col s3" style="padding-top: 5px;">
+                        <a href="{% url 'store:sellerproduct' object.pk %}" target="_blank"><i class="material-icons left">public</i></a>
+                     </div>
+
                   </div>
                </div>
             </div>
