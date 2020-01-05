@@ -15,6 +15,24 @@
 
 {% block customcss %}{% endblock %}
 
+{% block breadcrumb %}
+   <div class="col s10 m6 l6">
+      <h5 class="breadcrumbs-title mt-0 mb-0"><span>Productos</span></h5>
+      <ol class="breadcrumbs mb-0">
+      <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+      <li class="breadcrumb-item active">Mis productos</li>
+      </ol>
+   </div>
+
+   <div class="col s2 m6 l6">
+      <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn gradient-45deg-green-teal right" href="{% url 'store:sellerstore' request.user.username %}" target="_blank" data-target="dropdown1">
+         <i class="material-icons hide-on-med-and-up">open_in_new</i>
+         <span class="hide-on-small-onl">Ver tienda</span>
+         <i class="material-icons left">open_in_new</i>
+      </a>
+   </div>
+{% endblock %}
+
 {% block container %}
 <div class="section">
    <div class="row" id="ecommerce-products">

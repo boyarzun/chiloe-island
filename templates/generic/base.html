@@ -34,6 +34,16 @@
       <div id="main" {% if MENU_COLLAPSED %}class="main-full"{% endif %}>
          <div class="row">
             <div class="content-wrapper-before {{NAVBAR_COLOR}}"></div>
+
+            <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
+               <!-- Search for small screen-->
+               <div class="container">
+                  <div class="row">
+                     {% block breadcrumb %}{% endblock %}
+                  </div>
+               </div>
+             </div>
+
             <div class="col s12">
                <div class="container">
                   {% block container %}{% endblock %}
