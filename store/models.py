@@ -35,8 +35,8 @@ class CommonInfo(models.Model):
     active = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    old_price = models.IntegerField()
-    price = models.IntegerField()
+    old_price = models.PositiveIntegerField(blank=True, default=0)
+    price = models.PositiveIntegerField(blank=True, default=0)
 
     class Meta:
         abstract = True
@@ -50,10 +50,12 @@ class Product(CommonInfo):
 
     def save(self, *args, **kwargs):
 
-        # Resizing images
         if self.id:
             previous = Product.objects.get(pk=self.id)
 
+            self.old_price = previous.price
+
+        # Resizing images
         if not self.id:
             self.image_one = self.compressImage(self.image_one)
         else:
