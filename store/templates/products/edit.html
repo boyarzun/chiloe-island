@@ -20,9 +20,10 @@
 
 {% block content_form %}
     {{form.errors}}
-    {% include 'generic/forms/file.html' with field=form.image_one required=True col="s12 m4" %}
-    {% include 'generic/forms/file.html' with field=form.image_two col="s12 m4" %}
-    {% include 'generic/forms/file.html' with field=form.image_three col="s12 m4" %}
+    {% include 'generic/forms/file.html' with field=form.image_one required=True col="s12 m3" %}
+    {% include 'generic/forms/file.html' with field=form.image_two col="s12 m3" %}
+    {% include 'generic/forms/file.html' with field=form.image_three col="s12 m3" %}
+    {% include 'generic/forms/file.html' with field=form.image_four col="s12 m3" %}
     <div class="input-field col s12">
         {{form.categories}}
     </div>
@@ -60,10 +61,19 @@
         }
     });
 
+    var image_four = $('#id_image_four').dropify({
+        messages: {
+            default: 'Agregar imagen',
+            replace: 'Haz clic para reemplazar la imagen',
+            remove:  'Quitar',
+            error:   'El tipo de documento no valido'
+        }
+    });
+
     function editDropifyElement (event, element){
         let input = document.getElementById('id_images_status')
-        let value = input.value // 0::0::0
-        let splittedValue = value.split('::') // ['0', '0', '0']
+        let value = input.value // 0::0::0::0
+        let splittedValue = value.split('::') // ['0', '0', '0'm '0']
 
         let eventName = event.target.name
 
@@ -73,9 +83,11 @@
             splittedValue[1] = '1'
         } else if (eventName == 'image_three') {
             splittedValue[2] = '1'
-        }
+        } else if (eventName == 'image_four') {
+            splittedValue[3] = '1'
+        } 
 
-        // Array to string '1::1::1'
+        // Array to string '1::1::1::1'
         input.value = splittedValue.join('::')
 
     }
@@ -83,6 +95,7 @@
     image_one.on('dropify.afterClear', editDropifyElement);
     image_two.on('dropify.afterClear', editDropifyElement);
     image_three.on('dropify.afterClear', editDropifyElement);
+    image_four.on('dropify.afterClear', editDropifyElement);
 
 </script>
 {% endblock %}

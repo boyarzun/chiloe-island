@@ -108,6 +108,10 @@
                                         {% if product.image_three %}
                                             <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_three.name}}" alt="{{product.name}}" /></div></div>
                                         {% endif %}
+
+                                        {% if product.image_four %}
+                                            <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_four.name}}" alt="{{product.name}}" /></div></div>
+                                        {% endif %}
                                     </div>
                                     <div class="slider gallery-nav">
                                         <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" alt="{{product.name}}" /></div></div>
@@ -119,11 +123,15 @@
                                         {% if product.image_three %}
                                             <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_three.name}}" alt="{{product.name}}" /></div></div>
                                         {% endif %}
+                                        {% if product.image_four %}
+                                            <div><div class="image"><img src="{{STATIC_STORAGE_PATH}}{{product.image_four.name}}" alt="{{product.name}}" /></div></div>
+                                        {% endif %}
                                     </div>
                                     
                                 </div>
                                 
                                 <div class="mb-30"></div>
+                                <h4 class="heading-title">Descripción del producto</h4>
                                 
                                 {{product.description|safe}}
                                 

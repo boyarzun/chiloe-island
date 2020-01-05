@@ -46,6 +46,7 @@ class Product(CommonInfo):
     image_one = models.ImageField(upload_to=product_directory_path)
     image_two = models.ImageField(upload_to=product_directory_path, null=True, blank=True)
     image_three = models.ImageField(upload_to=product_directory_path, null=True, blank=True)
+    image_four = models.ImageField(upload_to=product_directory_path, null=True, blank=True)
     description = RichTextField()
 
     def save(self, *args, **kwargs):
@@ -76,6 +77,13 @@ class Product(CommonInfo):
                 if previous.image_three != self.image_three:
                     self.image_three = self.compressImage(self.image_three)
 
+        if self.image_four:
+            if not self.id:
+                self.image_four = self.compressImage(self.image_four)
+            else:
+                if previous.image_four != self.image_four:
+                    self.image_four = self.compressImage(self.image_four)
+
 
         super(Product, self).save(*args, **kwargs)
 
@@ -95,6 +103,6 @@ class Product(CommonInfo):
         uploadedImage = InMemoryUploadedFile(outputIoStream,'ImageField', "%s.jpg" % uploadedImage.name.split('.')[0], 'image/jpeg', sys.getsizeof(outputIoStream), None)
         return uploadedImage
 
-class Service(CommonInfo):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+#class Service(CommonInfo):
+#    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     

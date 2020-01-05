@@ -89,8 +89,6 @@ def product_edit(request, product_id):
 			messages.success(request, "Producto actualizado!")
 			return redirect(reverse('store:mystore'))
 
-
-
 	context = {
 		'menu': 'products',
 		'form': form,
@@ -121,7 +119,6 @@ def seller_store(request, store_name):
 def seller_product(request, id_product):
 
 	product = get_object_or_404(Product, pk=id_product)
-
 
 	whatsapp = product.seller.userprofile.phone
 

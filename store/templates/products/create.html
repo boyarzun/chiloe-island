@@ -20,9 +20,10 @@
 
 {% block content_form %}
     {{form.errors}}
-    {% include 'generic/forms/file.html' with field=form.image_one required=True col="s12 m4" %}
-    {% include 'generic/forms/file.html' with field=form.image_two col="s12 m4" %}
-    {% include 'generic/forms/file.html' with field=form.image_three col="s12 m4" %}
+    {% include 'generic/forms/file.html' with field=form.image_one required=True col="s12 m3" %}
+    {% include 'generic/forms/file.html' with field=form.image_two col="s12 m3" %}
+    {% include 'generic/forms/file.html' with field=form.image_three col="s12 m3" %}
+    {% include 'generic/forms/file.html' with field=form.image_four col="s12 m3" %}
     <div class="input-field col s12">
         <select name="categories" id="id_categories" multiple required>
             {% for category in categories %}
@@ -60,6 +61,14 @@
         }
     });
     $('#id_image_three').dropify({
+        messages: {
+            default: 'Agregar imagen',
+            replace: 'Haz clic para reemplazar la imagen',
+            remove:  'Quitar',
+            error:   'El tipo de documento no valido'
+        }
+    });
+    $('#id_image_four').dropify({
         messages: {
             default: 'Agregar imagen',
             replace: 'Haz clic para reemplazar la imagen',
