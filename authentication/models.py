@@ -1,6 +1,7 @@
 import uuid
 
 # Django
+from django.template.defaultfilters import slugify
 from django.conf import settings
 
 # Models
@@ -8,11 +9,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Commune(models.Model):
-    name = models.CharField(max_length=128)
-    image = models.CharField(max_length=128)
+    name = models.CharField(max_length=15)
+    image = models.CharField(max_length=15)
+    slug = models.SlugField(max_length=15, verbose_name='Nombre slug')
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Commune, self).save(*args, **kwargs)
 
 def user_directory_path(instance, filename):
     """ File will be uploaded to MEDIA_ROOT/users/<user_id>/products/<filename> """

@@ -192,6 +192,7 @@
         "pk": 1,
         "fields": {
             "name": "Ancud",
+            "slug": "ancud",
             "image": "/images/communes/ancud.jpg"
         }
     },
@@ -200,6 +201,7 @@
         "pk": 2,
         "fields": {
             "name": "Castro",
+            "slug": "castro",
             "image": "/images/communes/castro.jpg"
         }
     },
@@ -208,6 +210,7 @@
         "pk": 3,
         "fields": {
             "name": "Chonchi",
+            "slug": "chonchi",
             "image": "/images/communes/chonchi.jpn"
         }
     },
@@ -216,6 +219,7 @@
         "pk": 4,
         "fields": {
             "name": "Curaco de Vélez",
+            "slug": "curaco-de-velez",
             "image": "/images/communes/curaco-de-velez.jpg"
         }
     },
@@ -224,6 +228,7 @@
         "pk": 5,
         "fields": {
             "name": "Dalcahue",
+            "slug": "dalcahue",
             "image": "/images/communes/dalcahue.jpg"
         }
     },
@@ -232,6 +237,7 @@
         "pk": 6,
         "fields": {
             "name": "Puqueldón",
+            "slug": "puqueldon",
             "image": "/images/communes/puqueldon.jpg"
         }
     },
@@ -240,6 +246,7 @@
         "pk": 7,
         "fields": {
             "name": "Queilén",
+            "slug": "queilen",
             "image": "/images/communes/queilen.jpg"
         }
     },
@@ -248,6 +255,7 @@
         "pk": 8,
         "fields": {
             "name": "Quellón",
+            "slug": "quellon",
             "image": "/images/communes/quellon.jpg"
         }
     },
@@ -256,6 +264,7 @@
         "pk": 9,
         "fields": {
             "name": "Quemchi",
+            "slug": "quemchi",
             "image": "/images/communes/quemchi.jpg"
         }
     },
@@ -264,6 +273,7 @@
         "pk": 10,
         "fields": {
             "name": "Quinchao",
+            "slug": "quinchao",
             "image": "/images/communes/quinchao.jpg"
         }
     }
