@@ -22,6 +22,9 @@ def product_directory_path(instance, filename):
 class Category(models.Model):
     name = models.CharField(max_length=25)
 
+    def __str__(self):
+        return self.name
+
 class SubCategory(models.Model):
     name = models.CharField(max_length=25)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -102,6 +105,9 @@ class Product(CommonInfo):
         outputIoStream.seek(0)
         uploadedImage = InMemoryUploadedFile(outputIoStream,'ImageField', "%s.jpg" % uploadedImage.name.split('.')[0], 'image/jpeg', sys.getsizeof(outputIoStream), None)
         return uploadedImage
+
+    def __str__(self):
+        return self.name
 
 #class Service(CommonInfo):
 #    category = models.ForeignKey(Category, on_delete=models.CASCADE)
