@@ -36,7 +36,7 @@ def index(request):
 @login_required
 def mystore_index(request):
 
-	products_list = Product.objects.filter(seller=request.user)
+	products_list = Product.objects.filter(seller=request.user).order_by('-pk')
 
 	page = request.GET.get('page', 1)
 	
