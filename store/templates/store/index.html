@@ -129,7 +129,7 @@
                 
                 <figure class="tour-grid-item-01">
 
-                    <span href="{% url 'store:sellerstore' product.pk %}">
+                    <a href="{% url 'store:sellerstore' product.pk %}">
                     
                         <div class="image">
                             <img src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" alt="{{product.name}}" />
@@ -138,9 +138,10 @@
                         <figcaption class="content">
                             <h5>{{product.name}}</h5>
                             <ul class="item-meta">
-                                <li>
-                                    <p class="font12">Código del producto: {{product.pk}}</p>
-                                </li>
+                                <ul class="item-meta"></ul>
+                                    <li>
+                                        <p class="font12">ID: {{product.pk}}</p>
+                                    </li>
                             </ul>
                             <ul class="item-meta">
                                 <li>
