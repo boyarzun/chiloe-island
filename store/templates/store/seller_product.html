@@ -84,6 +84,9 @@
                                 
                                 <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-20">
                                     <div class="mr-15 font-lg">
+                                        <span><small>Código del producto: {{product.id}}</small></span>
+                                    </div>
+                                    <div class="mr-15 font-lg">
                                             <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
                                     </div>
                                     <div>
@@ -133,6 +136,7 @@
                                 <div class="mb-30"></div>
                                 <h4 class="heading-title">Descripción del producto</h4>
                                 
+                                <p>Código del producto: {{product.id}}</p>
                                 {{product.description|safe}}
                                 
                             </div>
