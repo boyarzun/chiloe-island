@@ -1,0 +1,131 @@
+{% extends 'gijalan/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block og_title %}Contacto{% endblock %}
+
+{% block main-wrapper %}
+<div class="main-wrapper scrollspy-container">
+
+    <section class="page-wrapper page-result pb-0">
+    
+        <div class="page-title bg-light mb-0">
+        
+            <div class="container">
+            
+                <div class="row gap-15 align-items-center">
+                
+                    <div class="col-12 col-md-7">
+                        
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+                            </ol>
+                        </nav>
+                        
+                        <h4 class="mt-0 line-125">Contacto</h4>
+                        
+                    </div>
+                    
+                </div>
+        
+            </div>
+            
+        </div>
+        
+        <div class="container pv-60">
+            
+            <div class="row gap-50 gap-lg-0">
+            
+                <div class="col-12 col-lg-5 col-xl-4">
+                
+                    <h4 class="heading-title"><span>Envíanos <span class="font200">un mensaje:</span></span></h4>
+                    
+                    <form id="contact-form" method="post" action="/">
+                        {% csrf_token %}
+                        <div class="contact-successful-messages"></div>
+
+                        <div class="contact-inner">
+
+                            <div class="form-group">
+                                <label for="id_name">Nombre completo *</label>
+                                <input id="id_name" type="text" name="name" class="form-control" required="required" data-error="Tu nombre es requerido.">
+                                <div class="help-block with-errors text-danger"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="id_email">Dirección de correo electrónico *</label>
+                                <input id="id_email" type="email" name="email" class="form-control" required="required" data-error="Un correo electrónico es requerido.">
+                                <div class="help-block with-errors text-danger"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="id_subject">Asunto</label>
+                                <input id="id_subject" type="text" name="subject" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="id_message">Mensaje *</label>
+                                <textarea id="id_message" name="message" class="form-control" rows="7s" required="required" data-error="Por favor, déjenos un mensaje."></textarea>
+                                <div class="help-block with-errors text-danger"></div>
+                            </div>
+                            
+                            <input type="submit" class="btn btn-primary btn-send btn-wide mt-15" value="Enviar mensaje">
+                            
+                        </div>
+
+                    </form>
+                    
+                </div>
+                
+                <div class="col-12 col-lg-6 ml-auto">
+                
+                    <h4 class="heading-title"><span>Información <span class="font200">de contacto:</span></span></h4>
+                    <p class="post-heading">Descubre otras opciones para comunicarte con nosotros. ¡Vamos, no seas tímido!</p>
+                    
+                    <ul class="contact-list-01">
+                
+                        <li>
+                            <span class="icon-font"><i class="ion-android-pin"></i></span>
+                            <h6>Dirección</h5>
+                            Chiloeisland.net<br/>No nos encontrarás en otro lugar<br/> ;)
+                        </li>
+                        
+                        <li>
+                            <span class="icon-font"><i class="ion-android-mail"></i></span>
+                            <h6>Email</h5>
+                            <a href="mailto:{{SITE_EMAIL}}">{{SITE_EMAIL}}</a>
+                        </li>
+                        
+                        <li>
+                            <span class="icon-font"><i class="ion-android-call"></i></span>
+                            <h6>Teléfono</h5>
+                            {{SITE_PHONE_NUMBER}}<br/>Solo Whatsapp
+                        </li>
+                    
+                    </ul>
+                    
+                    <div class="mb-50"></div>
+                    
+                    <h4 class="heading-title"><span>Encuéntranos <span class="font200">en:</span></span></h4>
+                    
+                    <div class="social-btns-01">
+                        <a href="https://www.facebook.com/chiloeisland" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/chiloeisland/" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/{{SITE_WHATSAPP}}?text=Hola!%20Te%20hablo%20desde%20Chiloeisland.net." data-toggle="tooltip" data-placement="top" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    
+                </div>
+            
+            </div>
+            
+        </div>
+    
+    </section>
+    
+</div>		
+{% endblock %}
+
+{% block pageleveljs %}{% endblock %}

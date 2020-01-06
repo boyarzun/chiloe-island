@@ -1,16 +1,23 @@
 import os
+
+# Models
 from settings.models import Setting
+
+# Utils
+from core.utils import prepare_number_phone_to_whatsapp
 
 def site_data(request):
 
     settings = Setting.objects.get(pk=1)
     
     return {
+        #Site
         'SITE_NAME': settings.name,
         'SITE_DESCRIPTION': settings.description,
         'SITE_KEYWORDS': settings.keywords,
         'SITE_EMAIL': settings.email,
         'SITE_PHONE_NUMBER': settings.phone_number,
+        'SITE_WHATSAPP': prepare_number_phone_to_whatsapp(settings.phone_number),
         #Menu
         'MENU_COLOR': get_color(settings.menu_color),
         'MENU_DARK': settings.menu_dark,

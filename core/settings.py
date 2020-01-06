@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     #Front
     'home',
     'store',
+    'contact',
 ]
 
 MIDDLEWARE = [
