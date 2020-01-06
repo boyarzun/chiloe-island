@@ -37,3 +37,14 @@ class DataTable:
         self.order_dir = request.GET.get('order[0][dir]')
         self.length = request.GET.get('length')
         self.search_regex = request.GET.get('search[regex]')
+
+
+def prepare_number_phone_to_whatsapp(number):
+    
+    number = number.replace('+', '')
+    number = number.replace(' ', '')
+    number = number.replace('-', '')
+    
+    return number
+
+	

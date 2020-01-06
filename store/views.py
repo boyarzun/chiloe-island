@@ -16,6 +16,7 @@ from store.forms import ProductForm
 
 # Utils
 from store.utils import index_filter, get_last_products
+from core.utils import prepare_number_phone_to_whatsapp
 
 def index(request):
 
@@ -120,11 +121,7 @@ def seller_product(request, id_product):
 
 	product = get_object_or_404(Product, pk=id_product)
 
-	whatsapp = product.seller.userprofile.phone
-
-	whatsapp = whatsapp.replace('+', '')
-	whatsapp = whatsapp.replace(' ', '')
-	whatsapp = whatsapp.replace('-', '')
+	whatsapp = prepare_number_phone_to_whatsapp(product.seller.userprofile.phone)
 
 	context = {
 		"product": product,
