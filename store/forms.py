@@ -15,14 +15,15 @@ class ProductForm(forms.ModelForm):
     def is_valid(self):
         """Return True if the form has no errors, or False otherwise."""
 
-        splittedValue = self.data['images_status'].split('::')
+        if self.initial:
+            splittedValue = self.data['images_status'].split('::')
 
-        if (splittedValue[1] == '1'):
-            self.initial['image_two'].delete()
-        if (splittedValue[2] == '1'):
-            self.initial['image_three'].delete()
-        if (splittedValue[3] == '1'):
-            self.initial['image_four'].delete()
+            if (splittedValue[1] == '1'):
+                self.initial['image_two'].delete()
+            if (splittedValue[2] == '1'):
+                self.initial['image_three'].delete()
+            if (splittedValue[3] == '1'):
+                self.initial['image_four'].delete()
 
         if self.files and self.initial:
             for key in self.files:
