@@ -20,6 +20,9 @@
 
 {% block content_form %}
     {{form.errors}}
+
+    {{form.images_status}}
+
     {% include 'generic/forms/file.html' with field=form.image_one required=True col="s12 m3" %}
     {% include 'generic/forms/file.html' with field=form.image_two col="s12 m3" %}
     {% include 'generic/forms/file.html' with field=form.image_three col="s12 m3" %}
