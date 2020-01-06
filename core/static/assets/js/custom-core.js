@@ -391,7 +391,10 @@ jQuery(function($) {
 
     contactFormValidator.on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
-            var url = "/contact";
+			var url = "/contact";
+			var button = document.getElementById('submit-button')
+
+			button.disabled = true
 
             $.ajax({
                 type: "POST",
@@ -406,7 +409,9 @@ jQuery(function($) {
                     if (messageAlert && messageText) {
                         $('#contact-form').find('.contact-successful-messages').html(alertBox);
                         $('#contact-form')[0].reset();
-                    }
+					}
+					
+					button.disabled = false
                 }
             });
             return false;

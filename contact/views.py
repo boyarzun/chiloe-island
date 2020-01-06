@@ -1,9 +1,12 @@
 # Django
+from django.core.mail import EmailMessage
 from django.shortcuts import render
-from django.core.mail import send_mail
+from django.contrib import messages
+from django.http import JsonResponse
 
 # Forms
 from contact.forms import ContactForm
+from settings.models import Setting
 
 def index(request):
 
@@ -14,16 +17,29 @@ def index(request):
 
         if form.is_valid():
 
-            send_mail(
-                form.data['subject'],
-                form.data['message'],
-                form.data['email'],
-                ['hola@chiloeisland.net'],
-                fail_silently=False,
+            setting = Setting.objects.get(pk=1)
+
+            email = EmailMessage(
+                subject = form.data['subject'],
+                body = form.data['message'],
+                from_email = setting.email,
+                to = [setting.email],
+                reply_to = [form.data['email']]
             )
+            try:
+                email.send()
+                message_response = 'Mensaje enviado! Te contactaremos lo más pronto posible ;)'
+                type_respose = 'success'
 
-            import pdb; pdb.set_trace()
+            except ValueError:
+                message_response = 'Oops! Algo salio mal, intentalo más tarde :P'
+                type_respose = 'danger'
 
+
+            return JsonResponse({
+                'message': message_response,
+                'type': type_respose
+            })
 
     context = {
         "form": form
