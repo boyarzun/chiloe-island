@@ -6,7 +6,8 @@
         id="id_{{field.name}}"
         class="dropify"
         accept="image/*"
-        data-default-file="{% if field.value %}{{STATIC_STORAGE_PATH}}{{field.value}}{% endif %}"
+        {% if field.value %}data-default-file="{{STATIC_STORAGE_PATH}}{{field.value}}"{% endif %}
         {% if field.required %}required{% endif %}
+        {% if size %}data-max-file-size="{{size}}"{% endif %}
     />
 </div>
