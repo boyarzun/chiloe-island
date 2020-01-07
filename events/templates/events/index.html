@@ -1,0 +1,418 @@
+{% extends 'gijalan/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Eventos{% endblock %}
+
+{% block og_title %}Eventos{% endblock %}
+
+{% block css-custom %}
+    <link href="{% static 'assets/css/events.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block main-wrapper %}
+<section class="page-wrapper pb-0">
+    
+    <div class="page-title bg-light mb-0">
+    
+        <div class="container">
+        
+            <div class="row gap-15 align-items-center">
+            
+                <div class="col-12 col-md-7">
+                    
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Eventos</li>
+                        </ol>
+                    </nav>
+                    
+                    <h4 class="mt-0 line-125">Eventos</h4>
+                    
+                </div>
+                
+            </div>
+    
+        </div>
+        
+    </div>
+    
+    <div class="container">
+
+        <div class="row equal-height gap-0 gap-lg-30 gap-xl-40">
+        
+            <div class="col-12">
+                
+                <div class="content-wrapper pt-50 pb-0 pb-lg-50">
+                    
+                    <!--schedule-section-->
+                    <div class="page-wrapper" style="padding-top: 0px;">
+                        <section class="schedule-section" id="schedule-tab" style="background-image: url('{% static 'assets/images/image-bg/events.jpg' %}');">
+                            <div class="container">
+                                <div class="schedule-area">
+                                    <div class="schedule-tab-title">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="item active" data-tab-name="january-10-2020">
+                                                            <div class="item-text">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <h5>Viernes</h5>
+                                                                <h6>Enero 10, 2020</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td class="item" data-tab-name="january-11-2020">
+                                                            <div class="item-text">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <h5>Sábado</h5>
+                                                                <h6>Enero 11, 2020</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td class="item" data-tab-name="january-12-2020">
+                                                            <div class="item-text">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <h5>Domingo</h5>
+                                                                <h6>Enero 12, 2020</h6>
+                                                            </div>                                            
+                                                        </td>
+                                                        <td class="item" data-tab-name="january-17-2020">
+                                                            <div class="item-text text-less">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <h5>Viernes</h5>
+                                                                <h6>Enero 17, 2020</h6>
+                                                            </div>                                            
+                                                        </td>
+                                                        <td class="item" data-tab-name="january-18-2020">
+                                                            <div class="item-text text-less">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <h5>Sábado</h5>
+                                                                <h6>Enero 18, 2020</h6>
+                                                            </div>                                            
+                                                        </td>
+                                                        <td class="item" data-tab-name="january-19-2020">
+                                                            <div class="item-text">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <h5>Domingo</h5>
+                                                                <h6>Enero 19, 2020</h6>
+                                                            </div>                                            
+                                                        </td>
+                                                        <td class="item" data-tab-name="january-25-2020">
+                                                            <div class="item-text">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                <h5>Sábado</h5>
+                                                                <h6>Enero 25, 2020</h6>
+                                                            </div>                                            
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>            
+                                    </div>
+                                    <div class="schedule-tab-content clearfix">
+                                        <div id="january-10-2020">
+                                            <div class="inner-box  table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Horario</th>
+                                                            <th>Evento</th>
+                                                            <th>Ubicación</th>
+                                                            <th>Ver mapa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Dunas de Guabun</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr class="row-color">
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Huelden</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="january-11-2020">
+                                            <div class="inner-box  table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Horario</th>
+                                                            <th>Evento</th>
+                                                            <th>Ubicación</th>
+                                                            <th>Ver mapa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Dunas de Guabun</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr class="row-color">
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Carboneros de Puegueñun</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Huelden</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr  class="row-color">
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Comunidad de PID PID</div>
+                                                            </td>
+                                                            <td class="subject">Castro</td>                            
+                                                            <td class="venue"><a href="https://goo.gl/maps/EPmjoPdLzU3DaJ2m8" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="january-12-2020">
+                                            <div class="inner-box table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Horario</th>
+                                                            <th>Evento</th>
+                                                            <th>Ubicación</th>
+                                                            <th>Ver mapa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Dunas de Guabun</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+
+                                                        <tr class="row-color">
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Carboneros de Puegueñun</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Costumbrista Huelden</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+
+                                                        <tr class="row-color">
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>
+                                                                    Comunidad de PID PID
+                                                                </div>
+                                                            </td>
+                                                            <td class="subject">Castro</td>                            
+                                                            <td class="venue"><a href="https://goo.gl/maps/EPmjoPdLzU3DaJ2m8" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="january-17-2020">
+                                            <div class="inner-box table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Horario</th>
+                                                            <th>Evento</th>
+                                                            <th>Ubicación</th>
+                                                            <th>Ver mapa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Gastronómica y Costumbrista Ancud</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="january-18-2020">
+                                            <div class="inner-box table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Horario</th>
+                                                            <th>Evento</th>
+                                                            <th>Ubicación</th>
+                                                            <th>Ver mapa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Gastronómica y Costumbrista Ancud</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr class="row-color">
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Festival Agroecológico del ajo Chilote de Punta Chilen</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td>
+                                                                <div>
+                                                                    Comunidad de QUENTO
+                                                                </div>
+                                                            </td>
+                                                            <td class="subject">Castro</td>                            
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="january-19-2020">
+                                            <div class="inner-box table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Horario</th>
+                                                            <th>Evento</th>
+                                                            <th>Ubicación</th>
+                                                            <th>Ver mapa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Muestra Gastronómica y Costumbrista Ancud</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr class="row-color">
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>Festival Agroecológico del ajo Chilote de Punta Chilen</div>
+                                                            </td>
+                                                            <td class="subject">Ancud</td>
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>
+                                                                    Comunidad de YUTUY
+                                                                </div>
+                                                            </td>
+                                                            <td class="subject">Castro</td>                            
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="january-25-2020">
+                                            <div class="inner-box table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Horario</th>
+                                                            <th>Evento</th>
+                                                            <th>Ubicación</th>
+                                                            <th>Evento</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> Todo el día</td>
+                                                            <td class="speakers">
+                                                                <div>
+                                                                    Comunidad de QUEHUI
+                                                                </div>
+                                                            </td>
+                                                            <td class="subject">Castro</td>                            
+                                                            <td class="venue"><a href="#" target="_blank">Ver mapa</a></td>
+                                                        </tr>
+                                                        {% comment %}
+                                                        <tr>
+                                                            <td class="time"><i class="fa fa-clock-o" aria-hidden="true"></i> 10.00 AM</td>
+                                                            <td class="speakers">
+                                                                <div class="speaker">
+                                                                    <div class="image-box"><img src="http://html.tonatheme.com/2017/eventic_html/images/resource/2.png" alt=""></div>
+                                                                    <h4><a href="http://html.tonatheme.com/2017/eventic_html/speaker-details.html">Zerad Pawel</a></h4>
+                                                                </div>
+                                                            </td>
+                                                            <td class="subject">Principle of Wp</td>
+                                                            <td class="venue">Auditorium B</td>
+                                                        </tr>
+                                                        {% endcomment %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                
+                            </div>
+                        </section>
+                    </div>
+                    <!--End schedule-section-->
+                    
+                </div>
+
+            </div>
+            
+        </div>
+        
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block pageleveljs %}
+    <script type="text/javascript" src="{% static 'assets/js/jquery-2.1.4.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+{% endblock %}

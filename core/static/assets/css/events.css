@@ -1,0 +1,255 @@
+/************ TABLE OF CONTENTS ***************
+1. Fonts
+2. Reset
+3. schedule-section
+
+**********************************************/
+
+/*google-Fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+/*** 
+
+====================================================================
+	Reset
+====================================================================
+
+ ***/
+
+h1,h2,h3,h4,h5,h6 {
+	position:relative;
+	font-family: 'Oswald', sans-serif;
+	margin:0px;
+}
+
+.page-wrapper{
+	position:relative;
+	margin:0 auto;
+	width:100%;
+	min-width:300px;
+	overflow: hidden;	
+}
+
+/*** 
+
+====================================================================
+	schedule-section style
+====================================================================
+
+***/
+
+.schedule-section{
+	position: relative;
+	padding-top: 90px;
+	padding-bottom: 100px;
+}
+.schedule-section .section-title h3{
+	font-size: 36px;
+	color: #2f323c;
+	line-height: 52px;
+	font-weight: 700;
+	padding-bottom: 15px;
+	font-family: 'Oswald', sans-serif;
+}
+.schedule-section .section-title h3 span{
+	font-size: 36px;
+	color: #e6296a;
+}
+.schedule-section .section-title p{
+	font-size: 16px;
+	color: #848484;
+	font-weight: 400;
+	line-height: 26px;
+	padding-bottom: 38px;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*tab*/
+
+.schedule-section .schedule-area{
+	background: #ffffff;
+    padding: 50px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+#schedule-tab {
+    position: relative;
+}
+.schedule-section .schedule-tab-title .table {
+    margin-bottom: 18px;
+    background: #ffffff;
+}
+.table-hover>tbody>tr:hover{
+	background: #ffffff;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td .text-less i{
+	left: 20px;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td .text-less{
+	padding-left: 40px;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td .item-text {
+    padding-left: 80px;
+    padding-top: 15px;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td h5 {
+    font-size: 20px;
+    color: #2f323c;
+    line-height: 32px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td h6 {
+    font-size: 14px;
+    color: #848484;
+    line-height: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td{
+	position: relative;
+	cursor: pointer;
+	height: 100px;
+	width: 215px;
+	border: 1px solid #e5e5e5;
+	transition:all 500ms ease;
+}
+.schedule-section .schedule-tab-title .table-hover>tbody>tr:hover>.active,
+.schedule-section .schedule-tab-title .table>tbody>tr>td.active,
+.schedule-section .schedule-tab-title .table>tbody>tr>td:hover{
+	background: #e6296a;
+	border: 1px solid #e6296a;
+	transition:all 500ms ease;
+}
+.schedule-section .schedule-tab-title .table-hover>tbody>tr>:hover:before,
+.schedule-section .schedule-tab-title .table-hover>tbody>tr>.active:before{
+	color: #e6296a;
+    content: "\f0d7";
+    font-family: FontAwesome;
+    font-size: 24px;
+    position: absolute;
+    bottom: -19px;
+    left: 100px;
+    transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td i{
+	position: absolute;
+	top: 25px;
+	left: 30px;
+	display: inline-block;
+	font-size: 20px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	color: #676970;
+	text-align: center;
+	background: #ebebeb;
+	border-radius: 50%;
+	transition:all 500ms ease;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td.active i,
+.schedule-section .schedule-tab-title .table>tbody>tr>td:hover i{
+	background: #cd215c;
+	color: #ffffff;
+	transition:all 500ms ease;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td.active h6,
+.schedule-section .schedule-tab-title .table>tbody>tr>td:hover h6{
+	color: #ffffff;
+	transition:all 500ms ease;
+}
+.schedule-section .schedule-tab-title .table>tbody>tr>td.active h5,
+.schedule-section .schedule-tab-title .table>tbody>tr>td:hover h5{
+	color: #ffffff;
+	transition:all 500ms ease;
+}
+
+/*tab-content*/
+
+.schedule-section .schedule-tab-content{
+	transition:all 500ms ease;
+}
+.schedule-section .schedule-tab-content .inner-box {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding-bottom: 15px;
+}
+.schedule-section .schedule-tab-content .table{
+	margin-bottom: 0px;
+}
+.schedule-section .schedule-tab-content .table>thead>tr>th {
+    border-bottom: none;
+    background: #383c45;
+    padding: 23px 8px 24px 30px;
+    padding-left: 40px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+}
+.schedule-section .schedule-tab-content .table>tbody>tr {
+	background-color: #fff;
+    transition: .5s;
+    text-transform: capitalize;
+    border-top: 1px solid #efefef;
+}
+.schedule-section .schedule-tab-content .table>tbody>tr.row-color {
+	background-color: #f7f7f7;
+}
+.schedule-section .schedule-tab-content .table>tbody>tr:hover {
+    transition: .5s;
+}
+.schedule-section .schedule-tab-content .table>tbody>tr>td {
+    padding: 22px 40px;
+    font-size: 16px;
+    color: #7a8287;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+}
+.schedule-section .schedule-tab-content .table>tbody .time{
+	position: relative;
+	width: 240px;
+}
+.schedule-section .schedule-tab-content .table>tbody .time i{
+	margin-right: 5px;
+}
+.schedule-section .schedule-tab-content .table>tbody .speakers{
+	position: relative;
+	width: 290px;
+}
+.schedule-section .schedule-tab-content .table>tbody .subject{
+	position: relative;
+	width: 300px;
+}
+.schedule-section .schedule-tab-content .table>tbody .venue{
+	position: relative;
+	width: 190px;
+}
+.schedule-section .schedule-tab-content .table>tbody .speaker{
+	position: relative;
+	margin-left: 60px;
+}
+.schedule-section .schedule-tab-content .table>tbody .speaker h4 a{
+	font-size: 16px;
+	font-weight: 400;
+	color: #848484;
+	font-family: 'Roboto', sans-serif;
+}
+.schedule-section .schedule-tab-content .table>tbody .speaker .image-box{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: -15px;
+	left: -70px;
+}
+.schedule-section .schedule-tab-content .table>tbody>tr {
+    border-top: 1px solid #efefef;
+}
