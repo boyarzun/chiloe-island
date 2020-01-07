@@ -1,0 +1,264 @@
+{% extends 'gijalan/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Blog{% endblock %}
+
+{% block og_title %}Blog{% endblock %}
+
+{% block main-wrapper %}
+    <section class="page-wrapper pb-0">
+    
+        <div class="page-title bg-light mb-0">
+        
+            <div class="container">
+            
+                <div class="row gap-15 align-items-center">
+                
+                    <div class="col-12 col-md-7">
+                        
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                            </ol>
+                        </nav>
+                        
+                        <h4 class="mt-0 line-125">Blog</h4>
+                        
+                    </div>
+                    
+                </div>
+        
+            </div>
+            
+        </div>
+        
+        <div class="container">
+
+            <div class="row equal-height gap-0 gap-lg-30 gap-xl-40">
+            
+                <div class="col-12 col-lg-8">
+                    
+                    <div class="content-wrapper pt-50 pb-0 pb-lg-50">
+
+                        <article class="post-long-01">
+                            <p class="text-center">No hay post aún</p>
+                        </article>
+                    
+                        {% comment %}
+                        <article class="post-long-01">
+
+                            <div class="d-flex flex-column flex-sm-row align-items-xl-center">
+                                
+                                <div>
+                                    <div class="image">
+                                        <img src="images/image-post/01.jpg" alt="images" />
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="content">
+                                        <span class="post-date text-muted">Enero 21, 2020</span>
+                                        <h4>Improving age our her cordially intention</h4>
+                                        <p>Prevailed sincerity behaviour to so do principle mr. As departure at no propriety zealously my. On dear rent if girl view. First on smart there he sense. </p>
+                                        <a href="#" class="h6">Read this <i class="elegent-icon-arrow_right"></i></a>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            
+                        </article>
+                        {% endcomment %}
+                        
+                        {% comment %}
+                        <nav class="pager-wrappper mt-50">
+                            <ul class="pagination justify-content-center justify-content-lg-left">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><span>...</span></li>
+                                <li><a href="#">13</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        
+                        </nav>
+                        {% endcomment %}
+                        
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-lg-4">
+
+                    <aside class="sidebar-wrapper pv on-right mb-50 mb-lg-0">
+                    
+                        <div class="sidebar-box">
+                        
+                            <div class="box-content">
+                            
+                                <form class="quick-form-box">
+                        
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Buscar...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" disabled><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                                
+                            </div>
+                        
+                        </div>
+                        
+                        {% comment %}
+                        <div class="sidebar-box">
+                        
+                            <div class="box-title"><h5>Categorias</h5></div>
+                            
+                            <div class="box-content">
+                                <ul class="category-list">
+                                    <li><a href="#">Business<span>(25)</span></a></li>
+                                    <li class="active"><a href="#">Commerce<span>(2)</span></a></li>
+                                    <li><a href="#">Coporate<span>(14)</span></a></li>
+                                    <li><a href="#">Creative<span>(157)</span></a></li>
+                                    <li><a href="#">Entertainment<span>(87)</span></a></li>
+                                    <li><a href="#">Nonprofit<span>(47)</span></a></li>
+                                    <li><a href="#">Personal<span>(8)</span></a></li>
+                                    <li><a href="#">Technology<span>(32)</span></a></li>
+                                    <li><a href="#">Miscellaneous<span>(26)</span></a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        {% endcomment %}
+                        
+                        {% comment %}
+                        <div class="sidebar-box">
+                        
+                            <div class="box-title"><h5>Recent Posts</h5></div>
+                            
+                            <div class="box-content">
+                                <ul class="post-small-list">
+                                    <li class="clearfix">
+                                        <a href="blog-single.html">
+                                            <div class="image">
+                                                <img src="images/image-square/01.jpg" alt="Popular Post" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Enough around remove to barton agreed regret</h6>
+                                                <p class="recent-post-sm-meta text-muted"><i class="ri ri-calendar mr-5"></i>June 01, 2016</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="blog-single.html">
+                                            <div class="image">
+                                                <img src="images/image-square/02.jpg" alt="Popular Post" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Year well shot deny shew come stand marry taken his for out</h6>
+                                                <p class="recent-post-sm-meta text-muted"><i class="ri ri-calendar mr-5"></i>April 25, 2016</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="blog-single.html">
+                                            <div class="image">
+                                                <img src="images/image-square/03.jpg" alt="Popular Post" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Do related mr account brandon never ready ham these witty him</h6>
+                                                <p class="recent-post-sm-meta text-muted"><i class="ri ri-calendar mr-5"></i>March 20, 2016</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="blog-single.html">
+                                            <div class="image">
+                                                <img src="images/image-square/04.jpg" alt="Popular Post" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Our compass see age uncivil is weather forbade her minutes</h6>
+                                                <p class="recent-post-sm-meta text-muted"><i class="ri ri-calendar mr-5"></i>March 05, 2016</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="blog-single.html">
+                                            <div class="image">
+                                                <img src="images/image-square/05.jpg" alt="Popular Post" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>Ready how but truth son new under.</h6>
+                                                <p class="recent-post-sm-meta text-muted"><i class="ri ri-calendar mr-5"></i>February 17, 2015</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        {% endcomment %}
+                        
+                        {% comment %}
+                        <div class="sidebar-box">
+                        
+                            <div class="box-title"><h5>Tags</h5></div>
+                            
+                            <div class="box-content">
+                            
+                                <div class="tag-cloud clearfix">
+                                    <a href="#" class="tag-item">HTML5</a> <a href="#" class="tag-item">CSS3</a> <a href="#" class="tag-item">jQuery</a> 
+                                    <a href="#" class="tag-item">Creative</a> <a href="#" class="tag-item">Design</a> <a href="#" class="tag-item">iOS</a> 
+                                    <a href="#" class="tag-item">Android</a> <a href="#" class="tag-item">Video</a> <a href="#" class="tag-item">Markup</a> 
+                                    <a href="#" class="tag-item">Programming</a> <a href="#" class="tag-item">SEO</a>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        {% endcomment %}
+                        
+                        {% comment %}
+                        <div class="sidebar-box">
+                        
+                            <div class="box-title"><h5>Sidebar Text Widget</h5></div>
+                            
+                            <div class="box-content">
+                            
+                                <div class="sidebar-text-widget">
+                                    <p>In alteration insipidity impression by travelling reasonable up motionless. Of regard warmth by unable sudden garden ladies. No kept hung am size spot no. Likewise led and dissuade <a href="#">rejoiced</a> welcomed husbands boy.</p>
+                                    <ul>
+                                        <li>Eat imagine you chiefly few end ferrars compass</li>
+                                        <li>Be visitor females am ferrars inquiry</li>
+                                        <li>Latter law remark two lively thrown</li>
+                                        <li>Spot set they know rest its</li>
+                                        <li>Raptures law diverted believed jennings</li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        {% endcomment %}
+                        
+                    </aside>
+
+                </div>
+                
+            </div>
+            
+        </div>
+    
+    </section>
+{% endblock %}
+
+{% block pageleveljs %}{% endblock %}

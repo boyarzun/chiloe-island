@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('home.urls', namespace="home")),
     path('', include('store.urls', namespace="store")),
     path('', include('contact.urls', namespace="contact")),
+    path('', include('blog.urls', namespace="blog")),
     
     # Django
     path('', include('authentication.urls', namespace="authentication")),
