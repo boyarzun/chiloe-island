@@ -36,9 +36,14 @@ Registrarse
 
                                 <div class="col s6 m6">
                                     {{user_form.password}}
+                                    <i class="material-icons" style="
+                                        z-index: 2;
+                                        position: relative;
+                                        margin-top: -40px;
+                                        float: right;"
+                                        onclick="showHidePassword(this)"
+                                        >remove_red_eye</i>
                                 </div>
-
-                                
 
                                 <div class="col s6 m6">
                                     {{user_form.first_name}}
@@ -81,3 +86,16 @@ Registrarse
 </body>
 {% endblock %}
 
+{% block pageleveljs %}
+    <script>
+        function showHidePassword(event) {
+            var element = document.getElementById("id_password");
+
+            if (element.type === "password") {
+                element.type = "text";
+            } else {
+                element.type = "password";
+            }
+        }
+    </script>
+{% endblock %}
