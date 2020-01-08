@@ -20,6 +20,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# Core
+from core.views import cookies
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -29,6 +32,8 @@ urlpatterns = [
     path('', include('contact.urls', namespace="contact")),
     path('', include('blog.urls', namespace="blog")),
     path('', include('events.urls', namespace="events")),
+    # Cookies
+    path('cookies', cookies, name="cookies"),
     
     # Django
     path('', include('authentication.urls', namespace="authentication")),
