@@ -1,5 +1,6 @@
 # Django
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
@@ -77,7 +78,11 @@ def products_create(request):
 @login_required
 def product_edit(request, product_id):
 
+
 	product = get_object_or_404(Product, pk=product_id)
+
+	if not request.user == product.seller:
+		raise PermissionDenied
 
 	form = ProductForm(instance=product)
 
