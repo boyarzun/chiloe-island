@@ -17,7 +17,35 @@
 
 {% block form_sidebar_title %}Necesitas agregar un nuevo producto?{% endblock %}
 
-{% block form_sidebar_description %}Estás en el lugar correcto! sigue las indicaciones para crear el usuario.{% endblock %}
+{% block form_sidebar_description %}
+<p>Sigue estos tip y ¡obtendras una muy buena publicación!:</p>
+{% endblock %}
+
+{% block form_sidebar_description_two %}
+    <div class="row">
+        <!-- TIP 1 -->
+        <div class="col s12 place mt-4 p-0">
+            <div class="col s2 m2 l2"><i class="material-icons">filter_1</i></div>
+            <div class="col s10 m10 l10">
+                <p class="m-0">Al sacar fotos a tus productos, recuerda hacerlo de manera horizontal. ¡Las fotos horizontales se ven mucho mejor y ha los clientes les gusta!</p>
+            </div>
+        </div>
+        <!-- TIP 2 -->
+        <div class="col s12 phone mt-4 p-0">
+            <div class="col s2 m2 l2"><i class="material-icons">filter_2</i></div>
+            <div class="col s10 m10 l10">
+                <p class="m-0">Recuerda agregar una descripción detallada de tus productos, habla acerca de las dimensiones, el material del cual este fabricado, la tecnica utilizada, etc. Hay muchas cosas de las que puedes hablar y ¡los clientes necesitan saber los detalles!</p>
+            </div>
+        </div>
+        <!-- TIP 3 -->
+        <div class="col s12 phone mt-4 p-0">
+            <div class="col s2 m2 l2"><i class="material-icons">filter_3</i></div>
+            <div class="col s10 m10 l10">
+                <p class="m-0">¡No olvides a los clientes de otras localidades! También puedes agregar información acerca del envío a otras regiones y los medios de pago que tienes disponible. Mantente siempre un paso adelante ;)</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content_form %}
     {{form.errors}}
