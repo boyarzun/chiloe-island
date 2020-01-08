@@ -36,7 +36,7 @@ def cover_photo_directory_path(instance, filename):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address = models.CharField(max_length = 50, null=True, verbose_name="Dirección")
+    address = models.CharField(max_length = 240, null=True, verbose_name="Dirección")
     phone = models.CharField(max_length=18, null=True, verbose_name="Teléfono")
     avatar = models.ImageField(upload_to=user_directory_path, default='avatar/default.png')
     cover_photo = models.ImageField(upload_to=cover_photo_directory_path, null=True, blank=True)
