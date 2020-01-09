@@ -126,7 +126,7 @@ dmypy.json
 
 # Media upload
 core/media
-
+ core/staticfiles
 ###### Remove for deploy
 
 # Assets template
