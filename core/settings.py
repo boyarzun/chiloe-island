@@ -34,7 +34,7 @@ DEBUG = False
 SECURE_SSL_REDIRECT = False
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'chiloeisland.net']
 
 
 
