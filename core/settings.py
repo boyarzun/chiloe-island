@@ -33,7 +33,7 @@ SECRET_KEY = '&f5af!zm*pwz*fv9l)!j=c_zvgbqu^59aap+@y=^)=623zs*mr'
 DEBUG = True
 SECURE_SSL_REDIRECT = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.chiloeisland.net']
 
 
 
