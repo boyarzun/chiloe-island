@@ -16,31 +16,29 @@
 
                             {% if not request.user.is_authenticated %}
                             <li class="d-none d-sm-block">
-                                <a href="{% url 'authentication:register' %}" data-keyboard="false">
-                                    <span class="icon-font"><i class="icon-user-follow"></i></span> Crear cuenta
-                                </a>
-                            </li>
-
-                            <li class="d-none d-sm-block">
                                 <a href="{% url 'authentication:login' %}" data-keyboard="false">
-                                    <span class="icon-font"><i class="icon-login"></i></span> Entrar
+                                    <span class="icon-font"><i class="fas fa-boxes"></i></span> Publicar producto
                                 </a>
                             </li>
 
                             {% else %}
                             <li class="d-none d-sm-block">
                                 <a href="{% url 'store:mystore' %}" data-keyboard="false">
-                                    <span class="icon-font"><i class="icon-settings"></i></span> Panel de control
+                                    <span class="icon-font"><i class="fas fa-boxes"></i></span> Publicar producto
                                 </a>
                             </li>
                             {% endif %}
 
                             {% if request.user.is_authenticated %}
-
+                            <li class="d-block d-sm-none">
+                                <a href="{% url 'store:mystore' %}" data-backdrop="static" data-keyboard="false">
+                                    Publicar producto
+                                </a>
+                            </li>
                             {% else %}
                             <li class="d-block d-sm-none">
                                 <a href="{% url 'authentication:login' %}" data-backdrop="static" data-keyboard="false">
-                                    Entrar / Registro
+                                    Publicar producto
                                 </a>
                             </li>
                             {% endif %}
