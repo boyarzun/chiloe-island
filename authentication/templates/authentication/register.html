@@ -7,6 +7,7 @@ Registrarse
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/register.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/intro.min.css' %}">
 {% endblock %}
 
 {% block body %}
@@ -83,6 +84,67 @@ Registrarse
             </div>
         </div>
     </div>
+
+    <div id="intro">
+        <div class="row">
+            <div class="col s12">
+    
+                <div id="img-modal" class="modal white">
+                    <div class="modal-content">
+                        <div class="bg-img-div"></div>
+                        <p class="modal-header right modal-close">
+                            Cerrar <span class="right"><i class="material-icons right-align">clear</i></span>
+                        </p>
+                        <div class="carousel carousel-slider center intro-carousel">
+                            <div class="carousel-fixed-item center middle-indicator">
+                                <div class="left">
+                                    <button class="movePrevCarousel middle-indicator-text btn btn-flat purple-text waves-effect waves-light btn-prev">
+                                        <i class="material-icons">navigate_before</i> <span class="hide-on-small-only">Anterior</span>
+                                    </button>
+                                </div>
+    
+                                <div class="right">
+                                    <button class=" moveNextCarousel middle-indicator-text btn btn-flat purple-text waves-effect waves-light btn-next">
+                                        <span class="hide-on-small-only">Siguiente</span> <i class="material-icons">navigate_next</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="carousel-item slide-1">
+                                <img src="{% static 'assets/images/logo.png' %}" alt="Chiloé Island" class="responsive-img animated fadeInUp slide-1-img">
+                                <h5 class="intro-step-title mt-7 center animated fadeInUp">¿Eres nuevo por aquí?</h5>
+                                <p class="intro-step-text mt-5 animated fadeInUp">¡Hola! Es un honor para nosotros que 
+                                    quieras formar parte de nuestra comunidad. ¡Al crear tu cuenta tendrás la posibilidad
+                                    de publicar todos los productos que quieras! Pero recuerda, estos deben estar relacionados
+                                    con Chiloé ¡Vamos, crea tu cuenta ahora y demos a conocer tu trabajo y las maravillas de 
+                                    Chiloé a todo el mundo!</p>
+                            </div>
+                            <div class="carousel-item slide-2">
+                                <h5 class="intro-step-title mt-7 center">¡Espera!</h5>
+                                <p class="intro-step-text mt-5">Antes de seguir con el registro, debes
+                                    saber que Chiloé Island solo es gratis el primer mes, durante
+                                    este tiempo esperamos que te comuniquen más clientes y tus ventas
+                                    aumenten. ¡Nosotros siempre nos encargaremos que tus productos sean
+                                    conocidos por la mayor cantidad de personas! Luego de finalizado el
+                                    mes de prueba deberás pagar una mensualidad de siete mil pesos. ¡Son
+                                    menos de $250 al día!</p>
+                            </div>
+                            <div class="carousel-item slide-3">
+                                <h5 class="intro-step-title mt-7 center">¡Te estamos esperando!</h5>
+                                <div class="row">
+                                    <p class="intro-step-text mt-5">Únete a Chiloé Island y juntos comencemos a construir esta nueva comunidad digital. ¡Te estamos esperando!</p>
+                                    <div class="row">
+                                        <div class="col s12 center">
+                                            <button class="get-started btn waves-effect waves-light gradient-45deg-green-teal mt-3 modal-close">¡Comenzar!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 {% endblock %}
 
@@ -98,4 +160,5 @@ Registrarse
             }
         }
     </script>
+    <script src="{% static 'app-assets/js/scripts/intro.min.js' %}"></script>
 {% endblock %}
