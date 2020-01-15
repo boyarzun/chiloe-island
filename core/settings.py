@@ -30,13 +30,14 @@ if os.path.isfile(DOTENV_FILE):
 SECRET_KEY = '&f5af!zm*pwz*fv9l)!j=c_zvgbqu^59aap+@y=^)=623zs*mr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = int(os.getenv('DEBUG'))
 SECURE_SSL_REDIRECT = False
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['localhost', 'chiloeisland.net']
-
-
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['chiloeisland.net']
 
 # Application definition
 
