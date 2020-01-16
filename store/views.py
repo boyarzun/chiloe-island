@@ -131,7 +131,7 @@ def seller_product(request, id_product):
 
 	context = {
 		"product": product,
-		"last_products": get_last_products(product.seller, 2),
+		"last_products": get_last_products(product.seller, 2, product),
 		"whatsapp": { "phone": whatsapp }
 	}
 
