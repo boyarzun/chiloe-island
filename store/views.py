@@ -19,7 +19,25 @@ from store.forms import ProductForm
 from store.utils import index_filter, get_last_products
 from core.utils import prepare_number_phone_to_whatsapp
 
+def index_with_filters(request):
+	
+	context = index_filter(request)
+	
+	# Add categories to context
+	categories = Category.objects.annotate(total_products=Count('subcategory__product'))
+	context['categories'] = categories
+	context['pagination'] = {
+		'total': context['products'].paginator.count,
+		'from': context['products'].start_index,
+		'to': context['products'].end_index,
+	}
+	
+	return render(request, "store/index_with_filters.html", context)
+
 def index(request):
+	
+	if request.GET:
+		return index_with_filters(request)
 
 	last_products = Product.objects.order_by('-id')[:6]
 	textile_products = Product.objects.filter(categories__category__id=1).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
