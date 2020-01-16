@@ -247,6 +247,48 @@
 
         </div>
         
+        <div class="clear mb-100"></div>
+        
+        <div class="section-title">
+            <a href="{{request.path}}?categories=3"><h2><span><span>Jugos</span> y bebidas</span></h2></a>
+        </div>
+        
+        <div class="row equal-height cols-1 cols-sm-2 cols-lg-3 gap-20 mb-30">
+
+            {% for product in drink_products %}
+            <div class="col">
+                <figure class="tour-grid-item-01">
+                    <a href="{% url 'store:sellerproduct' product.pk %}">
+                        <div class="image">
+                            <img src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" alt="Chiloé Island" />
+                        </div>
+                        
+                        <figcaption class="content">
+                            <h5>{{product.name}}</h5>
+                            <ul class="item-meta">
+                                <li>
+                                    <i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}
+                                </li>
+                                <li>	
+                                    <div class="rating-item rating-sm rating-inline clearfix">
+                                        <div class="rating-icons">
+                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
+                                        </div>
+                                        <p class="rating-text font600 text-muted font-12 letter-spacing-1">0 Comentarios</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16" name="products-price" data-price="{{product.price}}">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
+                        </figcaption>
+                    
+                    </a>
+                    
+                </figure> 
+            </div>
+            {% endfor %}
+
+        </div>
+        
     <div class="clear mb-100"></div>
 
     </div>
