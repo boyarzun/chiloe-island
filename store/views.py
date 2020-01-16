@@ -43,6 +43,7 @@ def index(request):
 	textile_products = Product.objects.filter(categories__category__id=1).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
 	wood_products = Product.objects.filter(categories__category__id=2).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
 	fiber_products = Product.objects.filter(categories__category__id=3).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
+	drink_products = Product.objects.filter(categories__category__id=4).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
 
 	context = {
 	    "last_products": last_products,
