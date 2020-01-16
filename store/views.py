@@ -21,16 +21,17 @@ from core.utils import prepare_number_phone_to_whatsapp
 
 def index(request):
 
-	context = index_filter(request)
+	last_products = Product.objects.order_by('-id')[:6]
+	textile_products = Product.objects.filter(categories__category__id=1).exclude(id__in=[p.id for p in last_products]).order_by('-id')[:3]
+	wood_products = Product.objects.filter(categories__category__id=2).exclude(id__in=[p.id for p in last_products]).order_by('-id')[:3]
+	fiber_products = Product.objects.filter(categories__category__id=3).exclude(id__in=[p.id for p in last_products]).order_by('-id')[:3]
 
-	# Add categories to context
-	categories = Category.objects.annotate(total_products=Count('subcategory__product'))
-	context['categories'] = categories
-	context['pagination'] = {
-		'total': context['products'].paginator.count,
-		'from': context['products'].start_index,
-		'to': context['products'].end_index,
-		}
+	context = {
+	    "last_products": last_products,
+	    "textile_products": textile_products,
+	    "wood_products": wood_products,
+	    "fiber_products": fiber_products
+	}
 
 	return render(request, "store/index.html", context)
 
