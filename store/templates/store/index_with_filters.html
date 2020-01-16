@@ -1,0 +1,252 @@
+{% extends 'gijalan/generic/result-page/index.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Tienda{% endblock %}
+
+{% block og_title %}Tienda{% endblock %}
+
+{% block breadcrumb-title %}Tienda{% endblock %}
+
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home:index' %}"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tienda</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+
+{% block result-side-options %}
+    <div class="sidebar-box">
+        
+        <div class="box-title"><h5></h5></div>
+        
+        <div class="box-content">
+            <p>Puedes usar los filtros para hacer una búsqueda exacta sobre lo que estás buscando.</p>
+        </div>
+        
+    </div>
+    
+    <div class="sidebar-box">
+    
+        <div class="box-title"><h5>Rango de precio</h5></div>
+        
+        <div class="box-content" style="padding-right: 5px;">
+            <input id="price_range" />
+        </div>
+        
+    </div>
+
+    {% comment %}
+    <div class="sidebar-box">
+    
+        <div class="box-title"><h5>Calificacióna</h5></div>
+        
+        <div class="box-content">
+            <input id="star_range" />
+        </div>
+        
+    </div>
+    {% endcomment %}
+    
+    <div class="sidebar-box">
+    
+        <div class="box-title"><h5>Categorías</h5></div>
+        
+        <div class="box-content">
+        
+            {% for category in categories %}
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="{{category.name}}" data-id="{{category.id}}" name="filerStartPoint" onchange="categoriesFilter()">
+                    <label class="custom-control-label" for="{{category.name}}">{{category.name}} <span class="text-muted font-sm">({{category.total_products}})</span></label>
+                </div>
+            {% endfor %}
+
+            {% comment %}
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="filerStartPoint-02" name="filerStartPoint" >
+                <label class="custom-control-label" for="filerStartPoint-02">Paris <span class="checkbox-count">(25)</span></label>
+            </div>
+            
+            <div id="filerStartPointShowHide" class="collapse"> 
+            
+                <div class="collapse-inner">
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="filerStartPoint-06" name="filerStartPoint" >
+                        <label class="custom-control-label" for="filerStartPoint-06">Toulouse <span class="checkbox-count">(3)</span></label>
+                    </div>
+                    
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="filerStartPoint-06" name="filerStartPoint" />
+                        <label class="custom-control-label" for="filerStartPoint-06">Graz <span class="checkbox-count">(25)</span></label>
+                    </div>
+                    
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="filerStartPoint-07" name="filerStartPoint" />
+                        <label class="custom-control-label" for="filerStartPoint-07">Linz  <span class="checkbox-count">(2)</span></label>
+                    </div>
+
+                </div>
+            
+            </div>
+            
+            <div class="clear mb-10"></div>
+            
+            <button class="btn btn-toggle btn-text-inherit text-primary text-uppercase font10 letter-spacing-2 font600 collapsed collapsed-on padding-0" type="buttom" data-toggle="collapse" data-target="#filerStartPointShowHide">Mostrar más (+)</button>
+            <button class="btn btn-toggle btn-text-inherit text-uppercase font10 letter-spacing-2 font600 collapsed collapsed-off padding-0" type="buttom" data-toggle="collapse" data-target="#filerStartPointShowHide">Mostrar menos (-)</button>
+            {% endcomment %}
+            
+        </div>
+        
+    </div>
+{% endblock %}
+
+{% block result-content %}
+    <div class="content-wrapper pv">
+        <div class="d-flex justify-content-between flex-row align-items-center sort-group page-result-01">
+
+            <div class="sort-box">
+                <div class="d-flex align-items-center sort-item">
+                    <label class="sort-label d-none d-sm-flex">Ordenar por:</label>
+                    <div class="sort-form">
+                        <select class="chosen-the-basic form-control" tabindex="2" id="sort" onchange="sortResult(this)">
+                            <option value="0" {% if filter.sort.selected == 0 %}selected{% endif %}>Recomendado</option>
+                            <option value="1" {% if filter.sort.selected == 1 %}selected{% endif %}>Nombre: A a Z</option>
+                            <option value="2" {% if filter.sort.selected == 2 %}selected{% endif %}>Nombre: Z a A</option>
+                            <option value="3" {% if filter.sort.selected == 3 %}selected{% endif %}>Precio: Mayor a menor</option>
+                            <option value="4" {% if filter.sort.selected == 4 %}selected{% endif %}>Precio: Menor a mayor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="row equal-height cols-1 cols-sm-2 gap-20 mb-25">
+            {% for product in products %}
+            <div class="col">
+                
+                <figure class="tour-grid-item-01">
+
+                    <a href="{% url 'store:sellerproduct' product.pk %}">
+                    
+                        <div class="image">
+                            <img data-src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" class="lazyload" alt="Chiloé Island">
+                        </div>
+                        
+                        <figcaption class="content">
+                            <h5>{{product.name}}</h5>
+                            <ul class="item-meta">
+                                <ul class="item-meta"></ul>
+                                    <li>
+                                        <p class="font12">ID: {{product.pk}}</p>
+                                    </li>
+                            </ul>
+                            <ul class="item-meta">
+                                <li>
+                                    <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
+                                </li>
+                                <li>	
+                                    <div class="rating-item rating-sm rating-inline clearfix">
+                                        <div class="rating-icons">
+                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-3">Precio <span class="h6 line-1 text-primary font16" data-price="{{product.price}}" name="products-price">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
+                        </figcaption>
+                    
+                    </a>
+                    
+                </figure>
+                
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% include 'gijalan/generic/pagination/index.html' with objects=products %}
+    </div>
+{% endblock %}
+
+{% block pageleveljs %}
+    <script type="text/javascript">
+
+        function getUrlValueParam(param) {
+            const url_string = window.location.href;
+            const url = new URL(url_string);
+            return url.searchParams.get(param);
+        }
+
+        function assignQueryParam(data) {
+            let url = new URL(window.location.href)
+
+            data.map(element => {
+                url.searchParams.set(element[0], element[1])
+            })
+
+            window.location.assign(url)
+        }
+
+        function sortResult(element) {
+            assignQueryParam([['sort', element.value]])
+        }
+
+        function priceRange(event) {
+            let min = event.from
+            let max = event.to
+
+            assignQueryParam([['min', min], ['max', max]])
+        }
+
+        // Setting category filter
+        if (getUrlValueParam('categories')) {
+            let categoriesParams = getUrlValueParam('categories')
+            let selectedCategories = categoriesParams.split('::')
+            let categories = document.getElementsByName('filerStartPoint')
+
+            categories = Object.values(categories).filter(category => selectedCategories.includes(category.dataset.id))
+            categories = categories.map(category => category.checked = true)
+        }
+
+        function categoriesFilter() {
+            let categories = Object.values(document.getElementsByName('filerStartPoint')).filter(category => category.checked === true)
+            let value = ''
+
+            let index = 1
+            categories.forEach(function(category) {
+
+                value += category.dataset.id
+
+                if (categories.length > 1 &&  index < categories.length) {
+                    value += '::'
+                }
+
+                index += 1
+            })
+
+            assignQueryParam([['categories', value]])
+        }
+
+        $("#price_range").ionRangeSlider({
+            connect: true,
+            type: "double",
+            grid: true,
+            min: {{filter.range.min}},
+            max: {{filter.range.max}},
+            from: getUrlValueParam('min') || {{filter.range.min}},
+            to: getUrlValueParam('max') || {{filter.range.max}},
+            prefix: "$",
+            onFinish: priceRange
+        });
+
+        function pagination(event){
+            addUrlParameter('page', event.dataset.page)
+        }
+
+        parseCLP('products-price')
+    </script>
+{% endblock %}
