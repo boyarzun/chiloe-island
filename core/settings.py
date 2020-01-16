@@ -37,7 +37,7 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['chiloeisland.net']
+    ALLOWED_HOSTS = ['chiloeisland.net', 'www.chiloeisland.net']
 
 # Application definition
 
