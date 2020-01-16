@@ -26,10 +26,8 @@ def index_filter(request, seller=None):
 
     if categories:
         categories = categories.split('::')
-        products_list = products_list.filter(categories__in=categories)
+        products_list = products_list.filter(categories__category__in=categories)
 
-
-    
 
     if sort == 1:
         products_list = products_list.order_by('name')
@@ -65,8 +63,13 @@ def index_filter(request, seller=None):
 
     return context
 
-def get_last_products(seller, quantity):
+def get_last_products(seller, quantity, current_product):
 
-    last_products = Product.objects.filter(seller=seller).order_by('-pk')[0:quantity]
+    last_products = Product.objects.filter(seller=seller)
+    
+    if current_product:
+        last_products = last_products.exclude(id = current_product.id)
+        
+    last_products = last_products.order_by('-pk')[0:quantity]
 
     return last_products

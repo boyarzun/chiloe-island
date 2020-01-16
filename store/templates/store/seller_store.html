@@ -25,7 +25,7 @@
         <div class="box-title"><h5></h5></div>
         
         <div class="box-content">
-            <p>Productos y Servicios de <b>{{store.username}}</b></p>
+            <p>Puedes usar los filtros para hacer una búsqueda exacta sobre lo que estás buscando.</p>
         </div>
         
     </div>
@@ -43,7 +43,7 @@
     {% comment %}
     <div class="sidebar-box">
     
-        <div class="box-title"><h5>Calificación</h5></div>
+        <div class="box-title"><h5>Calificacióna</h5></div>
         
         <div class="box-content">
             <input id="star_range" />
@@ -60,12 +60,17 @@
         
             {% for category in categories %}
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="filerStartPoint-01" name="filerStartPoint" checked>
-                    <label class="custom-control-label" for="filerStartPoint-01">{{category.name}} <span class="text-muted font-sm">({{category.total_products}})</span></label>
+                    <input type="checkbox" class="custom-control-input" id="{{category.name}}" data-id="{{category.id}}" name="filerStartPoint" onchange="categoriesFilter()">
+                    <label class="custom-control-label" for="{{category.name}}">{{category.name}} <span class="text-muted font-sm">({{category.total_products}})</span></label>
                 </div>
             {% endfor %}
-            
+
             {% comment %}
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="filerStartPoint-02" name="filerStartPoint" >
+                <label class="custom-control-label" for="filerStartPoint-02">Paris <span class="checkbox-count">(25)</span></label>
+            </div>
+            
             <div id="filerStartPointShowHide" class="collapse"> 
             
                 <div class="collapse-inner">
@@ -88,7 +93,7 @@
                 </div>
             
             </div>
-
+            
             <div class="clear mb-10"></div>
             
             <button class="btn btn-toggle btn-text-inherit text-primary text-uppercase font10 letter-spacing-2 font600 collapsed collapsed-on padding-0" type="buttom" data-toggle="collapse" data-target="#filerStartPointShowHide">Mostrar más (+)</button>
@@ -121,50 +126,46 @@
 
         </div>
         
-        <div class="tour-long-item-wrapper-01">
+        <div class="row equal-height cols-1 cols-sm-2 gap-20 mb-25">
             {% for product in products %}
-            <figure class="tour-long-item-01">
-
-                <a href="{% url 'store:sellerproduct' product.pk %}">
+            <div class="col">
                 
-                    <div class="d-flex flex-column flex-sm-row align-items-xl-center">
+                <figure class="tour-grid-item-01">
+
+                    <a href="{% url 'store:sellerproduct' product.pk %}">
                     
-                        <div>
-                            <div class="image">
-                                <img data-src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" class="lazyload" alt="Chiloé Island">
-                            </div>
+                        <div class="image">
+                            <img data-src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" class="lazyload" alt="Chiloé Island">
                         </div>
                         
-                        <div>
-                            <figcaption class="content">
-                                <h5>{{product.name}}</h5>
-                                <ul class="item-meta">
+                        <figcaption class="content">
+                            <h5>{{product.name}}</h5>
+                            <ul class="item-meta">
+                                <ul class="item-meta"></ul>
                                     <li>
-                                        <p class="font12">Código del producto: {{product.pk}}</p>
+                                        <p class="font12">ID: {{product.pk}}</p>
                                     </li>
-                                </ul>
-                                <ul class="item-meta">
-                                    <li>
-                                        <i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}
-                                    </li>
-                                    <li>	
-                                        <div class="rating-item rating-sm rating-inline clearfix">
-                                            <div class="rating-icons">
-                                                <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
-                                            </div>
-                                            <p class="rating-text font600 text-muted font-12 letter-spacing-1">0</p>
+                            </ul>
+                            <ul class="item-meta">
+                                <li>
+                                    <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
+                                </li>
+                                <li>	
+                                    <div class="rating-item rating-sm rating-inline clearfix">
+                                        <div class="rating-icons">
+                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
                                         </div>
-                                    </li>
-                                </ul>
-                                <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16" name="products-price" data-price="{{product.price}}">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
-                            </figcaption>
-                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="mt-3">Precio <span class="h6 line-1 text-primary font16" data-price="{{product.price}}" name="products-price">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
+                        </figcaption>
                     
-                    </div>
+                    </a>
                     
-                </a>
+                </figure>
                 
-            </figure>
+            </div>
             {% endfor %}
         </div>
         
@@ -200,6 +201,35 @@
             let max = event.to
 
             assignQueryParam([['min', min], ['max', max]])
+        }
+
+        // Setting category filter
+        if (getUrlValueParam('categories')) {
+            let categoriesParams = getUrlValueParam('categories')
+            let selectedCategories = categoriesParams.split('::')
+            let categories = document.getElementsByName('filerStartPoint')
+
+            categories = Object.values(categories).filter(category => selectedCategories.includes(category.dataset.id))
+            categories = categories.map(category => category.checked = true)
+        }
+
+        function categoriesFilter() {
+            let categories = Object.values(document.getElementsByName('filerStartPoint')).filter(category => category.checked === true)
+            let value = ''
+
+            let index = 1
+            categories.forEach(function(category) {
+
+                value += category.dataset.id
+
+                if (categories.length > 1 &&  index < categories.length) {
+                    value += '::'
+                }
+
+                index += 1
+            })
+
+            assignQueryParam([['categories', value]])
         }
 
         $("#price_range").ionRangeSlider({
