@@ -42,7 +42,7 @@ def index_filter(request, seller=None):
     # epp = elements per page
     epp = 16
     page = request.GET.get('page')
-    paginator = Paginator(list(products_list), epp)
+    paginator = Paginator(list(products_list.distinct()), epp)
     products = paginator.get_page(page)
 
 
