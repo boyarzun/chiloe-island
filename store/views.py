@@ -49,7 +49,8 @@ def index(request):
 	    "last_products": last_products,
 	    "textile_products": textile_products,
 	    "wood_products": wood_products,
-	    "fiber_products": fiber_products
+	    "fiber_products": fiber_products,
+	    "drink_products": drink_products,
 	}
 
 	return render(request, "store/index.html", context)
