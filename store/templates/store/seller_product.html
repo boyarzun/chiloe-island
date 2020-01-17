@@ -4,6 +4,7 @@
 {% block title %} {{product.name}} {% endblock %}
 
 {% block og_title %}{{product.name}}{% endblock %}
+{% block og_image %}{{STATIC_STORAGE_PATH}}{{product.image_one.name}}{% endblock %}
 
 {% block main-wrapper %}
         <section class="page-wrapper page-detail">

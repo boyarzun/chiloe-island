@@ -17,8 +17,8 @@
 	<meta property="og:title" content="{% block og_title %}{% endblock %} | {{SITE_NAME}}" />
 	<meta property="og:description" content="{{SITE_DESCRIPTION}}" />
 	<meta property="og:site_name" content="{{SITE_NAME}}" />
-	<meta property="og:url" content="https://chiloeisland.net" />
-	<meta property="og:image" content="https://chiloeisland.net/static/assets/images/image-bg/og_image.jpg" />
+	<meta property="og:url" content="{{request.build_absolute_uri}}" />
+	<meta property="og:image" content="{% block og_image %}{% endblock %}" />
 	
 	<!-- Fav and Touch Icons -->
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'assets/images/image-favicon/favicon-144.png' %}">
