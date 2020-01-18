@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Error 400 | Chiloé Island</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="{{SITE_DESCRIPTION}}">
+  <meta name="keywords" content="{{SITE_KEYWORDS}}">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'errors/css/style.css' %}">
+</head>
+<body>
+  <main class="main">
+    <div class="error">error</div>
+    <img src="{% static 'errors/img/400.png' %}" />
+    <h2>Espera un momento...</h2>
+    <h6>La solicitud no es correcta!</h6>
+    <a href="{% url 'home:index' %}" class="button">Volver al inicio</a>
+  </div>
+</body>
+</html>
