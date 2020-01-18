@@ -1,3 +1,5 @@
+from random import sample
+
 # Django
 from django.core.paginator import Paginator
 
@@ -73,3 +75,26 @@ def get_last_products(seller, quantity, current_product):
     last_products = last_products.order_by('-pk')[0:quantity]
 
     return last_products
+
+#def get_random_product(category):
+#    max_id = Product.objects.filter(categories__category=category).aggregate(max_id=Max("id"))['max_id']
+#    while True:
+#        pk = random.randint(1, max_id)
+#        product = Product.objects.filter(pk=pk).first()
+#        if product:
+#            return product
+
+def get_multiple_random_products(quantity, category_id, exclude_list):
+    product_ids = Product.objects.filter(categories__category__id=category_id).exclude(id__in=exclude_list).values_list('id')
+
+    if not product_ids:
+        return product_ids
+
+    product_ids = [id[0] for id in product_ids]
+
+    selected_ids = sample(product_ids, quantity)
+
+    return Product.objects.filter(id__in=selected_ids)
+
+
+

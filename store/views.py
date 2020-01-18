@@ -16,7 +16,7 @@ from django.contrib.auth.models import User
 from store.forms import ProductForm
 
 # Utils
-from store.utils import index_filter, get_last_products
+from store.utils import index_filter, get_last_products, get_multiple_random_products
 from core.utils import prepare_number_phone_to_whatsapp
 
 def index_with_filters(request):
@@ -40,10 +40,18 @@ def index(request):
 		return index_with_filters(request)
 
 	last_products = Product.objects.order_by('-id')[:6]
-	textile_products = Product.objects.filter(categories__category__id=1).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
-	wood_products = Product.objects.filter(categories__category__id=2).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
-	fiber_products = Product.objects.filter(categories__category__id=3).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
-	drink_products = Product.objects.filter(categories__category__id=4).exclude(id__in=[p.id for p in last_products]).distinct().order_by('-id')[:3]
+	
+	# Separate categories
+	excluded_list = [p.id for p in last_products]
+	textile_products = get_multiple_random_products(3, 1, excluded_list)
+	wood_products = get_multiple_random_products(3, 2, excluded_list)
+	fiber_products = get_multiple_random_products(3, 3, excluded_list)
+	drink_products = get_multiple_random_products(3, 4, excluded_list)
+
+	#textile_products = Product.objects.filter(categories__category__id=1).exclude(id__in=excluded_list).distinct().order_by('-id')[:3]
+	#wood_products = Product.objects.filter(categories__category__id=2).exclude(id__in=excluded_list).distinct().order_by('-id')[:3]
+	#fiber_products = Product.objects.filter(categories__category__id=3).exclude(id__in=excluded_list).distinct().order_by('-id')[:3]
+	#drink_products = Product.objects.filter(categories__category__id=4).exclude(id__in=excluded_list).distinct().order_by('-id')[:3]
 
 	context = {
 	    "last_products": last_products,
