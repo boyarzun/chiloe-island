@@ -127,44 +127,7 @@
         
         <div class="row equal-height cols-1 cols-sm-2 gap-20 mb-25">
             {% for product in products %}
-            <div class="col">
-                
-                <figure class="tour-grid-item-01">
-
-                    <a href="{% url 'store:sellerproduct' product.pk %}">
-                    
-                        <div class="image">
-                            <img data-src="{{STATIC_STORAGE_PATH}}{{product.image_one.name}}" class="lazyload" alt="Chiloé Island">
-                        </div>
-                        
-                        <figcaption class="content">
-                            <h5>{{product.name}}</h5>
-                            <ul class="item-meta">
-                                <ul class="item-meta"></ul>
-                                    <li>
-                                        <p class="font12">ID: {{product.pk}}</p>
-                                    </li>
-                            </ul>
-                            <ul class="item-meta">
-                                <li>
-                                    <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
-                                </li>
-                                <li>	
-                                    <div class="rating-item rating-sm rating-inline clearfix">
-                                        <div class="rating-icons">
-                                            <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <p class="mt-3">Precio <span class="h6 line-1 text-primary font16" data-price="{{product.price}}" name="products-price">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
-                        </figcaption>
-                    
-                    </a>
-                    
-                </figure>
-                
-            </div>
+                {% include 'gijalan/generic/product/product.html' %}
             {% endfor %}
         </div>
         

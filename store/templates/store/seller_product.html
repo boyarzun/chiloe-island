@@ -162,46 +162,7 @@
                                 
                                 <div class="row equal-height cols-1 cols-sm-2 gap-30 mb-25">
                                     {% for last_product in last_products  %}
-                                    <div class="col">
-                                        <figure class="tour-grid-item-01">
-                                            <a href="{% url 'store:sellerproduct' last_product.pk %}">
-                                                <div class="image">
-                                                    <img src="{{last_product.image_one.url}}" alt="images" />
-                                                </div>
-
-                                                <figcaption class="content">
-                                                    <h5>{{last_product.name}}</h5>
-                                                    <ul class="item-meta">
-                                                        <li>
-                                                            <i class="elegent-icon-profile text-warning"></i> {{last_product.seller.username}}
-                                                        </li>
-                                                        <li>	
-                                                            <div class="rating-item rating-sm rating-inline clearfix">
-                                                                <div class="rating-icons">
-                                                                    <input type="hidden" class="rating" data-filled="rating-icon ri-star rating-rated" data-empty="rating-icon ri-star-empty" data-fractions="2" data-readonly value="0"/>
-                                                                </div>
-                                                                <p class="rating-text font600 text-muted font-12 letter-spacing-1">0 Comentarios</p>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-
-                                                    {% comment %}
-                                                    <ul class="item-meta mt-15">
-                                                        <li><span class="font700 h6">3 days &amp; 2 night</span></li>
-                                                        <li>
-                                                            <span class="ri ri-map-marker"></span> Ancud
-                                                        </li>
-                                                    </ul>
-                                                    {% endcomment %}
-
-                                                    <p class="mt-3 mb-0">Precio <span class="h6 line-1 text-primary font16" name="last-products-price" data-price="{{last_product.price}}">${{product.price}}</span> <span class="text-muted mr-5"></span></p>
-                                                </figcaption>
-                                            
-                                            </a>
-                                            
-                                        </figure>
-                                        
-                                    </div>
+                                        {% include 'gijalan/generic/product/product.html' with product=last_product %}
                                     {% endfor %}
 
                                 </div>
