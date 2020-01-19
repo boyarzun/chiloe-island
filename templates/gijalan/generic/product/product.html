@@ -11,7 +11,6 @@
             <figcaption class="content">
                 <h5>{{product.name}}</h5>
                 <ul class="item-meta">
-                    <ul class="item-meta"></ul>
                         <li>
                             <p class="font12">ID: {{product.pk}}</p>
                         </li>
@@ -19,6 +18,9 @@
                 <ul class="item-meta">
                     <li>
                         <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
+                    </li>
+                    <li>
+                        <i class="elegent-icon-pin_alt text-warning"></i> {{product.seller.userprofile.commune.name}}
                     </li>
                     <li>	
                         <div class="rating-item rating-sm rating-inline clearfix">

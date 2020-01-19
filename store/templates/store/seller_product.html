@@ -88,7 +88,8 @@
                                         <span><small>Código del producto: {{product.id}}</small></span>
                                     </div>
                                     <div class="mr-15 font-lg">
-                                            <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
+                                        <a href="{% url 'store:sellerstore' product.seller.username %}"><i class="elegent-icon-profile text-warning"></i> {{product.seller.username}}</a>
+                                        <i class="elegent-icon-pin_alt text-warning"></i> {{product.seller.userprofile.commune.name}}
                                     </div>
                                     <div>
                                         <div class="rating-item rating-inline">
