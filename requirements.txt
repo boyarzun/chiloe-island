@@ -1,4 +1,4 @@
-Django==2.2.13
+Django==2.2.18
 celery==4.3.0
 django-extensions==2.2.5
 Pillow==6.2.1
